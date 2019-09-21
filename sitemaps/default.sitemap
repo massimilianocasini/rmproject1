@@ -1,0 +1,32 @@
+sitemap default label="Benvenuto a Casa" 
+{
+Frame label="Fotovoltaico"	{
+	Default item=I_AC_Power_POST labelcolor=[>0="green",<=0="black"] valuecolor=[>0="green",<=0="black"]
+	Default item=M_AC_Power_POST_C label="Immessa in rete" visibility=[M_AC_Power_POST >= 0] labelcolor=["green"] valuecolor=["green"]
+	Default item=M_AC_Power_POST_C label="Prelevata da rete" visibility=[M_AC_Power_POST < 0] labelcolor=["red"] valuecolor=["red"]
+	Default item=AC_Power_USED
+	Default item=I_AC_VoltageAB_POST labelcolor=[>226="green",>220="orange",<220="red"] valuecolor=[>226="green",>220="orange",<220="red"]
+	}
+
+Frame label="PixSys" {
+	Default item=pixsysIn1
+	Default item=pixsysIn2
+	Default item=pixsysIn3
+	Default item=pixsysIn4
+	Default item=pixsysIn5
+	Default item=pixsysIn6
+	Default item=pixsysIn7
+	Default item=pixsysIn8
+	Switch item=pixsysOut1
+	Switch item=pixsysOut2
+	Switch item=pixsysOut3
+	Switch item=pixsysOut4
+	Switch item=pixsysOut5
+	Switch item=pixsysOut6
+	Switch item=pixsysOut7
+	Switch item=pixsysOut8
+	}
+Frame label="System" {
+	Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", PowerOff="Shut down", Reboot="Reboot"]
+	}
+}

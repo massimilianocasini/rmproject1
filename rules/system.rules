@@ -1,0 +1,16 @@
+rule "cm3panel"
+when Item cm3panel received update
+then
+if (cm3panel.state == "Startx") {
+       executeCommandLine("ssh openhab@cm3panel.local sudo /bin/systemctl restart startx", 5000)
+       logInfo("Flag_System", "Rebooting STARTX")
+    }
+if (cm3panel.state == "PowerOff") {
+       executeCommandLine("ssh openhab@cm3panel.local sudo poweroff", 5000)
+       logInfo("Flag_System", "PowerOff")
+    }
+if (cm3panel.state == "Reboot") {
+       executeCommandLine("ssh openhab@cm3panel.local sudo reboot", 5000)
+       logInfo("Flag_System", "Rebooting")
+    }
+end

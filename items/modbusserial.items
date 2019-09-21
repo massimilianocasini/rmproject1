@@ -1,0 +1,20 @@
+Group gAll
+Group gPixsysIn
+Group gPixsysOut
+Contact pixsysIn1 "In1" (gAll, gPixsysIn)
+Contact pixsysIn2 "In2" (gAll, gPixsysIn)
+Contact pixsysIn3 "In3" (gAll, gPixsysIn)
+Contact pixsysIn4 "In4" (gAll, gPixsysIn)
+Contact pixsysIn5 "In5" (gAll, gPixsysIn)
+Contact pixsysIn6 "In6" (gAll, gPixsysIn)
+Contact pixsysIn7 "In7" (gAll, gPixsysIn)
+Contact pixsysIn8 "In8" (gAll, gPixsysIn)
+
+Switch pixsysOut1 "Out1" (gAll, gPixsysOut)
+Switch pixsysOut2 "Out2" (gAll, gPixsysOut)
+Switch pixsysOut3 "Out3" (gAll, gPixsysOut)
+Switch pixsysOut4 "Out4" (gAll, gPixsysOut)
+Switch pixsysOut5 "Out5" (gAll, gPixsysOut)
+Switch pixsysOut6 "Out6" (gAll, gPixsysOut)
+Switch pixsysOut7 "Out7" (gAll, gPixsysOut)
+Switch pixsysOut8 "Out8" (gAll, gPixsysOut)

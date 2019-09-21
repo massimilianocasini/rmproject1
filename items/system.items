@@ -1,0 +1,3 @@
+String cm3panel "CM3Panel" <settings> 
+String reboot1 "CM3Panel REBOOT" <settings>  
+String poweroff1 "CM3Panel POWEROFF" <settings>  

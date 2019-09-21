@@ -1,0 +1,24 @@
+Bridge modbus:serial:RS485 [port="/dev/ttyUSB0", baud=57600, stopBits="1.0", parity="none", dataBits=8, encoding="rtu", enableDiscovery=true] {
+
+    // read-write for coils. Reading 11 coils, with index 1, 2, 3, 4, 6, 7, 8, 9, 12, 13 and 14.
+    // These correspond to input register numbers 000002, 000003, ..., 0000014.
+    Bridge poller coils [ start=1000, length=16, refresh=1000, type="discrete" ] {
+        Thing data coils1 [ readStart="1", readValueType="bit" ]
+        Thing data coils2 [ readStart="2", readValueType="bit"]
+        Thing data coils3 [ readStart="3", readValueType="bit"]
+        Thing data coils4 [ readStart="4", readValueType="bit"]
+        Thing data coils5 [ readStart="5", readValueType="bit" ]
+        Thing data coils6 [ readStart="6", readValueType="bit" ]
+        Thing data coils7 [ readStart="7", readValueType="bit"]
+        Thing data coils8 [ readStart="8", readValueType="bit"]
+        Thing data coils9 [ readStart="9", readValueType="bit" ]
+        Thing data coils10 [ writeStart="10", writeValueType="bit" ]
+        Thing data coils11 [ writeStart="11", writeValueType="bit" ]
+        Thing data coils12 [ writeStart="12", writeValueType="bit" ]
+        Thing data coils13 [ writeStart="13", writeValueType="bit" ]
+        Thing data coils14 [ readStart="14", readValueType="bit" ]
+        Thing data coils15 [ readStart="15", readValueType="bit" ]
+        Thing data coils16 [ readStart="16", readValueType="bit" ]
+    
+    }
+}

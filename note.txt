@@ -1,0 +1,8 @@
+Enable Verbose Logging
+Enable DEBUG or TRACE (even more verbose) logging for the loggers named:
+
+org.openhab.binding.modbus
+org.openhab.io.transport.modbus
+net.wimpi.modbus
+
+

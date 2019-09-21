@@ -1,0 +1,21 @@
+Bridge modbus:tcp:TCP2 [ host="192.168.178.253", port=502, id=1 ] {
+    // The base Register Common Block is set to 10001 (MODBUS PLC address [base 1]), or 10000 (MODBUS Protocol Address [base 0]).
+
+    Bridge poller stato1 [ start=4096, length=2, refresh=500000, type="discrete" ] {
+            Thing data StatoImpianto [readStart="4096", readValueType="uint16"]
+            Thing data StagioneCorrenteImpianto [readStart="4097", readValueType="uint16"]
+
+    }
+    Bridge poller stato2 [ start=18433, length=2, refresh=500000, type="holding" ] {
+            Thing data TempEsterna [readStart="18433", readValueType="int16"]
+            Thing data StagioneCorrenteImpianto [readStart="4097", readValueType="int16"]
+
+    }
+    Bridge poller stato3 [ start=18492, length=2, refresh=500000, type="holding" ] {
+            Thing data ACSSet [readStart="18492", readValueType="int16"]
+            Thing data ACSTempCorrente [readStart="18493", readValueType="int16"]
+
+    }
+}
+
+ 

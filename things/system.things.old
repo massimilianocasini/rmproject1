@@ -1,0 +1,3 @@
+exec:command:startx [command="bash /etc/openhab2/scripts/startx.sh %2$s", interval=0, timeout=5, autorun=true]
+exec:command:reboot [command="bash /etc/openhab2/scripts/reboot.sh.sh", interval=0, timeout=5, autorun=false]
+exec:command:poweroff [command="bash /etc/openhab2/scripts/poweroff.sh", interval=0, timeout=5, autorun=false]
