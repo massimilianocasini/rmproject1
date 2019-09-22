@@ -136,5 +136,28 @@ then
         I_DC_Voltage_POST.postUpdate(dc_voltage/100)
     }
  //logInfo("SOLAREDGE", "I_DC_VOLTAGE:" + I_DC_Voltage_.state + " I_DC_Voltage_SF:" +  I_DC_Voltage_SF_.state + " I_DC_Voltage_POST:" + I_DC_Voltage_POST.state)
-    
+end
+
+rule "M_AC_Freq_"
+when
+	Item    M_AC_Freq_         received update
+then
+    val ac_frequency = (M_AC_Freq_.state as DecimalType).floatValue
+    val ac_frequency_sf = (M_AC_Freq_SF_.state as DecimalType).floatValue
+
+    if (M_AC_Freq_.state > 65530) {
+        M_AC_Freq_POST.postUpdate(0)
+    }
+    else if (ac_frequency_sf == 0) {
+        M_AC_Freq_POST.postUpdate(ac_frequency)
+    }	
+    else if (ac_frequency_sf == -1) {
+        M_AC_Freq_POST.postUpdate(ac_frequency/10)
+    }
+    else if (ac_frequency_sf == -2) {
+        M_AC_Freq_POST.postUpdate(ac_frequency/100)
+    }
+    else if (ac_frequency_sf == -3) {
+        M_AC_Freq_POST.postUpdate(ac_frequency/1000)
+    }      
 end
