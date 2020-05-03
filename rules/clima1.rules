@@ -1,0 +1,182 @@
+rule "StatoModoLavoroCorrenteZ1"
+when
+    Item StatoInternoHZ1 received update or 
+    Item StatoInternoGZ1 received update
+then
+    if (StatoInternoHZ1.state == 0 && StatoInternoGZ1.state == 0) {
+        StatoModoLavoroCorrenteZ1.postUpdate(0) //Automatico
+    }	
+    else if (StatoInternoHZ1.state == 1 && StatoInternoGZ1.state == 0) {
+        StatoModoLavoroCorrenteZ1.postUpdate(1) //Off-Antigelo
+    }
+    else if (StatoInternoHZ1.state == 0 && StatoInternoGZ1.state == 1) {
+        StatoModoLavoroCorrenteZ1.postUpdate(2) //Economy       
+    }
+    else if (StatoInternoHZ1.state == 1 && StatoInternoGZ1.state == 1) {
+        StatoModoLavoroCorrenteZ1.postUpdate(3) //Comfort
+    }
+end
+
+rule "StatoModoLavoroCorrenteZ2"
+when
+    Item StatoInternoHZ2 received update or 
+    Item StatoInternoGZ2 received update or
+    Item ModLavoroZ2 received update
+then
+    if (StatoInternoHZ2.state == 0 && StatoInternoGZ2.state == 0) {
+        StatoModoLavoroCorrenteZ2.postUpdate(0)
+    }	
+    else if (StatoInternoHZ2.state == 1 && StatoInternoGZ2.state == 0) {
+        StatoModoLavoroCorrenteZ2.postUpdate(1)
+    }
+    else if (StatoInternoHZ2.state == 0 && StatoInternoGZ2.state == 1) {
+        StatoModoLavoroCorrenteZ2.postUpdate(2)
+    }
+    else if (StatoInternoHZ2.state == 1 && StatoInternoGZ2.state == 1) {
+        StatoModoLavoroCorrenteZ2.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ3"
+when
+    Item StatoInternoHZ3 received update or 
+    Item StatoInternoGZ3 received update
+then
+    if (StatoInternoHZ3.state == 0 && StatoInternoGZ3.state == 0) {
+        StatoModoLavoroCorrenteZ3.postUpdate(0)
+    }	
+    else if (StatoInternoHZ3.state == 1 && StatoInternoGZ3.state == 0) {
+        StatoModoLavoroCorrenteZ3.postUpdate(1)
+    }
+    else if (StatoInternoHZ3.state == 0 && StatoInternoGZ3.state == 1) {
+        StatoModoLavoroCorrenteZ3.postUpdate(2)
+    }
+    else if (StatoInternoHZ3.state == 1 && StatoInternoGZ3.state == 1) {
+        StatoModoLavoroCorrenteZ3.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ4"
+when
+    Item StatoInternoHZ4 received update or 
+    Item StatoInternoGZ4 received update
+then
+    if (StatoInternoHZ4.state == 0 && StatoInternoGZ4.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ4.state == 1 && StatoInternoGZ4.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(1)
+    }
+    else if (StatoInternoHZ4.state == 0 && StatoInternoGZ4.state == 1) {
+        StatoModoLavoroCorrenteZ4.postUpdate(2)
+    }
+    else if (StatoInternoHZ4.state == 1 && StatoInternoGZ4.state == 1) {
+        StatoModoLavoroCorrenteZ4.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ5"
+when
+    Item StatoInternoHZ5 received update or 
+    Item StatoInternoGZ5 received update
+then
+    if (StatoInternoHZ5.state == 0 && StatoInternoGZ5.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ5.state == 1 && StatoInternoGZ5.state == 0) {
+        StatoModoLavoroCorrenteZ5.postUpdate(1)
+    }
+    else if (StatoInternoHZ5.state == 0 && StatoInternoGZ5.state == 1) {
+        StatoModoLavoroCorrenteZ5.postUpdate(2)
+    }
+    else if (StatoInternoHZ5.state == 1 && StatoInternoGZ5.state == 1) {
+        StatoModoLavoroCorrenteZ5.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ6"
+when
+    Item StatoInternoHZ6 received update or 
+    Item StatoInternoGZ6 received update
+then
+    if (StatoInternoHZ6.state == 0 && StatoInternoGZ6.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ6.state == 1 && StatoInternoGZ6.state == 0) {
+        StatoModoLavoroCorrenteZ6.postUpdate(1)
+    }
+    else if (StatoInternoHZ6.state == 0 && StatoInternoGZ6.state == 1) {
+        StatoModoLavoroCorrenteZ6.postUpdate(2)
+    }
+    else if (StatoInternoHZ6.state == 1 && StatoInternoGZ6.state == 1) {
+        StatoModoLavoroCorrenteZ6.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ7"
+when
+    Item StatoInternoHZ7 received update or 
+    Item StatoInternoGZ7 received update
+then
+    if (StatoInternoHZ7.state == 0 && StatoInternoGZ7.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ7.state == 1 && StatoInternoGZ7.state == 0) {
+        StatoModoLavoroCorrenteZ7.postUpdate(1)
+    }
+    else if (StatoInternoHZ7.state == 0 && StatoInternoGZ7.state == 1) {
+        StatoModoLavoroCorrenteZ7.postUpdate(2)
+    }
+    else if (StatoInternoHZ7.state == 1 && StatoInternoGZ7.state == 1) {
+        StatoModoLavoroCorrenteZ7.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ8"
+when
+    Item StatoInternoHZ8 received update or 
+    Item StatoInternoGZ8 received update
+then
+    if (StatoInternoHZ8.state == 0 && StatoInternoGZ8.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ8.state == 1 && StatoInternoGZ8.state == 0) {
+        StatoModoLavoroCorrenteZ8.postUpdate(1)
+    }
+    else if (StatoInternoHZ8.state == 0 && StatoInternoGZ8.state == 1) {
+        StatoModoLavoroCorrenteZ8.postUpdate(2)
+    }
+    else if (StatoInternoHZ8.state == 1 && StatoInternoGZ8.state == 1) {
+        StatoModoLavoroCorrenteZ8.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ9"
+when
+    Item StatoInternoHZ9 received update or 
+    Item StatoInternoGZ9 received update
+then
+    if (StatoInternoHZ9.state == 0 && StatoInternoGZ9.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ9.state == 1 && StatoInternoGZ9.state == 0) {
+        StatoModoLavoroCorrenteZ9.postUpdate(1)
+    }
+    else if (StatoInternoHZ9.state == 0 && StatoInternoGZ9.state == 1) {
+        StatoModoLavoroCorrenteZ9.postUpdate(2)
+    }
+    else if (StatoInternoHZ9.state == 1 && StatoInternoGZ9.state == 1) {
+        StatoModoLavoroCorrenteZ9.postUpdate(3)
+    }
+end
+rule "StatoModoLavoroCorrenteZ10"
+when
+    Item StatoInternoHZ10 received update or 
+    Item StatoInternoGZ10 received update
+then
+    if (StatoInternoHZ10.state == 0 && StatoInternoGZ10.state == 0) {
+        StatoModoLavoroCorrenteZ4.postUpdate(0)
+    }	
+    else if (StatoInternoHZ10.state == 1 && StatoInternoGZ10.state == 0) {
+        StatoModoLavoroCorrenteZ10.postUpdate(1)
+    }
+    else if (StatoInternoHZ10.state == 0 && StatoInternoGZ10.state == 1) {
+        StatoModoLavoroCorrenteZ10.postUpdate(2)
+    }
+    else if (StatoInternoHZ10.state == 1 && StatoInternoGZ10.state == 1) {
+        StatoModoLavoroCorrenteZ10.postUpdate(3)
+    }
+end

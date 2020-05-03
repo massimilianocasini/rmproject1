@@ -1,0 +1,10 @@
+Bridge opensprinkler:http:http [hostname="192.168.1.26", port=10018, password="Aurora2011", refresh=30] {
+    Thing station 01 [stationIndex=0]
+    Thing station 02 [stationIndex=1]
+    Thing station 03 [stationIndex=2]
+    Thing station 04 [stationIndex=3]
+    Thing station 05 [stationIndex=4]
+    Thing station 06 [stationIndex=5]
+    Thing station 07 [stationIndex=6]
+    Thing station 08 [stationIndex=7]
+ }

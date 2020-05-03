@@ -1,129 +1,314 @@
-var Number ac_power_used
-var Number i_ac_power_post
-var Number m_ac_power_post
+var Number v_ac_power_used
+var Number v_i_ac_power_post
+var Number v_m_ac_power_post
 
-rule "I_AC_Power_" //produzione
+rule "I_AC_Power" //Potenza prodotta 
 when
-	Item    I_AC_Power_          received update
+	Item I_AC_Power changed or
+    Item I_AC_PowerSF changed
 then
-    val ac_power = (I_AC_Power_.state as DecimalType).floatValue
-    val ac_power_sf = (I_AC_Power_SF_.state as DecimalType).floatValue
+    val ac_power = (I_AC_Power.state as DecimalType).floatValue
+    val ac_power_sf = (I_AC_PowerSF.state as DecimalType).floatValue
 
     if (ac_power_sf == 0) {
-        I_AC_Power_POST.postUpdate(ac_power/1000)
-        i_ac_power_post=I_AC_Power_POST.state
-    }	
-    if (ac_power_sf == -1) {
+        I_AC_Power_POST.postUpdate(ac_power/1000) //espresso in KW
+     }	
+    else if (ac_power_sf == -1) {
         I_AC_Power_POST.postUpdate(ac_power/10000)
-        i_ac_power_post=I_AC_Power_POST.state
     }
-    if (ac_power_sf == -2) {
+    else if (ac_power_sf == -2) {
         I_AC_Power_POST.postUpdate(ac_power/100000)
-        i_ac_power_post=I_AC_Power_POST.state
     }
-    ac_power_used = i_ac_power_post - m_ac_power_post
-    AC_Power_USED.postUpdate(ac_power_used)
+    else if (ac_power_sf == -3) {
+        I_AC_Power_POST.postUpdate(ac_power/1000000)
+    }
+    else if (ac_power_sf == -4) {
+        I_AC_Power_POST.postUpdate(ac_power/10000000)
+    }
+    else  I_AC_Power_POST.postUpdate(ac_power/1000)
+  //  i_ac_power_post=I_AC_Power_POST.state
+  //  m_ac_power_post=M_AC_Power_POST.state
+  //  ac_power_used = i_ac_power_post - m_ac_power_post //Calcolo dell'energia richiesta (prodotta - misurata dal modulo[se - prelevata, se + immessa])
+  //  AC_Power_USED.postUpdate(ac_power_used)
 
  //logInfo("SOLAREDGE", "I_AC_POWER_:" + I_AC_Power_.state + " I_AC_POWER_SF:" +  I_AC_Power_SF_.state + " I_AC_POWER_POST:" + I_AC_Power_POST.state + " AC_POWER_USED:" + AC_Power_USED.state)
     
 end
 
-rule "I_AC_Current_"
+
+rule "M_AC_Power" //Immessa/prelevata in/da rete
 when
-	Item    I_AC_Current_          received update
+	Item M_AC_Power changed or
+    Item M_AC_PowerSF changed
 then
-    val ac_current = (I_AC_Current_.state as DecimalType).floatValue
-    val ac_current_sf = (I_AC_Current_SF_.state as DecimalType).floatValue
-
-    if (ac_current_sf == 0) {
-        I_AC_Current_POST.postUpdate(ac_current)
-    }	
-    if (ac_current_sf == -1) {
-        I_AC_Current_POST.postUpdate(ac_current/10)
-    }
-    if (ac_current_sf == -2) {
-        I_AC_Current_POST.postUpdate(ac_current/100)
-    }
- //logInfo("SOLAREDGE", "I_AC_CURRENT:" + I_AC_Current_.state + " I_AC_CURRENT_SF:" +  I_AC_Current_SF_.state + " I_AC_CURRENT_POST:" + I_AC_Current_POST.state)
-    
-end
-
-rule "I_AC_VoltageAB_"
-when
-	Item    I_AC_VoltageAB_          received update
-then
-    val ac_voltageab = (I_AC_VoltageAB_.state as DecimalType).floatValue
-    val ac_voltage_sf = (I_AC_Voltage_SF_.state as DecimalType).floatValue
-
-    if (ac_voltage_sf == 0) {
-        I_AC_VoltageAB_POST.postUpdate(ac_voltageab)
-    }	
-    if (ac_voltage_sf == -1) {
-        I_AC_VoltageAB_POST.postUpdate(ac_voltageab/10)
-    }
-    if (ac_voltage_sf == -2) {
-        I_AC_VoltageAB_POST.postUpdate(ac_voltageab/100)
-    }
- //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
-    
-end
-
-
-rule "M_AC_Current_"
-when
-	Item    M_AC_Current_          received update
-then
-    val ac_current = (M_AC_Current_.state as DecimalType).floatValue
-    val ac_current_sf = (M_AC_Current_SF_.state as DecimalType).floatValue
-
-    if (ac_current_sf == 0) {
-        M_AC_Current_POST.postUpdate(ac_current)
-    }	
-    if (ac_current_sf == -1) {
-        M_AC_Current_POST.postUpdate(ac_current/10)
-    }
-    if (ac_current_sf == -2) {
-        M_AC_Current_POST.postUpdate(ac_current/100)
-    }
- //logInfo("SOLAREDGE", "M_AC_CURRENT:" + M_AC_Current_.state + " M_AC_CURRENT_SF:" +  M_AC_Current_SF_.state + " M_AC_CURRENT_POST:" + M_AC_Current_POST.state)
-    
-end
-
-
-rule "M_AC_Power_" //Immessa in rete, calcolo potenza richiesta
-when
-	Item    M_AC_Power_          received update
-then
-    val ac_power = (M_AC_Power_.state as DecimalType).floatValue
-    val ac_power_sf = (M_AC_Power_SF_.state as DecimalType).floatValue
+    val ac_power = (M_AC_Power.state as DecimalType).floatValue
+    val ac_power_sf = (M_AC_PowerSF.state as DecimalType).floatValue
 
     if (ac_power_sf == 0) {
         M_AC_Power_POST.postUpdate(ac_power/1000)
-        m_ac_power_post=M_AC_Power_POST.state
     }	
-    if (ac_power_sf == -1) {
+    else if (ac_power_sf == -1) {
         M_AC_Power_POST.postUpdate(ac_power/10000)
-        m_ac_power_post=M_AC_Power_POST.state
     }
-    if (ac_power_sf == -2) {
+    else if (ac_power_sf == -2) {
         M_AC_Power_POST.postUpdate(ac_power/100000)
-        m_ac_power_post=M_AC_Power_POST.state
     }
-    ac_power_used = i_ac_power_post - m_ac_power_post
-    AC_Power_USED.postUpdate(ac_power_used)
+    else if (ac_power_sf == -3) {
+        M_AC_Power_POST.postUpdate(ac_power/1000000)
+    }
+    else if (ac_power_sf == -4) {
+        M_AC_Power_POST.postUpdate(ac_power/10000000)
+    }
+ //   m_ac_power_post=M_AC_Power_POST.state
+ //   i_ac_power_post=I_AC_Power_POST.state
+  //  ac_power_used = i_ac_power_post - m_ac_power_post
+  //  AC_Power_USED.postUpdate(ac_power_used)
 
  //logInfo("SOLAREDGE", "M_AC_POWER:" + M_AC_Power_.state + " M_AC_POWER_SF:" +  M_AC_Power_SF_.state + " M_AC_POWER_POST:" + M_AC_Power_POST.state + " AC_POWER_USED:" + AC_Power_USED.state)
     
 end
 
-rule "I_DC_Voltage_"
-when
-	Item    I_DC_Voltage_          received update
-then
-    val dc_voltage = (I_DC_Voltage_.state as DecimalType).floatValue
-    val dc_voltage_sf = (I_DC_Voltage_SF_.state as DecimalType).floatValue
+rule "Calcolo energia"
 
-    if (I_DC_Voltage_.state > 65530) {
+when
+    Item M_AC_Power_POST changed or
+    Item I_AC_Power_POST changed
+then
+    v_m_ac_power_post=M_AC_Power_POST.state
+    v_i_ac_power_post=I_AC_Power_POST.state
+    v_ac_power_used = v_i_ac_power_post - v_m_ac_power_post // Calcolo dell'energia richiesta (prodotta - misurata dal modulo[se - prelevata, se + immessa])
+    AC_Power_USED.postUpdate(v_ac_power_used)
+end
+
+rule "I_AC_Current"
+when
+	Item I_AC_Current changed or
+    Item I_AC_Current_SF changed 
+then
+    val ac_current = (I_AC_Current.state as DecimalType).floatValue
+    val ac_current_sf = (I_AC_CurrentSF.state as DecimalType).floatValue
+
+    if (ac_current_sf == 0) {
+        I_AC_Current_POST.postUpdate(ac_current)
+    }	
+    else if (ac_current_sf == -1) {
+        I_AC_Current_POST.postUpdate(ac_current/10)
+    }
+    else if (ac_current_sf == -2) {
+        I_AC_Current_POST.postUpdate(ac_current/100)
+    }
+    else if (ac_current_sf == -3) {
+        I_AC_Current_POST.postUpdate(ac_current/1000)
+    }
+    else if (ac_current_sf == -4) {
+        I_AC_Current_POST.postUpdate(ac_current/10000)
+    }
+ //logInfo("SOLAREDGE", "I_AC_CURRENT:" + I_AC_Current_.state + " I_AC_CURRENT_SF:" +  I_AC_Current_SF_.state + " I_AC_CURRENT_POST:" + I_AC_Current_POST.state)
+    
+end
+
+
+rule "M_AC_Current"
+when
+	Item M_AC_Current changed or
+    Item M_AC_CurrentSF changed
+then
+    val ac_current = (M_AC_Current.state as DecimalType).floatValue
+    val ac_current_sf = (M_AC_CurrentSF.state as DecimalType).floatValue
+
+    if (ac_current_sf == 0) {
+        M_AC_Current_POST.postUpdate(ac_current)
+    }	
+    else if (ac_current_sf == -1) {
+        M_AC_Current_POST.postUpdate(ac_current/10)
+    }
+    else if (ac_current_sf == -2) {
+        M_AC_Current_POST.postUpdate(ac_current/100)
+    }
+    else if (ac_current_sf == -3) {
+        M_AC_Current_POST.postUpdate(ac_current/1000)
+    }
+    else if (ac_current_sf == -4) {
+        M_AC_Current_POST.postUpdate(ac_current/10000)
+    }
+ //logInfo("SOLAREDGE", "M_AC_CURRENT:" + M_AC_Current_.state + " M_AC_CURRENT_SF:" +  M_AC_Current_SF_.state + " M_AC_CURRENT_POST:" + M_AC_Current_POST.state)
+    
+end
+
+rule "I_AC_VoltageAB"
+when
+	Item I_AC_VoltageAB changed or
+    Item I_AC_VoltageSF changed
+then
+    val ac_voltageab = (I_AC_VoltageAB.state as DecimalType).floatValue
+    val ac_voltage_sf = (I_AC_VoltageSF.state as DecimalType).floatValue
+
+    if (ac_voltage_sf == 0) {
+        I_AC_VoltageAB_POST.postUpdate(ac_voltageab)
+    }	
+    else if (ac_voltage_sf == -1) {
+        I_AC_VoltageAB_POST.postUpdate(ac_voltageab/10)
+    }
+    else if (ac_voltage_sf == -2) {
+        I_AC_VoltageAB_POST.postUpdate(ac_voltageab/100)
+    }
+    else if (ac_voltage_sf == -3) {
+        I_AC_VoltageAB_POST.postUpdate(ac_voltageab/1000)
+    }
+    else if (ac_voltage_sf == -4) {
+        I_AC_VoltageAB_POST.postUpdate(ac_voltageab/10000)
+    }
+ //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
+    
+end
+
+rule "I_AC_VoltageBC"
+when
+	Item I_AC_VoltageBC changed or
+    Item I_AC_VoltageSF changed
+then
+    val ac_voltagebc = (I_AC_VoltageBC.state as DecimalType).floatValue
+    val ac_voltage_sf = (I_AC_VoltageSF.state as DecimalType).floatValue
+
+    if (ac_voltage_sf == 0) {
+        I_AC_VoltageBC_POST.postUpdate(ac_voltagebc)
+    }	
+    else if (ac_voltage_sf == -1) {
+        I_AC_VoltageBC_POST.postUpdate(ac_voltagebc/10)
+    }
+    else if (ac_voltage_sf == -2) {
+        I_AC_VoltageBC_POST.postUpdate(ac_voltagebc/100)
+    }
+    else if (ac_voltage_sf == -3) {
+        I_AC_VoltageBC_POST.postUpdate(ac_voltagebc/1000)
+    }
+    else if (ac_voltage_sf == -4) {
+        I_AC_VoltageBC_POST.postUpdate(ac_voltagebc/10000)
+    }
+ //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
+end
+
+rule "I_AC_VoltageCA"
+when
+	Item I_AC_VoltageCA changed or
+    Item I_AC_VoltageSF changed
+then
+    val ac_voltageca = (I_AC_VoltageCA.state as DecimalType).floatValue
+    val ac_voltage_sf = (I_AC_VoltageSF.state as DecimalType).floatValue
+
+    if (ac_voltage_sf == 0) {
+        I_AC_VoltageCA_POST.postUpdate(ac_voltageca)
+    }	
+    else if (ac_voltage_sf == -1) {
+        I_AC_VoltageCA_POST.postUpdate(ac_voltageca/10)
+    }
+    else if (ac_voltage_sf == -2) {
+        I_AC_VoltageCA_POST.postUpdate(ac_voltageca/100)
+    }
+    else if (ac_voltage_sf == -3) {
+        I_AC_VoltageCA_POST.postUpdate(ac_voltageca/1000)
+    }
+    else if (ac_voltage_sf == -4) {
+        I_AC_VoltageCA_POST.postUpdate(ac_voltageca/10000)
+    }
+    else  I_AC_VoltageCA_POST.postUpdate(ac_voltageca/10)
+       
+ //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
+end
+
+rule "I_AC_VoltageAN"
+when
+	Item I_AC_VoltageAN changed or
+    Item I_AC_VoltageSF changed
+then
+    val ac_voltagean = (I_AC_VoltageAN.state as DecimalType).floatValue
+    val ac_voltage_sf = (I_AC_VoltageSF.state as DecimalType).floatValue
+
+    if (ac_voltage_sf == 0) {
+        I_AC_VoltageAN_POST.postUpdate(ac_voltagean)
+    }	
+    else if (ac_voltage_sf == -1) {
+        I_AC_VoltageAN_POST.postUpdate(ac_voltagean/10)
+    }
+    else if (ac_voltage_sf == -2) {
+        I_AC_VoltageAN_POST.postUpdate(ac_voltagean/100)
+    }
+    else if (ac_voltage_sf == -3) {
+        I_AC_VoltageAN_POST.postUpdate(ac_voltagean/1000)
+    }
+    else if (ac_voltage_sf == -4) {
+        I_AC_VoltageAN_POST.postUpdate(ac_voltagean/10000)
+    }
+    else  I_AC_VoltageAN_POST.postUpdate(ac_voltagean/10)
+       
+ //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
+end
+
+rule "I_AC_VoltageBN"
+when
+	Item I_AC_VoltageBN changed or
+    Item I_AC_VoltageSF changed
+then
+    val ac_voltagebn = (I_AC_VoltageBN.state as DecimalType).floatValue
+    val ac_voltage_sf = (I_AC_VoltageSF.state as DecimalType).floatValue
+
+    if (ac_voltage_sf == 0) {
+        I_AC_VoltageBN_POST.postUpdate(ac_voltagebn)
+    }	
+    else if (ac_voltage_sf == -1) {
+        I_AC_VoltageBN_POST.postUpdate(ac_voltagebn/10)
+    }
+    else if (ac_voltage_sf == -2) {
+        I_AC_VoltageBN_POST.postUpdate(ac_voltagebn/100)
+    }
+    else if (ac_voltage_sf == -3) {
+        I_AC_VoltageBN_POST.postUpdate(ac_voltagebn/1000)
+    }
+    else if (ac_voltage_sf == -4) {
+        I_AC_VoltageBN_POST.postUpdate(ac_voltagebn/10000)
+    }
+    else  I_AC_VoltageBN_POST.postUpdate(ac_voltagebn/10)
+       
+ //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
+end
+
+rule "I_AC_VoltageCN"
+when
+	Item I_AC_VoltageCN changed or
+    Item I_AC_VoltageSF changed
+then
+    val ac_voltagecn = (I_AC_VoltageCN.state as DecimalType).floatValue
+    val ac_voltage_sf = (I_AC_VoltageSF.state as DecimalType).floatValue
+
+    if (ac_voltage_sf == 0) {
+        I_AC_VoltageCN_POST.postUpdate(ac_voltagecn)
+    }	
+    else if (ac_voltage_sf == -1) {
+        I_AC_VoltageCN_POST.postUpdate(ac_voltagecn/10)
+    }
+    else if (ac_voltage_sf == -2) {
+        I_AC_VoltageCN_POST.postUpdate(ac_voltagecn/100)
+    }
+    else if (ac_voltage_sf == -3) {
+        I_AC_VoltageCN_POST.postUpdate(ac_voltagecn/1000)
+    }
+    else if (ac_voltage_sf == -4) {
+        I_AC_VoltageCN_POST.postUpdate(ac_voltagecn/10000)
+    }
+    else  I_AC_VoltageCN_POST.postUpdate(ac_voltagecn/10)
+       
+ //logInfo("SOLAREDGE", "I_AC_VOLTAGE:" + I_AC_VoltageAB_.state + " I_AC_VOLTAGE_SF:" +  I_AC_Voltage_SF_.state + " I_AC_VOLTAGE_POST:" + I_AC_VoltageAB_POST.state)
+end
+
+rule "I_DC_Voltage"
+when
+	Item I_DC_Voltage changed or
+    Item I_DC_VoltageSF changed
+then
+    val dc_voltage = (I_DC_Voltage.state as DecimalType).floatValue
+    val dc_voltage_sf = (I_DC_VoltageSF.state as DecimalType).floatValue
+
+    if (I_DC_Voltage.state > 65530) {
         I_DC_Voltage_POST.postUpdate(0)
     }
     else if (dc_voltage_sf == 0) {
@@ -135,17 +320,24 @@ then
     else if (dc_voltage_sf == -2) {
         I_DC_Voltage_POST.postUpdate(dc_voltage/100)
     }
+    else if (dc_voltage_sf == -3) {
+        I_DC_Voltage_POST.postUpdate(dc_voltage/1000)
+    }
+    else if (dc_voltage_sf == -4) {
+        I_DC_Voltage_POST.postUpdate(dc_voltage/10000)
+    }
  //logInfo("SOLAREDGE", "I_DC_VOLTAGE:" + I_DC_Voltage_.state + " I_DC_Voltage_SF:" +  I_DC_Voltage_SF_.state + " I_DC_Voltage_POST:" + I_DC_Voltage_POST.state)
 end
 
-rule "M_AC_Freq_"
+rule "M_AC_Freq"
 when
-	Item    M_AC_Freq_         received update
+	Item M_AC_Freq changed or
+    Item M_AC_FreqSF changed
 then
-    val ac_frequency = (M_AC_Freq_.state as DecimalType).floatValue
-    val ac_frequency_sf = (M_AC_Freq_SF_.state as DecimalType).floatValue
+    val ac_frequency = (M_AC_Freq.state as DecimalType).floatValue
+    val ac_frequency_sf = (M_AC_FreqSF.state as DecimalType).floatValue
 
-    if (M_AC_Freq_.state > 65530) {
+    if (M_AC_Freq.state > 65530) {
         M_AC_Freq_POST.postUpdate(0)
     }
     else if (ac_frequency_sf == 0) {

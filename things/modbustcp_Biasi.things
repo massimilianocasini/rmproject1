@@ -1,21 +1,319 @@
-Bridge modbus:tcp:TCP2 [ host="192.168.178.253", port=502, id=1 ] {
-    // The base Register Common Block is set to 10001 (MODBUS PLC address [base 1]), or 10000 (MODBUS Protocol Address [base 0]).
-
-    Bridge poller stato1 [ start=4096, length=2, refresh=500000, type="discrete" ] {
-            Thing data StatoImpianto [readStart="4096", readValueType="uint16"]
-            Thing data StagioneCorrenteImpianto [readStart="4097", readValueType="uint16"]
-
+Bridge modbus:tcp:biasi [ host="192.168.1.56", port=502, id=1, timeBetweenReconnectMillis=300, connectMaxTries=3] { 
+    Bridge poller stato1 [ start=29315, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ1 [readStart="29315", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29315", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ1 [readStart="29316", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29316", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ1 [readStart="29317", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29317", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ1 [readStart="29318", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29318", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
     }
-    Bridge poller stato2 [ start=18433, length=2, refresh=500000, type="holding" ] {
-            Thing data TempEsterna [readStart="18433", readValueType="int16"]
-            Thing data StagioneCorrenteImpianto [readStart="4097", readValueType="int16"]
-
+    Bridge poller stato2 [ start=29331, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ2 [readStart="29331", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29331", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ2 [readStart="29332", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29332", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ2 [readStart="29333", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29333", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ2 [readStart="29334", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29334", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
     }
-    Bridge poller stato3 [ start=18492, length=2, refresh=500000, type="holding" ] {
-            Thing data ACSSet [readStart="18492", readValueType="int16"]
-            Thing data ACSTempCorrente [readStart="18493", readValueType="int16"]
-
+    Bridge poller stato3 [ start=29347, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ3 [readStart="29347", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29347", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ3 [readStart="29348", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29348", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ3 [readStart="29349", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29349", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ3 [readStart="29350", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29350", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
     }
-}
-
- 
+    Bridge poller stato4 [ start=29363, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ4 [readStart="29363", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29363", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ4 [readStart="29364", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29364", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ4 [readStart="29365", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29365", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ4 [readStart="29366", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29366", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    } 
+    Bridge poller stato5 [ start=29379, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ5 [readStart="29379", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29379", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ5 [readStart="29380", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29380", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ5 [readStart="29381", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29381", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ5 [readStart="29382", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29382", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato6 [ start=29395, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ6 [readStart="29395", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29395", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ6 [readStart="29396", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29396", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ6 [readStart="29397", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29397", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ6 [readStart="29398", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29398", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato7 [ start=29411, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ7 [readStart="29411", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29411", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ7 [readStart="29412", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29412", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ7 [readStart="29413", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29413", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ7 [readStart="29414", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29414", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato8 [ start=29427, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ8 [readStart="29427", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29427", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ8 [readStart="29428", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29428", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ8 [readStart="29429", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29429", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ8 [readStart="29430", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29430", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato9 [ start=29443, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ9 [readStart="29443", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29443", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ9 [readStart="29444", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29444", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ9 [readStart="29445", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29445", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ9 [readStart="29446", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29446", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato10 [ start=29459, length=4, refresh=5000, type="holding" ] {
+        Thing data SetTempConfortEstateZ10 [readStart="29459", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29459", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyEstateZ10 [readStart="29460", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29460", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempConfortInvernoZ10 [readStart="29461", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29461", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+        Thing data SetTempEconomyInvernoZ10 [readStart="29462", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="29462", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato11 [ start=21129, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ1 [readStart="21129", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21129", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato12 [ start=21145, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ2 [readStart="21145", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21145", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }   
+    Bridge poller stato13 [ start=21161, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ3 [readStart="21161", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21161", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato14 [ start=21177, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ4 [readStart="21177", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21177", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]
+    }
+    Bridge poller stato15 [ start=21193, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ5 [readStart="21193", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21193", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]            
+    } 
+    Bridge poller stato16 [ start=21209, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ6 [readStart="21209", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21209", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]            
+    }
+    Bridge poller stato17 [ start=21225, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ7 [readStart="21225", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21225", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]            
+    }
+    Bridge poller stato18 [ start=21241, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ8 [readStart="21241", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21241", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]            
+    }
+    Bridge poller stato19 [ start=21257, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ9 [readStart="21257", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21257", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]            
+    }
+    Bridge poller stato20 [ start=21273, length=1, refresh=5000, type="holding" ] {
+        Thing data SetUmiditaRelativaZ10 [readStart="21273", readValueType="int16", readTransform="JS(divideBy10.js)", writeStart="21273", writeValueType="int16", writeTransform="JS(multiplyBy10.js)", writeType="holding"]            
+    }
+    Bridge poller stato21 [ start=9487, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ1 [readStart="9487", readValueType="int16", writeStart="9487", writeValueType="int16", writeType="holding"]            
+    }
+    Bridge poller stato22 [ start=9519, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ2 [readStart="9519", readValueType="int16", writeStart="9519", writeValueType="int16", writeType="holding"]            
+    }
+    Bridge poller stato23 [ start=9551, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ3 [readStart="9551", readValueType="int16", writeStart="9551", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato24 [ start=9583, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ4 [readStart="9583", readValueType="int16", writeStart="9583", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato25 [ start=9615, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ5 [readStart="9615", readValueType="int16", writeStart="9615", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato26 [ start=9647, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ6 [readStart="9647", readValueType="int16", writeStart="9647", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato27 [ start=9679, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ7 [readStart="9679", readValueType="int16", writeStart="9679", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato28 [ start=9711, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ8 [readStart="9711", readValueType="int16", writeStart="9711", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato29 [ start=9743, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ9 [readStart="9743", readValueType="int16", writeStart="9743", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato30 [ start=9775, length=1, refresh=5000, type="holding" ] {
+        Thing data ModLavoroZ10 [readStart="9775", readValueType="int16", writeStart="9775", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato31 [ start=8193, length=2, refresh=5000, type="holding" ] {
+        Thing data AbilitazioneGenClima [readStart="8193", readValueType="int16", writeStart="8193", writeValueType="int16", writeType="holding"]
+        Thing data ImpostaStagioneCorrente [readStart="8194", readValueType="int16", writeStart="8194", writeValueType="int16", writeType="holding"]
+    }
+    Bridge poller stato32 [ start=4096, length=2, refresh=5000, type="holding" ] {
+        Thing data StatoCorrenteImpianto [readStart="4096", readValueType="int16"]
+        Thing data StagioneCorrenteImpianto [readStart="4097", readValueType="int16"]
+    }
+    Bridge poller stato33 [ start=18433, length=1, refresh=5000, type="holding" ] {
+        Thing data TemperaturaEsterna [readStart="18433", readValueType="int16", readTransform="JS(divideBy10.js)"]
+    }
+    Bridge poller stato34 [ start=4128, length=1, refresh=5000, type="holding" ] {
+        Thing data Allarmi [readStart="4128", readValueType="int16"]
+    } 
+    Bridge poller stato35 [ start=5136, length=10, refresh=5000, type="holding" ] {
+        Thing data TestinaZ1 [readStart="5136", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ2 [readStart="5137", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ3 [readStart="5138", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ4 [readStart="5139", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ5 [readStart="5140", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ6 [readStart="5141", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ7 [readStart="5142", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ8 [readStart="5143", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ9 [readStart="5144", readValueType="int16", readTransform="default"]
+        Thing data TestinaZ10 [readStart="5145", readValueType="int16", readTransform="default"]
+    }
+    Bridge poller stato36 [ start=5184, length=1, refresh=5000, type="holding" ] {
+        Thing data ComandoPompa [readStart="5184", readValueType="int16"]
+    }
+    Bridge poller stato37 [ start=5216, length=2, refresh=5000, type="holding" ] {
+        Thing data ComandoValvolaDeumidificatore1 [readStart="5216", readValueType="int16"]
+        Thing data ComandoValvolaDeumidificatore2 [readStart="5217", readValueType="int16"]
+    }
+    Bridge poller stato38 [ start=18497, length=30, refresh=5000, type="holding" ] {
+        Thing data SetPointTempCorrenteZ1 [readStart="18497", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z1 [readStart="18498", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ1 [readStart="18499", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ1 [readStart="18500", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ1 [readStart="18501", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z1 [readStart="18502", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ2 [readStart="18503", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z2 [readStart="18504", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ2 [readStart="18505", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ2 [readStart="18506", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ2 [readStart="18507", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z2 [readStart="18508", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ3 [readStart="18509", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z3 [readStart="18510", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ3 [readStart="18511", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ3 [readStart="18512", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ3 [readStart="18513", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z3 [readStart="18514", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ4 [readStart="18515", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z4 [readStart="18516", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ4 [readStart="18517", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ4 [readStart="18518", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ4 [readStart="18519", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z4 [readStart="18520", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ5 [readStart="18521", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z5 [readStart="18522", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ5 [readStart="18523", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ5 [readStart="18524", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ5 [readStart="18525", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z5 [readStart="18526", readValueType="int16"]
+    }
+    Bridge poller stato39 [ start=18527, length=30, refresh=5000, type="holding" ] {
+        Thing data SetPointTempCorrenteZ6 [readStart="18527", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z6 [readStart="18528", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ6 [readStart="18529", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ6 [readStart="18530", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ6 [readStart="18531", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z6 [readStart="18532", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ7 [readStart="18533", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z7 [readStart="18534", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ7 [readStart="18535", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ7 [readStart="18536", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ7 [readStart="18537", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z7 [readStart="18538", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ8 [readStart="18539", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z8 [readStart="18540", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ8 [readStart="18541", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ8 [readStart="18542", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ8 [readStart="18543", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z8 [readStart="18544", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ9 [readStart="18545", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z9 [readStart="18546", readValueType="int16"]
+        Thing data TemperaturaCorrenteZ9 [readStart="18547", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ9 [readStart="18548", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ9 [readStart="18549", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z9 [readStart="18550", readValueType="int16"]
+        Thing data SetPointTempCorrenteZ10 [readStart="18551", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato1Z10 [readStart="18552", readValueType="int16"] 
+        Thing data TemperaturaCorrenteZ10 [readStart="18553", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data UmiditaRelativaCorrenteZ10 [readStart="18554", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data TemperaturaDiRugiadaZ10 [readStart="18555", readValueType="int16", readTransform="JS(divideBy10.js)"]
+        Thing data NonUsato2Z10 [readStart="18556", readValueType="int16"]
+    }
+    Bridge poller stato40 [ start=4225, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ1 [readStart="4225.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ1 [readStart="4225.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ1 [readStart="4225.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ1 [readStart="4225.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ1 [readStart="4225.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ1 [readStart="4225.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ1 [readStart="4225.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ1 [readStart="4225.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato41 [ start=4237, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ2 [readStart="4237.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ2 [readStart="4237.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ2 [readStart="4237.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ2 [readStart="4237.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ2 [readStart="4237.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ2 [readStart="4237.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ2 [readStart="4237.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ2 [readStart="4237.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato42 [ start=4249, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ3 [readStart="4249.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ3 [readStart="4249.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ3 [readStart="4249.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ3 [readStart="4249.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ3 [readStart="4249.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ3 [readStart="4249.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ3 [readStart="4249.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ3 [readStart="4249.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato43 [ start=4261, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ4 [readStart="4261.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ4 [readStart="4261.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ4 [readStart="4261.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ4 [readStart="4261.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ4 [readStart="4261.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ4 [readStart="4261.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ4 [readStart="4261.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ4 [readStart="4261.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato44 [ start=4273, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ5 [readStart="4273.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ5 [readStart="4273.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ5 [readStart="4273.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ5 [readStart="4273.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ5 [readStart="4273.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ5 [readStart="4273.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ5 [readStart="4273.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ5 [readStart="4273.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato45 [ start=4285, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ6 [readStart="4285.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ6 [readStart="4285.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ6 [readStart="4285.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ6 [readStart="4285.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ6 [readStart="4285.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ6 [readStart="4285.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ6 [readStart="4285.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ6 [readStart="4285.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato46 [ start=4297, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ7 [readStart="4297.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ7 [readStart="4297.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ7 [readStart="4297.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ7 [readStart="4297.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ7 [readStart="4297.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ7 [readStart="4297.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ7 [readStart="4297.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ7 [readStart="4297.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato47 [ start=4309, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ8 [readStart="4309.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ8 [readStart="4309.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ8 [readStart="4309.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ8 [readStart="4309.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ8 [readStart="4309.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ8 [readStart="4309.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ8 [readStart="4309.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ8 [readStart="4309.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato48 [ start=4321, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ9 [readStart="4321.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ9 [readStart="4321.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ9 [readStart="4321.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ9 [readStart="4321.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ9 [readStart="4321.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ9 [readStart="4321.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ9 [readStart="4321.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ9 [readStart="4321.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+    Bridge poller stato49 [ start=4333, length=1, refresh=5000, type="holding" ] {
+        Thing data StatoInternoHZ10 [readStart="4333.0", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica --0: Zona Spenta, 1: Zona in modalità Antigelo, 2: Zona in modalità Economy, 3: Zona in modalità Comfort
+        Thing data StatoInternoGZ10 [readStart="4333.1", readValueType="bit"] //GH: Modo di lavoro corrente, secondo codifica
+        Thing data StatoInternoFZ10 [readStart="4333.2", readValueType="bit"] //F: Forzatura del modo di lavoro presente
+        Thing data StatoInternoEZ10 [readStart="4333.3", readValueType="bit"] //E: Condizioni di formazione condensa
+        Thing data StatoInternoDZ10 [readStart="4333.4", readValueType="bit"] //D: Termostato attivo
+        Thing data StatoInternoCZ10 [readStart="4333.5", readValueType="bit"] //C: Termostato secondo stadio attivo
+        Thing data StatoInternoBZ10 [readStart="4333.6", readValueType="bit"] //B: non usato
+        Thing data StatoInternoAZ10 [readStart="4333.7", readValueType="bit"] //A: Zona richiede deumidificazione
+    }
+} 

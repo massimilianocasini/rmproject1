@@ -1,23 +1,26 @@
-Bridge modbus:tcp:TCP1 [ host="192.168.178.4", port=502, id=1 ] {
+Bridge modbus:tcp:solaredge [ host="192.168.1.143", port=502, id=1, timeBetweenReconnectMillis=300, connectMaxTries=3 ] {
     // The base Register Common Block is set to 10001 (MODBUS PLC address [base 1]), or 10000 (MODBUS Protocol Address [base 0]).
 
-    Bridge poller inverter [ start=40071, length=38, refresh=10, type="holding" ] {
-        Thing data I_AC_Current [readStart="40071", readValueType="uint16"]
-        Thing data I_AC_CurrentA [readStart="40072", readValueType="uint16"]
-        Thing data I_AC_CurrentB [readStart="40073", readValueType="uint16"]
-        Thing data I_AC_CurrentC [readStart="40074", readValueType="uint16"]
-        Thing data I_AC_Current_SF [readStart="40075", readValueType="int16"]
-        Thing data I_AC_VoltageAB [readStart="40076", readValueType="uint16"]
-        Thing data I_AC_VoltageBC [readStart="40077", readValueType="uint16"]
-        Thing data I_AC_VoltageCA [readStart="40078", readValueType="uint16"]
-        Thing data I_AC_VoltageAN [readStart="40079", readValueType="uint16"]
-        Thing data I_AC_VoltageBN [readStart="40080", readValueType="uint16"]
-        Thing data I_AC_VoltageCN [readStart="40081", readValueType="uint16"]
-        Thing data I_AC_Voltage_SF [readStart="40082", readValueType="int16"]
-        Thing data I_AC_Power [readStart="40083", readValueType="int16"]
-        Thing data I_AC_Power_SF [readStart="40084", readValueType="int16"]
-        Thing data I_AC_Frequency [readStart="40085", readValueType="uint16"]
-        Thing data I_AC_Frequency_SF [readStart="40086", readValueType="int16"]
+    Bridge poller inverter [ start=40069, length=41, refresh=5000, type="holding" ] {
+       // Rispetto al DOC bisogna considerare -1 ovvero se sul DOC c'è 40070 su openhab è 40069 in quanto parte da 0
+        Thing data C_SunSpec_DID [readStart="40069", readValueType="uint16"] //101 = single phase, 102 = split phase1, 103 = three phase
+        Thing data C_SunSpec_Length [readStart="40070", readValueType="uint16"] //50 = Length of model block
+        Thing data I_AC_Current [readStart="40071", readValueType="uint16"] //AC Total Current value
+        Thing data I_AC_CurrentA [readStart="40072", readValueType="uint16"] //AC Phase A Current value
+        Thing data I_AC_CurrentB [readStart="40073", readValueType="uint16"] //AC Phase B Current value
+        Thing data I_AC_CurrentC [readStart="40074", readValueType="int16"] //AC Phase C Current value
+        Thing data I_AC_CurrentSF [readStart="40075", readValueType="int16"] //AC Current scale factor
+        Thing data I_AC_VoltageAB [readStart="40076", readValueType="uint16"] // AC Voltage Phase AB value
+        Thing data I_AC_VoltageBC [readStart="40077", readValueType="uint16"] //AC Voltage Phase BC value
+        Thing data I_AC_VoltageCA [readStart="40078", readValueType="uint16"] // AC Voltage Phase CA value
+        Thing data I_AC_VoltageAN [readStart="40079", readValueType="uint16"] //AC Voltage Phase A to N value
+        Thing data I_AC_VoltageBN [readStart="40080", readValueType="uint16"] //AC Voltage Phase B to N value
+        Thing data I_AC_VoltageCN [readStart="40081", readValueType="uint16"] //AC Voltage Phase C to N value
+        Thing data I_AC_VoltageSF [readStart="40082", readValueType="int16"] //AC Voltage scale factor
+        Thing data I_AC_Power [readStart="40083", readValueType="int16"] // AC Power value WATTS
+        Thing data I_AC_PowerSF [readStart="40084", readValueType="int16"] // AC Power scale factor
+        Thing data I_AC_Frequency [readStart="40085", readValueType="uint16"] //AC Frequency value
+        Thing data I_AC_FrequencySF [readStart="40086", readValueType="int16"] //Scale factor
         Thing data I_AC_VA [readStart="40087", readValueType="int16"]
         Thing data I_AC_VA_SF [readStart="40088", readValueType="int16"]
         Thing data I_AC_VAR [readStart="40089", readValueType="int16"]
@@ -29,7 +32,7 @@ Bridge modbus:tcp:TCP1 [ host="192.168.178.4", port=502, id=1 ] {
         Thing data I_DC_Current [readStart="40096", readValueType="uint16"]
         Thing data I_DC_Current_SF [readStart="40097", readValueType="int16"]
         Thing data I_DC_Voltage [readStart="40098", readValueType="uint16"]
-        Thing data I_DC_Voltage_SF [readStart="40099", readValueType="int16"]
+        Thing data I_DC_VoltageSF [readStart="40099", readValueType="int16"]
         Thing data I_DC_Power [readStart="40100", readValueType="int16"]
         Thing data I_DC_Power_SF [readStart="40101", readValueType="int16"]
         Thing data I_Temp_Sink [readStart="40103", readValueType="int16"]
@@ -42,49 +45,50 @@ Bridge modbus:tcp:TCP1 [ host="192.168.178.4", port=502, id=1 ] {
     //Bridge poller commonBlock [ start=40155, length=8, refresh=10, type="holding" ] {
     //    Thing data C_Option [ readStart="40155", readValueType="float32"]
    // }
+   // Partono da 0 come nel documento
 
-    Bridge poller current [ start=40190, length=5, refresh=10, type="holding" ] {
-        Thing data M_AC_Current [ readStart="40190", readValueType="int16"]
-        Thing data M_AC_Current_A [ readStart="40191", readValueType="int16"]
-        Thing data M_AC_Current_B [ readStart="40192", readValueType="int16"]
-        Thing data M_AC_Current_C [ readStart="40193", readValueType="int16"]
-        Thing data M_AC_Current_SF [ readStart="40194", readValueType="int16"]
+     Bridge poller current [ start=40190, length=5, refresh=5000, type="holding" ] {
+         Thing data M_AC_Current [ readStart="40190", readValueType="int16"] //AC Current (sum of active phases)
+         Thing data M_AC_CurrentA [ readStart="40191", readValueType="int16"] //Phase A AC Current
+         Thing data M_AC_CurrentB [ readStart="40192", readValueType="int16"] //Phase B AC Current
+         Thing data M_AC_CurrentC [ readStart="40193", readValueType="int16"] //Phase C AC Current
+         Thing data M_AC_CurrentSF [ readStart="40194", readValueType="int16"] // AC Current Scale Factor
+     }
+     Bridge poller voltage [ start=40195, length=1, refresh=5000, type="holding" ] {
+         Thing data M_AC_Voltage_L_N [ readStart="40195", readValueType="int16"]
+     }
+     Bridge poller voltage1 [ start=40199, length=1, refresh=5000, type="holding" ] {
+         Thing data M_AC_Voltage_L_L [ readStart="40199", readValueType="int16"]
+     }
+     Bridge poller frequency [ start=40204, length=2, refresh=5000, type="holding" ] {
+         Thing data M_AC_Freq [ readStart="40204", readValueType="int16"]
+         Thing data M_AC_FreqSF [ readStart="40205", readValueType="int16"]
+     }
+     Bridge poller realPower [ start=40206, length=5, refresh=5000, type="holding" ] {
+         Thing data M_AC_Power [ readStart="40206", readValueType="int16"] //Total Real Power (sum of active phases)
+         Thing data M_AC_PowerA [ readStart="40207", readValueType="int16"] //Phase A AC Real Power
+         Thing data M_AC_PowerB [ readStart="40208", readValueType="int16"] //Phase B AC Real Power
+         Thing data M_AC_PowerC [ readStart="40209", readValueType="int16"] //Phase C AC Real Power
+         Thing data M_AC_PowerSF [ readStart="40210", readValueType="int16"] //AC Real Power Scale Factor
+     }
+   //  Bridge poller apparentPower [ start=40211, length=1, refresh=5000, type="holding" ] {   
+   //      Thing data M_AC_VA [ readStart="40211", readValueType="int16"] //Total AC Apparent Power
+   //  }
+    // Bridge poller reactivePower [ start=40216, length=1, refresh=5000, type="holding" ] {   
+    //     Thing data M_AC_VAR [ readStart="40216", readValueType="int16"] //Total AC Reactive Power (sum of active phases)
+    // }
+     Bridge poller powerFactor [ start=40221, length=5, refresh=5000, type="holding" ] {   
+         Thing data M_AC_PF [ readStart="40221", readValueType="int16"] //Average Power Factor (average of active phases)
+         Thing data M_AC_PF_A [ readStart="40222", readValueType="int16"] //Phase A Power Factor
+         Thing data M_AC_PF_B [ readStart="40223", readValueType="int16"] // Phase B Power Factor
+         Thing data M_AC_PF_C [ readStart="40224", readValueType="int16"] // Phase C Power Factor
+         Thing data M_AC_PF_SF [ readStart="40225", readValueType="int16"] // AC Power Factor Scale Factor
     }
-    Bridge poller voltage [ start=40195, length=5, refresh=10, type="holding" ] {
-        Thing data M_AC_Voltage_L_N [ readStart="40195", readValueType="int16"]
-    }
-    Bridge poller voltage [ start=40199, length=5, refresh=10, type="holding" ] {
-        Thing data M_AC_Voltage_L_L [ readStart="40199", readValueType="int16"]
-    }
-    Bridge poller frequency [ start=40204, length=2, refresh=10, type="holding" ] {
-        Thing data M_AC_Freq [ readStart="40204", readValueType="int16"]
-        Thing data M_AC_Freq_SF [ readStart="40205", readValueType="int16"]
-    }
-    Bridge poller realPower [ start=40206, length=5, refresh=20, type="holding" ] {
-        Thing data M_AC_Power [ readStart="40206", readValueType="int16"]
-        Thing data M_AC_Power_A [ readStart="40207", readValueType="int16"]
-        Thing data M_AC_Power_B [ readStart="40208", readValueType="int16"]
-        Thing data M_AC_Power_C [ readStart="40209", readValueType="int16"]
-        Thing data M_AC_Power_SF [ readStart="40210", readValueType="int16"]
-    }
-    Bridge poller apparentPower [ start=40211, length=1, refresh=10, type="holding" ] {   
-        Thing data M_AC_VA [ readStart="40211", readValueType="int16"]
-    }
-    Bridge poller reactivePower [ start=40216, length=1, refresh=10, type="holding" ] {   
-        Thing data M_AC_VAR [ readStart="40216", readValueType="int16"]
-    }
-    Bridge poller powerFactor [ start=40221, length=5, refresh=10, type="holding" ] {   
-        Thing data M_AC_PF [ readStart="40221", readValueType="int16"]
-        Thing data M_AC_PF_A [ readStart="40222", readValueType="int16"]
-        Thing data M_AC_PF_B [ readStart="40223", readValueType="int16"]
-        Thing data M_AC_PF_C [ readStart="40224", readValueType="int16"]
-        Thing data M_AC_PF_SF [ readStart="40225", readValueType="int16"]
-    }
-    Bridge poller realenergy [ start=40226, length=10, refresh=10, type="holding" ] {   
-        Thing data M_Exported [ readStart="40226", readValueType="uint32"]
-        Thing data M_Exported_A [ readStart="40228", readValueType="uint32"]
-        Thing data M_Exported_B [ readStart="40230", readValueType="uint32"]
-        Thing data M_Exported_C [ readStart="40232", readValueType="uint32"]
-        Thing data M_Imported [ readStart="40234", readValueType="uint32"]
-    }
+     Bridge poller realenergy [ start=40226, length=10, refresh=5000, type="holding" ] {   
+         Thing data M_Exported [ readStart="40226", readValueType="uint32"]
+         Thing data M_Exported_A [ readStart="40228", readValueType="uint32"]
+         Thing data M_Exported_B [ readStart="40230", readValueType="uint32"]
+         Thing data M_Exported_C [ readStart="40232", readValueType="uint32"]
+         Thing data M_Imported [ readStart="40234", readValueType="uint32"]
+     }
 }

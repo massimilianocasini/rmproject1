@@ -1,0 +1,193 @@
+Group gRDIN
+Number AbilitazioneGenClima "Abilitazione generale Clima" <settings> (gRDIN) {channel="modbus:data:biasi:stato31:AbilitazioneGenClima:number"}
+Number ImpostaStagioneCorrente "Impostazione stagione corrente" <settings> (gRDIN) {channel="modbus:data:biasi:stato31:ImpostaStagioneCorrente:number"}
+Number StatoCorrenteImpianto "Stato corrente [MAP(clima1.map):%s]" <settings> (gRDIN) {channel="modbus:data:biasi:stato32:StatoCorrenteImpianto:number"}
+Number StagioneCorrenteImpianto "Stagione corrente [MAP(clima2.map):%s]" <settings> (gRDIN) {channel="modbus:data:biasi:stato32:StagioneCorrenteImpianto:number"}
+Number TemperaturaEsterna "Temperatura esterna [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato33:TemperaturaEsterna:number"}
+Number Allarmi "Stato allarmi [MAP(clima3.map):%s]" <settings> (gRDIN) {channel="modbus:data:biasi:stato34:Allarmi:number"}
+Contact ComandoPompa "Stato Pompa [MAP(clima1.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato36:ComandoPompa:contact"}
+Contact ComandoValvolaDeumidificatore1 "Stato Deumi 1 [MAP(clima1.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato37:ComandoValvolaDeumidificatore1:contact"}
+Contact ComandoValvolaDeumidificatore2 "Stato Deumi 2 [MAP(clima1.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato37:ComandoValvolaDeumidificatore2:contact"}
+
+Number SetTempConfortEstateZ1 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato1:SetTempConfortEstateZ1:number"}
+Number SetTempEconomyEstateZ1 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN)  {channel="modbus:data:biasi:stato1:SetTempEconomyEstateZ1:number"}
+Number SetTempConfortInvernoZ1 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato1:SetTempConfortInvernoZ1:number"}
+Number SetTempEconomyInvernoZ1 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato1:SetTempEconomyInvernoZ1:number"}
+Number SetUmiditaRelativaZ1 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato11:SetUmiditaRelativaZ1:number"}
+Number ModLavoroZ1 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato21:ModLavoroZ1:number"}
+Number SetPointTempCorrenteZ1 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato38:SetPointTempCorrenteZ1:number"}
+Number TemperaturaCorrenteZ1 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ1:number"}
+Number UmiditaRelativaCorrenteZ1 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ1:number"}
+Switch TestinaZ1 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ1:switch"}
+Number StatoInternoAZ1 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoAZ1:number"}
+Switch StatoInternoDZ1 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoDZ1:switch"}
+Number StatoInternoEZ1 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoEZ1:number"}
+Number StatoInternoFZ1 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoFZ1:number"}
+Number StatoInternoHZ1 "Stato bit 0" {channel="modbus:data:biasi:stato40:StatoInternoHZ1:number"}
+Number StatoInternoGZ1 "Stato bit 1" {channel="modbus:data:biasi:stato40:StatoInternoGZ1:number"}
+Number StatoModoLavoroCorrenteZ1 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+//Number StatoInternoBZ1 "Non usato" {channel="modbus:data:biasi:stato40:StatoInternoBZ1:number"}
+//Number StatoInternoCZ1 "Termostato secondo stadio" {channel="modbus:data:biasi:stato40:StatoInternoCZ1:number"}
+
+
+Number SetTempConfortEstateZ2 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato2:SetTempConfortEstateZ2:number"}
+Number SetTempEconomyEstateZ2 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato2:SetTempEconomyEstateZ2:number"}
+Number SetTempConfortInvernoZ2 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato2:SetTempConfortInvernoZ2:number"}
+Number SetTempEconomyInvernoZ2 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato2:SetTempEconomyInvernoZ2:number"}
+Number SetUmiditaRelativaZ2 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato12:SetUmiditaRelativaZ2:number"}
+Number ModLavoroZ2 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato22:ModLavoroZ2:number"}
+Number SetPointTempCorrenteZ2 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato38:SetPointTempCorrenteZ2:number"}
+Number TemperaturaCorrenteZ2 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ2:number"}
+Number UmiditaRelativaCorrenteZ2 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ2:number"}
+Switch TestinaZ2 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ2:switch"}
+Number StatoInternoAZ2 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato41:StatoInternoAZ2:number"}
+Switch StatoInternoDZ2 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato41:StatoInternoDZ2:switch"}
+Number StatoInternoEZ2 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato41:StatoInternoEZ2:number"}
+Number StatoInternoFZ2 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato41:StatoInternoFZ2:number"}
+Number StatoInternoHZ2 "Stato bit 0" {channel="modbus:data:biasi:stato41:StatoInternoHZ2:number"}
+Number StatoInternoGZ2 "Stato bit 1" {channel="modbus:data:biasi:stato41:StatoInternoGZ2:number"}
+Number StatoModoLavoroCorrenteZ2 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ3 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato3:SetTempConfortEstateZ3:number"}
+Number SetTempEconomyEstateZ3 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato3:SetTempEconomyEstateZ3:number"}
+Number SetTempConfortInvernoZ3 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato3:SetTempConfortInvernoZ3:number"}
+Number SetTempEconomyInvernoZ3 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato3:SetTempEconomyInvernoZ3:number"}
+Number SetUmiditaRelativaZ3 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato13:SetUmiditaRelativaZ3:number"}
+Number ModLavoroZ3 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato23:ModLavoroZ3:number"}
+Number SetPointTempCorrenteZ3 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato38:SetPointTempCorrenteZ3:number"}
+Number TemperaturaCorrenteZ3 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ3:number"}
+Number UmiditaRelativaCorrenteZ3 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ3:number"}
+Switch TestinaZ3 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ3:switch"}
+Number StatoInternoAZ3 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato42:StatoInternoAZ3:number"}
+Switch StatoInternoDZ3 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato42:StatoInternoDZ3:switch"}
+Number StatoInternoEZ3 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato42:StatoInternoEZ3:number"}
+Number StatoInternoFZ3 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato42:StatoInternoFZ3:number"}
+Number StatoInternoHZ3 "Stato bit 0" {channel="modbus:data:biasi:stato42:StatoInternoHZ3:number"}
+Number StatoInternoGZ3 "Stato bit 1" {channel="modbus:data:biasi:stato42:StatoInternoGZ3:number"}
+Number StatoModoLavoroCorrenteZ3 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ4 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato4:SetTempConfortEstateZ4:number"}
+Number SetTempEconomyEstateZ4 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato4:SetTempEconomyEstateZ4:number"}
+Number SetTempConfortInvernoZ4 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato4:SetTempConfortInvernoZ4:number"}
+Number SetTempEconomyInvernoZ4 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato4:SetTempEconomyInvernoZ4:number"}
+Number SetUmiditaRelativaZ4 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato14:SetUmiditaRelativaZ4:number"}
+Number ModLavoroZ4 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato24:ModLavoroZ4:number"}
+Number SetPointTempCorrenteZ4 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato38:SetPointTempCorrenteZ4:number"}
+Number TemperaturaCorrenteZ4 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ4:number"}
+Number UmiditaRelativaCorrenteZ4 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ4:number"}
+Switch TestinaZ4 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ4:switch"}
+Number StatoInternoAZ4 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoAZ4:number"}
+Switch StatoInternoDZ4 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoDZ4:switch"}
+Number StatoInternoEZ4 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoEZ4:number"}
+Number StatoInternoFZ4 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoFZ4:number"}
+Number StatoInternoHZ4 "Stato bit 0" {channel="modbus:data:biasi:stato43:StatoInternoHZ4:number"}
+Number StatoInternoGZ4 "Stato bit 1" {channel="modbus:data:biasi:stato43:StatoInternoGZ4:number"}
+Number StatoModoLavoroCorrenteZ4 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ5 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato5:SetTempConfortEstateZ5:number"}
+Number SetTempEconomyEstateZ5 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato5:SetTempEconomyEstateZ5:number"}
+Number SetTempConfortInvernoZ5 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato5:SetTempConfortInvernoZ5:number"}
+Number SetTempEconomyInvernoZ5 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato5:SetTempEconomyInvernoZ5:number"}
+Number SetUmiditaRelativaZ5 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato15:SetUmiditaRelativaZ5:number"}
+Number ModLavoroZ5 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato25:ModLavoroZ5:number"}
+Number SetPointTempCorrenteZ5 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato38:SetPointTempCorrenteZ5:number"}
+Number TemperaturaCorrenteZ5 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ5:number"}
+Number UmiditaRelativaCorrenteZ5 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ5:number"}
+Switch TestinaZ5 "Camera Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ5:switch"}
+Number StatoInternoAZ5 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato44:StatoInternoAZ5:number"}
+Switch StatoInternoDZ5 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato44:StatoInternoDZ5:switch"}
+Number StatoInternoEZ5 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato44:StatoInternoEZ5:number"}
+Number StatoInternoFZ5 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato44:StatoInternoFZ5:number"}
+Number StatoInternoHZ5 "Stato bit 0" {channel="modbus:data:biasi:stato44:StatoInternoHZ5:number"}
+Number StatoInternoGZ5 "Stato bit 1" {channel="modbus:data:biasi:stato44:StatoInternoGZ5:number"}
+Number StatoModoLavoroCorrenteZ5 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ6 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato6:SetTempConfortEstateZ6:number"}
+Number SetTempEconomyEstateZ6 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato6:SetTempEconomyEstateZ6:number"}
+Number SetTempConfortInvernoZ6 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato6:SetTempConfortInvernoZ6:number"}
+Number SetTempEconomyInvernoZ6 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato6:SetTempEconomyInvernoZ6:number"}
+Number SetUmiditaRelativaZ6 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato16:SetUmiditaRelativaZ6:number"}
+Number ModLavoroZ6 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato26:ModLavoroZ6:number"}
+Number SetPointTempCorrenteZ6 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato39:SetPointTempCorrenteZ6:number"}
+Number TemperaturaCorrenteZ6 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:TemperaturaCorrenteZ6:number"}
+Number UmiditaRelativaCorrenteZ6 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:UmiditaRelativaCorrenteZ6:number"}
+Switch TestinaZ6 "Bagno Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ6:switch"}
+Number StatoInternoAZ6 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato45:StatoInternoAZ6:number"}
+Switch StatoInternoDZ6 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato45:StatoInternoDZ6:switch"}
+Number StatoInternoEZ6 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato45:StatoInternoEZ6:number"}
+Number StatoInternoFZ6 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato45:StatoInternoFZ6:number"}
+Number StatoInternoHZ6 "Stato bit 0" {channel="modbus:data:biasi:stato45:StatoInternoHZ6:number"}
+Number StatoInternoGZ6 "Stato bit 1" {channel="modbus:data:biasi:stato45:StatoInternoGZ6:number"}
+Number StatoModoLavoroCorrenteZ6 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ7 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato7:SetTempConfortEstateZ7:number"}
+Number SetTempEconomyEstateZ7 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato7:SetTempEconomyEstateZ7:number"}
+Number SetTempConfortInvernoZ7 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato7:SetTempConfortInvernoZ7:number"}
+Number SetTempEconomyInvernoZ7 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato7:SetTempEconomyInvernoZ7:number"}
+Number SetUmiditaRelativaZ7 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato17:SetUmiditaRelativaZ7:number"}
+Number ModLavoroZ7 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato27:ModLavoroZ7:number"}
+Number SetPointTempCorrenteZ7 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato39:SetPointTempCorrenteZ6:number"}
+Number TemperaturaCorrenteZ7 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:TemperaturaCorrenteZ6:number"}
+Number UmiditaRelativaCorrenteZ7 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:UmiditaRelativaCorrenteZ6:number"}
+Switch TestinaZ7 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ7:switch"}
+Number StatoInternoAZ7 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato46:StatoInternoAZ7:number"}
+Switch StatoInternoDZ7 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato46:StatoInternoDZ7:switch"}
+Number StatoInternoEZ7 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato46:StatoInternoEZ7:number"}
+Number StatoInternoFZ7 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato46:StatoInternoFZ7:number"}
+Number StatoInternoHZ7 "Stato bit 0" {channel="modbus:data:biasi:stato46:StatoInternoHZ7:number"}
+Number StatoInternoGZ7 "Stato bit 1" {channel="modbus:data:biasi:stato46:StatoInternoGZ7:number"}
+Number StatoModoLavoroCorrenteZ7 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ8 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato8:SetTempConfortEstateZ8:number"}
+Number SetTempEconomyEstateZ8 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato8:SetTempEconomyEstateZ8:number"}
+Number SetTempConfortInvernoZ8 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato8:SetTempConfortInvernoZ8:number"}
+Number SetTempEconomyInvernoZ8 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato8:SetTempEconomyInvernoZ8:number"}
+Number SetUmiditaRelativaZ8 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato18:SetUmiditaRelativaZ8:number"}
+Number ModLavoroZ8 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato28:ModLavoroZ8:number"}
+Number SetPointTempCorrenteZ8 "Camera Gr. SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato39:SetPointTempCorrenteZ8:number"}
+Number TemperaturaCorrenteZ8 "Camera Gr. Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:TemperaturaCorrenteZ8:number"}
+Number UmiditaRelativaCorrenteZ8 "Camera Gr. HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:UmiditaRelativaCorrenteZ8:number"}
+Switch TestinaZ8 "Camera Gr. Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ8:switch"}
+Number StatoInternoAZ8 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato47:StatoInternoAZ8:number"}
+Switch StatoInternoDZ8 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato47:StatoInternoDZ8:switch"}
+Number StatoInternoEZ8 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato47:StatoInternoEZ8:number"}
+Number StatoInternoFZ8 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato47:StatoInternoFZ8:number"}
+Number StatoInternoHZ8 "Stato bit 0" {channel="modbus:data:biasi:stato47:StatoInternoHZ8:number"}
+Number StatoInternoGZ8 "Stato bit 1" {channel="modbus:data:biasi:stato47:StatoInternoGZ8:number"}
+Number StatoModoLavoroCorrenteZ8 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ9 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato9:SetTempConfortEstateZ9:number"}
+Number SetTempEconomyEstateZ9 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato9:SetTempEconomyEstateZ9:number"}
+Number SetTempConfortInvernoZ9 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato9:SetTempConfortInvernoZ9:number"}
+Number SetTempEconomyInvernoZ9 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato9:SetTempEconomyInvernoZ9:number"}
+Number SetUmiditaRelativaZ9 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato19:SetUmiditaRelativaZ9:number"}
+Number ModLavoroZ9 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato29:ModLavoroZ9:number"}
+Number SetPointTempCorrenteZ9 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato39:SetPointTempCorrenteZ9:number"}
+Number TemperaturaCorrenteZ9 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:TemperaturaCorrenteZ9:number"}
+Number UmiditaRelativaCorrenteZ9 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:UmiditaRelativaCorrenteZ9:number"}
+Switch TestinaZ9 "Camera Picc. Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ9:switch"}
+Number StatoInternoAZ9 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato48:StatoInternoAZ9:number"}
+Switch StatoInternoDZ9 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato48:StatoInternoDZ9:switch"}
+Number StatoInternoEZ9 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato48:StatoInternoEZ9:number"}
+Number StatoInternoFZ9 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato48:StatoInternoFZ9:number"}
+Number StatoInternoHZ9 "Stato bit 0" {channel="modbus:data:biasi:stato48:StatoInternoHZ9:number"}
+Number StatoInternoGZ9 "Stato bit 1" {channel="modbus:data:biasi:stato48:StatoInternoGZ9:number"}
+Number StatoModoLavoroCorrenteZ9 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>
+
+Number SetTempConfortEstateZ10 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato10:SetTempConfortEstateZ10:number"}
+Number SetTempEconomyEstateZ10 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato10:SetTempEconomyEstateZ10:number"}
+Number SetTempConfortInvernoZ10 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato10:SetTempConfortInvernoZ10:number"}
+Number SetTempEconomyInvernoZ10 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato10:SetTempEconomyInvernoZ10:number"}
+Number SetUmiditaRelativaZ10 "SP UR [%.1f %%]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato20:SetUmiditaRelativaZ10:number"}
+Number ModLavoroZ10 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato30:ModLavoroZ10:number"}
+Number SetPointTempCorrenteZ10 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato39:SetPointTempCorrenteZ10:number"}
+Number TemperaturaCorrenteZ10 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:TemperaturaCorrenteZ10:number"}
+Number UmiditaRelativaCorrenteZ10 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:UmiditaRelativaCorrenteZ10:number"}
+Switch TestinaZ10 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN) {channel="modbus:data:biasi:stato35:TestinaZ10:switch"}
+Number StatoInternoAZ10 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato49:StatoInternoAZ10:number"}
+Switch StatoInternoDZ10 "Stato Termostato [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato49:StatoInternoDZ10:switch"}
+Number StatoInternoEZ10 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato49:StatoInternoEZ10:number"}
+Number StatoInternoFZ10 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato49:StatoInternoFZ10:number"}
+Number StatoInternoHZ10 "Stato bit 0" {channel="modbus:data:biasi:stato49:StatoInternoHZ10:number"}
+Number StatoInternoGZ10 "Stato bit 1" {channel="modbus:data:biasi:stato49:StatoInternoGZ10:number"}
+Number StatoModoLavoroCorrenteZ10 "Stato Modo Corrente [MAP(clima5.map):%s]" <settings>

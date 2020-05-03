@@ -7,32 +7,297 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=M_AC_Power_POST_C label="Immessa in rete" visibility=[M_AC_Power_POST >= 0] labelcolor=["green"] valuecolor=["green"]
 		Default item=M_AC_Power_POST_C label="Prelevata da rete" visibility=[M_AC_Power_POST < 0] labelcolor=["red"] valuecolor=["red"]
 		Default item=AC_Power_USED
-		Default item=I_AC_VoltageAB_POST labelcolor=[>226="green",>220="orange",<220="red"] valuecolor=[>226="green",>220="orange",<220="red"]
-		Default item=M_AC_Freq_SF_
-		Default item=M_AC_Freq_
-
+		//Default item=M_AC_Current_POST
+		Default item=M_AC_Freq_POST
+		Text label=Tensioni icon="energy" {
+			Default item=I_AC_VoltageAB_POST labelcolor=[>375="green",>365="orange",<365="red"] valuecolor=[>375="green",>365="orange",<365="red"]
+			Default item=I_AC_VoltageBC_POST labelcolor=[>375="green",>365="orange",<365="red"] valuecolor=[>375="green",>365="orange",<365="red"]
+			Default item=I_AC_VoltageCA_POST labelcolor=[>375="green",>365="orange",<365="red"] valuecolor=[>375="green",>365="orange",<365="red"]
+			Default item=I_AC_VoltageAN_POST labelcolor=[>220="green",>215="orange",<215="red"] valuecolor=[>220="green",>215="orange",<215="red"]
+			Default item=I_AC_VoltageBN_POST labelcolor=[>220="green",>215="orange",<215="red"] valuecolor=[>220="green",>215="orange",<215="red"]
+			Default item=I_AC_VoltageCN_POST labelcolor=[>220="green",>215="orange",<215="red"] valuecolor=[>220="green",>215="orange",<215="red"]
+		}
+		Text label="Dati aggregati" icon=line {
+			Text label="Odierni" icon=calendar {
+				Default item=SEApi_AggregateDayProduction  //Produzione odierna
+				Default item=SEApi_AggregateDayImport //Importata odierna
+				Default item=SEApi_AggregateDayConsumption //Consumo odierno
+				Default item=SEApi_AggregateDayExport //Esportata odierna
+				Default item=SEApi_AggregateDayAutoconsumo //Autoconsumo odierno
+			}
+			Text label="Valori ultimi 7gg" icon=calendar {
+				Default item=SEApi_AggregateWeekProduction
+				Default item=SEApi_AggregateWeekImport
+				Default item=SEApi_AggregateWeekConsumption
+				Default item=SEApi_AggregateWeekExport
+				Default item=SEApi_AggregateWeekAutoconsumo
+			}
+		}
 	}
+	Frame label="Clima"	{
+		Selection item=AbilitazioneGenClima mappings=[0="DISABILITATA", 1="ABILITATA"]
+		Selection item=ImpostaStagioneCorrente mappings=[0="INVERNO", 1="ESTATE"]
+		Default item=StatoCorrenteImpianto
+		Default item=StagioneCorrenteImpianto
+		Default item=TemperaturaEsterna
+		Default item=ComandoPompa
+		Default item=ComandoValvolaDeumidificatore1
+		Default item=ComandoValvolaDeumidificatore2
+		Default item=Allarmi
 
+		Text label="Zone" icon="temperature" {
+			Text label="Rustico" icon="temperature" {
+				Selection item=ModLavoroZ1 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ1
+				Default item=SetPointTempCorrenteZ1
+				Default item=TemperaturaCorrenteZ1
+				Default item=UmiditaRelativaCorrenteZ1
+				Default item=StatoInternoAZ1
+				Text item=StatoInternoDZ1
+				Default item=StatoModoLavoroCorrenteZ1
+				Default item=StatoInternoFZ1
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ1 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ1 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ1 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ1 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ1 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Camera Rustico" icon="temperature" {
+				Selection item=ModLavoroZ2 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ2
+				Default item=SetPointTempCorrenteZ2
+				Default item=TemperaturaCorrenteZ2
+			//	Default item=UmiditaRelativaCorrenteZ2
+				Default item=StatoInternoAZ2
+				Text item=StatoInternoDZ2
+				Default item=StatoModoLavoroCorrenteZ2
+				Default item=StatoInternoFZ2
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ2 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ2 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ2 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ2 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ2 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Bagno Rustico" icon="temperature" {
+				Selection item=ModLavoroZ3 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ3
+				Default item=SetPointTempCorrenteZ3
+				Default item=TemperaturaCorrenteZ3
+			//	Default item=UmiditaRelativaCorrenteZ3
+				Default item=StatoInternoAZ3
+				Text item=StatoInternoDZ3
+				Default item=StatoModoLavoroCorrenteZ3
+				Default item=StatoInternoFZ3
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ3 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ3 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ3 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ3 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ3 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Salotto" icon="temperature" {
+				Selection item=ModLavoroZ4 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ4
+				Default item=SetPointTempCorrenteZ4
+				Default item=TemperaturaCorrenteZ4
+				Default item=UmiditaRelativaCorrenteZ4
+				Default item=StatoInternoAZ4
+				Text item=StatoInternoDZ4
+				Default item=StatoModoLavoroCorrenteZ4
+				Default item=StatoInternoFZ4
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ4 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ4 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ4 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ4 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ4 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Camera PT" icon="temperature" {
+				Selection item=ModLavoroZ5 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ5
+				Default item=SetPointTempCorrenteZ5
+				Default item=TemperaturaCorrenteZ5
+			//	Default item=UmiditaRelativaCorrenteZ5
+				Default item=StatoInternoAZ5
+				Text item=StatoInternoDZ5
+				Default item=StatoModoLavoroCorrenteZ5
+				Default item=StatoInternoFZ5
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ5 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ5 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ5 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ5 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ5 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Bagno PT" icon="temperature" {
+				Selection item=ModLavoroZ6 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ6
+				Default item=SetPointTempCorrenteZ6
+				Default item=TemperaturaCorrenteZ6
+			//	Default item=UmiditaRelativaCorrenteZ6
+				Default item=StatoInternoAZ6
+				Text item=StatoInternoDZ6
+				Default item=StatoModoLavoroCorrenteZ6
+				Default item=StatoInternoFZ6
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ6 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ6 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ6 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ6 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ6 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Cucina" icon="temperature" {
+				Selection item=ModLavoroZ7 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ7
+				Default item=SetPointTempCorrenteZ7
+				Default item=TemperaturaCorrenteZ7
+			//	Default item=UmiditaRelativaCorrenteZ7
+				Default item=StatoInternoAZ7
+				Text item=StatoInternoDZ7
+				Default item=StatoModoLavoroCorrenteZ7
+				Default item=StatoInternoFZ7
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ7 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ7 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ7 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ7 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ7 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Camera grande P1" icon="temperature" {
+				Selection item=ModLavoroZ8 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ8
+				Default item=SetPointTempCorrenteZ8
+				Default item=TemperaturaCorrenteZ8
+				Default item=UmiditaRelativaCorrenteZ8
+				Default item=StatoInternoAZ8
+				Text item=StatoInternoDZ8
+				Default item=StatoModoLavoroCorrenteZ8
+				Default item=StatoInternoFZ8
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ8 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ8 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ8 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ8 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ8 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Camera piccola P1" icon="temperature" {
+				Selection item=ModLavoroZ9 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ9
+				Default item=SetPointTempCorrenteZ9
+				Default item=TemperaturaCorrenteZ9
+			//	Default item=UmiditaRelativaCorrenteZ9
+				Default item=StatoInternoAZ9
+				Text item=StatoInternoDZ9
+				Default item=StatoModoLavoroCorrenteZ9
+				Default item=StatoInternoFZ9
+				Text label="SetPoint" icon="temperature" {
+					Setpoint item=SetTempConfortEstateZ9 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempConfortInvernoZ9 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyEstateZ9 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetTempEconomyInvernoZ9 minValue=10 maxValue=30 step=1 //Set temperatura
+					Setpoint item=SetUmiditaRelativaZ9 minValue=0 maxValue=100 step=5
+				}
+			}
+			Text label="Bagno P1" icon="temperature" {
+				Selection item=ModLavoroZ10 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
+				Text item=TestinaZ10
+				Default item=SetPointTempCorrenteZ10
+				Default item=TemperaturaCorrenteZ10
+			//	Default item=UmiditaRelativaCorrenteZ10
+				Default item=StatoInternoAZ10
+				Text item=StatoInternoDZ10
+				Default item=StatoModoLavoroCorrenteZ10
+				Default item=StatoInternoFZ10
+				Text label="SetPoint" icon="temperature" {
+				Setpoint item=SetTempConfortEstateZ10 minValue=10 maxValue=30 step=1 //Set temperatura
+				Setpoint item=SetTempConfortInvernoZ10 minValue=10 maxValue=30 step=1 //Set temperatura
+				Setpoint item=SetTempEconomyEstateZ10 minValue=10 maxValue=30 step=1 //Set temperatura
+				Setpoint item=SetTempEconomyInvernoZ10 minValue=10 maxValue=30 step=1 //Set temperatura
+				Setpoint item=SetUmiditaRelativaZ10 minValue=0 maxValue=100 step=5
+				}
+			}
+		}
+	}
 	Frame label="PixSys" {
-		Default item=pixsysIn1
-		Default item=pixsysIn2
-		Default item=pixsysIn3
-		Default item=pixsysIn4
-		Default item=pixsysIn5
-		Default item=pixsysIn6
-		Default item=pixsysIn7
-		Default item=pixsysIn8
-		Switch item=pixsysOut1
-		Switch item=pixsysOut2
-		Switch item=pixsysOut3
-		Switch item=pixsysOut4
-		Switch item=pixsysOut5
-		Switch item=pixsysOut6
-		Switch item=pixsysOut7
-		Switch item=pixsysOut8
+		Text label="In/Out" icon="switch" {
+			Default item=pixsysIn1
+			Default item=pixsysIn2
+			Default item=pixsysIn3
+			Default item=pixsysIn4
+			Default item=pixsysIn5
+			Default item=pixsysIn6
+			Default item=pixsysIn7
+			Default item=pixsysIn8
+			Switch item=pixsysOut1
+			Switch item=pixsysOut2
+			Switch item=pixsysOut3
+			Switch item=pixsysOut4
+			Switch item=pixsysOut5
+			Switch item=pixsysOut6
+			Switch item=pixsysOut7
+			Switch item=pixsysOut8
+		}
 	}
+	Frame label="Opensprinkler" {
+		Text label="Stazioni" icon="lawnmower" {
+
+			Switch item=Station01 mappings=[ON="START"] visibility=[Station01 == OFF]
+			Switch item=Station01 mappings=[OFF="STOP"] visibility=[Station01 == ON]
+			Selection item=Station01NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station01 == OFF]
+			Default item=Station01RemainingTime visibility=[Station01 == ON]
+
+			Switch item=Station02 mappings=[ON="START"] visibility=[Station02 == OFF]
+			Switch item=Station02 mappings=[OFF="STOP"] visibility=[Station02 == ON]
+			Selection item=Station02NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station02 == OFF]
+			Default item=Station02RemainingTime visibility=[Station02 == ON]
+
+			Switch item=Station03 mappings=[ON="START"] visibility=[Station03 == OFF]
+			Switch item=Station03 mappings=[OFF="STOP"] visibility=[Station03 == ON]
+			Selection item=Station03NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station03 == OFF]
+			Default item=Station03RemainingTime visibility=[Station03 == ON]
+
+			Switch item=Station04 mappings=[ON="START"] visibility=[Station04 == OFF]
+			Switch item=Station04 mappings=[OFF="STOP"] visibility=[Station04 == ON]
+			Selection item=Station04NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station04 == OFF]
+			Default item=Station04RemainingTime visibility=[Station04 == ON]
+
+			Switch item=Station05 mappings=[ON="START"] visibility=[Station05 == OFF]
+			Switch item=Station05 mappings=[OFF="STOP"] visibility=[Station05 == ON]
+			Selection item=Station05NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station05 == OFF]
+			Default item=Station05RemainingTime visibility=[Station05 == ON]
+
+			Switch item=Station06 mappings=[ON="START"] visibility=[Station06 == OFF]
+			Switch item=Station06 mappings=[OFF="STOP"] visibility=[Station06 == ON]
+			Selection item=Station06NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station06 == OFF]
+			Default item=Station06RemainingTime visibility=[Station06 == ON]
+
+			Switch item=Station07 mappings=[ON="START"] visibility=[Station07 == OFF]
+			Switch item=Station07 mappings=[OFF="STOP"] visibility=[Station07 == ON]
+			Selection item=Station07NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station07 == OFF]
+			Default item=Station07RemainingTime visibility=[Station07 == ON]
+
+			Switch item=Station08 mappings=[ON="START"] visibility=[Station08 == OFF]
+			Switch item=Station08 mappings=[OFF="STOP"] visibility=[Station08 == ON]
+			Selection item=Station08NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station08 == OFF]
+			Default item=Station08RemainingTime visibility=[Station08 == ON]
+		}
+	}	
 	Frame label="System" {
-		Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", PowerOff="Shut down", Reboot="Reboot"]
+	//	Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", PowerOff="Shut down", Reboot="Reboot"]
+		Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", Reboot="Reboot"]
 		Selection item=cm3home label="CM3-Home" mappings=[PowerOff="Shut down", Reboot="Reboot"]
+		Text item=biasiregdin valuecolor=[ON="green",OFF="red"]
+		Text item=solaredge valuecolor=[ON="green",OFF="red"]
+		Text item=opensprinkler valuecolor=[ON="green",OFF="red"]
 	}
 }

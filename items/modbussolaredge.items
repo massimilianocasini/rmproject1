@@ -1,0 +1,68 @@
+Group gFV
+Group gFVI
+Group gFVM
+Group gFVSE //gruppo Solaredge Cloud
+Group gInfluxdb
+
+// Inverter Produzione corrente
+Number I_AC_Current "Corrente totale prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_Current:number"}
+Number I_AC_CurrentA "Corrente totale phase A prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentA:number"}
+Number I_AC_CurrentB "Corrente totale phase B prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentB:number"}
+Number I_AC_CurrentC "Corrente totale phase C prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentC:number"}
+Number I_AC_CurrentSF "Scale factor corrente prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentSF:number"}
+Number I_AC_Current_POST "Inverter Produzione Corrente [%.0f A]" (gFV,gFVI, gInfluxdb)
+
+//Inverter Tensione
+Number I_AC_VoltageAB "Tensione faseAB" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageAB:number"}
+Number I_AC_VoltageBC "Tensione faseBC" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageBC:number"}
+Number I_AC_VoltageCA "Tensione faseCA" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageCA:number"}
+Number I_AC_VoltageAN "Tensione faseAN" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageAN:number"}
+Number I_AC_VoltageBN "Tensione faseBN" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageBN:number"}
+Number I_AC_VoltageCN "Tensione faseCN" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageCN:number"}
+Number I_AC_VoltageSF "Tensione scale factor" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageSF:number"}
+Number I_AC_VoltageAB_POST "Inverter Tensione AB [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+Number I_AC_VoltageBC_POST "Inverter Tensione BC [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+Number I_AC_VoltageCA_POST "Inverter Tensione CA [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+Number I_AC_VoltageAN_POST "Inverter Tensione AN [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+Number I_AC_VoltageBN_POST "Inverter Tensione BN [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+Number I_AC_VoltageCN_POST "Inverter Tensione CN [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+
+//Inverter energia prodotta
+Number I_AC_Power "Energia prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_Power:number"}
+Number I_AC_PowerSF "Energia prodotta scale factor" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_PowerSF:number"}
+Number I_AC_Power_POST "Energia prodotta [%.2f kW]" <solarplant> (gFV,gFVI, gInfluxdb) 
+
+//Inverter fattore di potenza
+Number I_AC_PF (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_PF:number"}
+Number I_AC_PF_SF (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_PF_SF:number"}
+Number I_AC_PF_POST "Inverter fattore di potenza [%.0f cosfi]" (gFV,gFVI, gInfluxdb)
+
+//Inverter tensione sui pannelli
+Number I_DC_Voltage "I-DC Voltage [REGEX(s/^6553.$/0/g):%s]" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_DC_Voltage:number"}
+Number I_DC_VoltageSF "I-DC Voltage Scale factor" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_DC_VoltageSF:number"}
+Number I_DC_Voltage_POST "Inverter tensione sui pannelli [%.0f V]" (gFV,gFVI, gInfluxdb)
+
+// Modulo consumo di corrente
+Number M_AC_Current (gFV,gFVM) {channel="modbus:data:solaredge:current:M_AC_Current:number"}
+Number M_AC_CurrentSF (gFV,gFVM) {channel="modbus:data:solaredge:current:M_AC_CurrentSF:number"}
+Number M_AC_Current_POST "Corrente richiesta [%.1f A]" <battery> (gFV,gFVM, gInfluxdb) 
+
+// Modulo frequenza rilevata
+Number M_AC_Freq  (gFV,gFVM) {channel="modbus:data:solaredge:frequency:M_AC_Freq:number"}
+Number M_AC_FreqSF (gFV,gFVM) {channel="modbus:data:solaredge:frequency:M_AC_FreqSF:number"}
+Number M_AC_Freq_POST "Frequenza di rete [%.0f Hz]" <flow> (gFV,gFVM, gInfluxdb)
+
+// Modulo potenza richiesta/prodotta
+Number M_AC_Power (gFV,gFVM) {channel="modbus:data:solaredge:realPower:M_AC_Power:number"}
+Number M_AC_Power_POST_C "[%.2f kW]" <energy> 
+Number M_AC_PowerSF (gFV,gFVM) {channel="modbus:data:solaredge:realPower:M_AC_PowerSF:number"} 
+Number M_AC_Power_POST "Energia prodotta [%.2f kW]" <energy> (gFV,gFVM, gInfluxdb)
+Number AC_Power_USED "Potenza assorbita [%.2f kW]" <fan> (gFV,gFVM, gInfluxdb) 
+
+// // Modulo 
+Number M_AC_PF "Average Power Factor" (gFV,gFVM) {channel="modbus:data:solaredge:powerFactor:M_AC_PF:number"}
+Number M_AC_PF_A "Average Power Factor A" (gFV,gFVM) {channel="modbus:data:solaredge:powerFactor:M_AC_PF_A:number"}
+Number M_AC_PF_B "Average Power Factor B" (gFV,gFVM) {channel="modbus:data:solaredge:powerFactor:M_AC_PF_B:number"}
+Number M_AC_PF_C "Average Power Factor C" (gFV,gFVM) {channel="modbus:data:solaredge:powerFactor:M_AC_PF_C:number"}
+Number M_AC_PF_SF "Average Power Factor SF" (gFV,gFVM) {channel="modbus:data:solaredge:powerFactor:M_AC_PF_SF:number"}
+Number M_AC_PF_POST "Average Power Factor [%.2f kW]" <fan> (gFV,gFVM, gInfluxdb)

@@ -1,0 +1,1 @@
+solaredge:generic:SEApi [tokenOrApiKey="cGF0cml6aW8ucGVycm9uZUBnbWFpbC5jb206MzcyOTA2OTI2NDk0NjpiODVkZGU4M2Y4MWRjYmE2NDFkNzgyM2ZkMTUwNzU5Yw", solarId="1341087", meterInstalled=true, usePrivateApi=true, liveDataPollingInterval=15, aggregateDataPollingInterval=30 ]

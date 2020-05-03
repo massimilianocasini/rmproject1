@@ -2,11 +2,11 @@
 	var res = i.split(" ");
 	//Check requested scale
 	if(res[1] == "ACP"){
-		if (I_AC_Power_SF_.state == "-1") {
+		if (I_AC_Power_SF.state == "-1") {
 		var nconv = (res[0] / 10);
 		var scale = " W";
 		}
-		if (I_AC_Power_SF_.state == "-2") {
+		if (I_AC_Power_SF.state == "-2") {
 		var nconv = (res[0] / 100);
 		var scale = " W";
 		}

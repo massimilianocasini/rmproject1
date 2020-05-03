@@ -1,0 +1,32 @@
+Group gStations
+Switch Station01 "Stazione01" <switch> (gStations) { channel="opensprinkler:station:http:01:stationState" }
+Number:Time Station01RemainingTime "Stazione01 tempo rimasto" <time> { channel="opensprinkler:station:http:01:remainingWaterTime" }
+Number:Time Station01NextDuration "Stazione01 set tempo" <time> { channel="opensprinkler:station:http:01:nextDuration" }
+
+Switch Station02 "Stazione02" <switch> (gStations) { channel="opensprinkler:station:http:02:stationState" }
+Number:Time Station02RemainingTime "Stazione02 tempo rimasto" <time> { channel="opensprinkler:station:http:02:remainingWaterTime" }
+Number:Time Station02NextDuration "Stazione02set tempo" <time> { channel="opensprinkler:station:http:02:nextDuration" }
+
+Switch Station03 "Stazione03" <switch> (gStations) { channel="opensprinkler:station:http:03:stationState" }
+Number:Time Station03RemainingTime "Stazione03 tempo rimasto" <time>  { channel="opensprinkler:station:http:03:remainingWaterTime" }
+Number:Time Station03NextDuration "Stazione03 set tempo" <time> { channel="opensprinkler:station:http:03:nextDuration" }
+
+Switch Station04 "Stazione04" <switch> (gStations) { channel="opensprinkler:station:http:04:stationState" }
+Number:Time Station04RemainingTime "Stazione04 tempo rimasto" <time> { channel="opensprinkler:station:http:04:remainingWaterTime" }
+Number:Time Station04NextDuration "Stazione04 set tempo" <time> { channel="opensprinkler:station:http:04:nextDuration" }
+
+Switch Station05 "Stazione05" <switch> (gStations) { channel="opensprinkler:station:http:05:stationState" }
+Number:Time Station05RemainingTime "Stazione05 tempo rimasto" <time> { channel="opensprinkler:station:http:05:remainingWaterTime" }
+Number:Time Station05NextDuration "Stazione05 set tempo" <time> { channel="opensprinkler:station:http:05:nextDuration" }
+
+Switch Station06 "Stazione06" <switch> (gStations) { channel="opensprinkler:station:http:06:stationState" }
+Number:Time Station06RemainingTime "Stazione06 tempo rimasto" <time> { channel="opensprinkler:station:http:06:remainingWaterTime" }
+Number:Time Station06NextDuration "Stazione06 set tempo" <time> { channel="opensprinkler:station:http:06:nextDuration" }
+
+Switch Station07 "Stazione07" <switch> (gStations) { channel="opensprinkler:station:http:07:stationState" }
+Number:Time Station07RemainingTime "Stazione07 tempo rimasto" <time> { channel="opensprinkler:station:http:07:remainingWaterTime" }
+Number:Time Station07NextDuration "Stazione07 set tempo" <time> { channel="opensprinkler:station:http:07:nextDuration" }
+
+Switch Station08 "Stazione08" <switch> (gStations) { channel="opensprinkler:station:http:08:stationState" }
+Number:Time Station08RemainingTime "Stazione08 tempo rimasto" <time> { channel="opensprinkler:station:http:08:remainingWaterTime" }
+Number:Time Station08NextDuration "Stazione08 set tempo" <time> { channel="opensprinkler:station:http:08:nextDuration" }
