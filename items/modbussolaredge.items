@@ -10,7 +10,7 @@ Number I_AC_CurrentA "Corrente totale phase A prodotta" (gFV,gFVI) {channel="mod
 Number I_AC_CurrentB "Corrente totale phase B prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentB:number"}
 Number I_AC_CurrentC "Corrente totale phase C prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentC:number"}
 Number I_AC_CurrentSF "Scale factor corrente prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_CurrentSF:number"}
-Number I_AC_Current_POST "Inverter Produzione Corrente [%.0f A]" (gFV,gFVI, gInfluxdb)
+Number I_AC_Current_POST "Inverter Produzione Corrente [%.0f A]" (gFV,gFVI)
 
 //Inverter Tensione
 Number I_AC_VoltageAB "Tensione faseAB" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageAB:number"}
@@ -20,12 +20,12 @@ Number I_AC_VoltageAN "Tensione faseAN" (gFV,gFVI) {channel="modbus:data:solared
 Number I_AC_VoltageBN "Tensione faseBN" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageBN:number"}
 Number I_AC_VoltageCN "Tensione faseCN" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageCN:number"}
 Number I_AC_VoltageSF "Tensione scale factor" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_VoltageSF:number"}
-Number I_AC_VoltageAB_POST "Inverter Tensione AB [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
-Number I_AC_VoltageBC_POST "Inverter Tensione BC [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
-Number I_AC_VoltageCA_POST "Inverter Tensione CA [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
-Number I_AC_VoltageAN_POST "Inverter Tensione AN [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
-Number I_AC_VoltageBN_POST "Inverter Tensione BN [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
-Number I_AC_VoltageCN_POST "Inverter Tensione CN [%.0f V]" <energy> (gFV,gFVI, gInfluxdb) 
+Number I_AC_VoltageAB_POST "Inverter Tensione AB [%.0f V]" <energy> (gFV,gFVI) 
+Number I_AC_VoltageBC_POST "Inverter Tensione BC [%.0f V]" <energy> (gFV,gFVI) 
+Number I_AC_VoltageCA_POST "Inverter Tensione CA [%.0f V]" <energy> (gFV,gFVI) 
+Number I_AC_VoltageAN_POST "Inverter Tensione AN [%.0f V]" <energy> (gFV,gFVI) 
+Number I_AC_VoltageBN_POST "Inverter Tensione BN [%.0f V]" <energy> (gFV,gFVI) 
+Number I_AC_VoltageCN_POST "Inverter Tensione CN [%.0f V]" <energy> (gFV,gFVI) 
 
 //Inverter energia prodotta
 Number I_AC_Power "Energia prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_Power:number"}

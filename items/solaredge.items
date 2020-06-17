@@ -6,12 +6,12 @@ Number:Power    SEApi_Live_Import "Prelievo da ACEA live [%.1f kW]" <energy>  (g
 Number:Power    SEApi_Live_Export "Immesso in ACEA live [%.1f kW]" <price> (gFVSE){channel="solaredge:generic:SEApi:live#export"}
 String          SEApi_Live_GridStatus "Stato attuale rete" (gFVSE) {channel="solaredge:generic:SEApi:live#grid_status"}
 
-Number:Energy   SEApi_AggregateDayProduction "Produzione odierna [%.0f kWh]" <solarplant> (gFVSE)  {channel="solaredge:generic:SEApi:aggregate_day#production"}
-Number:Energy   SEApi_AggregateDayConsumption "Consumo odierno [%.0f kWh]" <fan>  (gFVSE)  {channel="solaredge:generic:SEApi:aggregate_day#consumption"}
+Number:Energy   SEApi_AggregateDayProduction "Produzione odierna [%.0f kWh]" <solarplant> (gFVSE, gInfluxdb)  {channel="solaredge:generic:SEApi:aggregate_day#production"}
+Number:Energy   SEApi_AggregateDayConsumption "Consumo odierno [%.0f kWh]" <fan>  (gFVSE,gInfluxdb)  {channel="solaredge:generic:SEApi:aggregate_day#consumption"}
 Number:Energy   SEApi_AggregateDayPerAutoconsumo "Autoconsumo odierno [%.1f kWh]" <price> (gFVSE, gInfluxdb) {channel="solaredge:generic:SEApi:aggregate_day#selfConsumptionForConsumption"}
-Number:Dimensionless   SEApi_AggregateDayAutoconsumo "Autoconsumo odierno [%.0f %unit%]" <price> (gFVSE) {channel="solaredge:generic:SEApi:aggregate_day#selfConsumptionCoverage"}
-Number:Energy   SEApi_AggregateDayImport "Prelievo odierno da rete [%.0f kWh]" <energy> (gFVSE) {channel="solaredge:generic:SEApi:aggregate_day#import"}
-Number:Energy   SEApi_AggregateDayExport "Immissione in rete odierna [%.0f kWh]" <price> (gFVSE) {channel="solaredge:generic:SEApi:aggregate_day#export"}
+Number:Dimensionless   SEApi_AggregateDayAutoconsumo "Autoconsumo odierno [%.0f %unit%]" <price> (gFVSE, gInfluxdb) {channel="solaredge:generic:SEApi:aggregate_day#selfConsumptionCoverage"}
+Number:Energy   SEApi_AggregateDayImport "Prelievo odierno da rete [%.0f kWh]" <energy> (gFVSE, gInfluxdb) {channel="solaredge:generic:SEApi:aggregate_day#import"}
+Number:Energy   SEApi_AggregateDayExport "Immissione in rete odierna [%.0f kWh]" <price> (gFVSE, gInfluxdb) {channel="solaredge:generic:SEApi:aggregate_day#export"}
 
 Number:Energy   SEApi_AggregateWeekProduction  "Produzione ultimi 7gg [%.0f kWh]" <solarplant> (gFVSE)     {channel="solaredge:generic:SEApi:aggregate_week#production"}
 Number:Energy   SEApi_AggregateWeekConsumption  "Consumo ultimi 7gg [%.0f kWh]" <fan>  (gFVSE)     {channel="solaredge:generic:SEApi:aggregate_week#consumption"}
