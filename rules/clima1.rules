@@ -78,7 +78,7 @@ when
     Item StatoInternoGZ5 received update
 then
     if (StatoInternoHZ5.state == 0 && StatoInternoGZ5.state == 0) {
-        StatoModoLavoroCorrenteZ4.postUpdate(0)
+        StatoModoLavoroCorrenteZ5.postUpdate(0)
     }	
     else if (StatoInternoHZ5.state == 1 && StatoInternoGZ5.state == 0) {
         StatoModoLavoroCorrenteZ5.postUpdate(1)
@@ -96,7 +96,7 @@ when
     Item StatoInternoGZ6 received update
 then
     if (StatoInternoHZ6.state == 0 && StatoInternoGZ6.state == 0) {
-        StatoModoLavoroCorrenteZ4.postUpdate(0)
+        StatoModoLavoroCorrenteZ6.postUpdate(0)
     }	
     else if (StatoInternoHZ6.state == 1 && StatoInternoGZ6.state == 0) {
         StatoModoLavoroCorrenteZ6.postUpdate(1)
@@ -114,7 +114,7 @@ when
     Item StatoInternoGZ7 received update
 then
     if (StatoInternoHZ7.state == 0 && StatoInternoGZ7.state == 0) {
-        StatoModoLavoroCorrenteZ4.postUpdate(0)
+        StatoModoLavoroCorrenteZ7.postUpdate(0)
     }	
     else if (StatoInternoHZ7.state == 1 && StatoInternoGZ7.state == 0) {
         StatoModoLavoroCorrenteZ7.postUpdate(1)
@@ -132,7 +132,7 @@ when
     Item StatoInternoGZ8 received update
 then
     if (StatoInternoHZ8.state == 0 && StatoInternoGZ8.state == 0) {
-        StatoModoLavoroCorrenteZ4.postUpdate(0)
+        StatoModoLavoroCorrenteZ8.postUpdate(0)
     }	
     else if (StatoInternoHZ8.state == 1 && StatoInternoGZ8.state == 0) {
         StatoModoLavoroCorrenteZ8.postUpdate(1)
@@ -150,7 +150,7 @@ when
     Item StatoInternoGZ9 received update
 then
     if (StatoInternoHZ9.state == 0 && StatoInternoGZ9.state == 0) {
-        StatoModoLavoroCorrenteZ4.postUpdate(0)
+        StatoModoLavoroCorrenteZ9.postUpdate(0)
     }	
     else if (StatoInternoHZ9.state == 1 && StatoInternoGZ9.state == 0) {
         StatoModoLavoroCorrenteZ9.postUpdate(1)
@@ -168,7 +168,7 @@ when
     Item StatoInternoGZ10 received update
 then
     if (StatoInternoHZ10.state == 0 && StatoInternoGZ10.state == 0) {
-        StatoModoLavoroCorrenteZ4.postUpdate(0)
+        StatoModoLavoroCorrenteZ10.postUpdate(0)
     }	
     else if (StatoInternoHZ10.state == 1 && StatoInternoGZ10.state == 0) {
         StatoModoLavoroCorrenteZ10.postUpdate(1)
