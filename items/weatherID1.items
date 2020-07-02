@@ -10,7 +10,7 @@ String   CommonId         "Common Id[%s]"  {weather="locationId=Id1, type=condit
 // temperature
 //Number   Temperature      "Temperature [%.2f °C]"   <temperature>  (gWeather)  {weather="locationId=Id1, type=temperature, property=current"}
 Number   Temperatura_esterna   "Temperatura esterna [%.0f °C]" <temperature> (gWeather, gInfluxdb)  {weather="locationId=Id1, type=temperature, property=current"}
-Number   Temp_Feel        "Temperature percepita [%.0f °C]"<temperature> (gWeather) {weather="locationId=Id1, type=temperature, property=feel"}
+Number   Temp_Feel        "Temperature percepita [%.0f °C]"<temperature> (gWeather, gInfluxdb) {weather="locationId=Id1, type=temperature, property=feel"}
 Number   Temp_Dewpoint    "Temperatura di rugiada [%.0f °C]"  <temperature>   (gWeather, gInfluxdb)   {weather="locationId=Id1, type=temperature, property=dewpoint"}
 
 // min and max values only available in forecasts
