@@ -42,11 +42,10 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=TemperaturaEsterna
 		Default item=ComandoPompa
 		Default item=ComandoValvolaDeumidificatore1
-		Default item=ComandoValvolaDeumidificatore2
 		Default item=Allarmi
 
 		Text label="Zone" icon="temperature" {
-			Text label="Rustico" icon="temperature" {
+			Text label="Sala Hobby" icon="temperature" {
 				Selection item=ModLavoroZ1 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
 				Text item=TestinaZ1
 				Default item=SetPointTempCorrenteZ1
@@ -64,7 +63,7 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetUmiditaRelativaZ1 minValue=0 maxValue=100 step=5
 				}
 			}
-			Text label="Camera Rustico" icon="temperature" {
+			Text label="Camera Interrato" icon="temperature" {
 				Selection item=ModLavoroZ2 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
 				Text item=TestinaZ2
 				Default item=SetPointTempCorrenteZ2
@@ -79,10 +78,9 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetTempConfortInvernoZ2 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyEstateZ2 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyInvernoZ2 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetUmiditaRelativaZ2 minValue=0 maxValue=100 step=5
 				}
 			}
-			Text label="Bagno Rustico" icon="temperature" {
+			Text label="Bagno Interrato" icon="temperature" {
 				Selection item=ModLavoroZ3 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
 				Text item=TestinaZ3
 				Default item=SetPointTempCorrenteZ3
@@ -97,7 +95,6 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetTempConfortInvernoZ3 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyEstateZ3 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyInvernoZ3 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetUmiditaRelativaZ3 minValue=0 maxValue=100 step=5
 				}
 			}
 			Text label="Salotto" icon="temperature" {
@@ -132,8 +129,7 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetTempConfortEstateZ5 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ5 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyEstateZ5 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetTempEconomyInvernoZ5 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetUmiditaRelativaZ5 minValue=0 maxValue=100 step=5
+					Setpoint item=SetTempEconomyInvernoZ5 minValue=10 maxValue=30 step=1 //Set temperatura	
 				}
 			}
 			Text label="Bagno PT" icon="temperature" {
@@ -151,7 +147,6 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetTempConfortInvernoZ6 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyEstateZ6 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyInvernoZ6 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetUmiditaRelativaZ6 minValue=0 maxValue=100 step=5
 				}
 			}
 			Text label="Cucina" icon="temperature" {
@@ -169,10 +164,9 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetTempConfortInvernoZ7 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyEstateZ7 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyInvernoZ7 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetUmiditaRelativaZ7 minValue=0 maxValue=100 step=5
 				}
 			}
-			Text label="Camera grande P1" icon="temperature" {
+			Text label="Camera Bimbe" icon="temperature" {
 				Selection item=ModLavoroZ8 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
 				Text item=TestinaZ8
 				Default item=SetPointTempCorrenteZ8
@@ -190,7 +184,7 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetUmiditaRelativaZ8 minValue=0 maxValue=100 step=5
 				}
 			}
-			Text label="Camera piccola P1" icon="temperature" {
+			Text label="Camera Lele" icon="temperature" {
 				Selection item=ModLavoroZ9 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
 				Text item=TestinaZ9
 				Default item=SetPointTempCorrenteZ9
@@ -205,10 +199,9 @@ sitemap default label="Benvenuto a Casa" {
 					Setpoint item=SetTempConfortInvernoZ9 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyEstateZ9 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempEconomyInvernoZ9 minValue=10 maxValue=30 step=1 //Set temperatura
-					Setpoint item=SetUmiditaRelativaZ9 minValue=0 maxValue=100 step=5
 				}
 			}
-			Text label="Bagno P1" icon="temperature" {
+			Text label="Bagno Mansarda" icon="temperature" {
 				Selection item=ModLavoroZ10 mappings=[0="AUTO", 1="OFF/Antigelo", 2="ECONOMY", 3="COMFORT"]
 				Text item=TestinaZ10
 				Default item=SetPointTempCorrenteZ10
@@ -223,7 +216,6 @@ sitemap default label="Benvenuto a Casa" {
 				Setpoint item=SetTempConfortInvernoZ10 minValue=10 maxValue=30 step=1 //Set temperatura
 				Setpoint item=SetTempEconomyEstateZ10 minValue=10 maxValue=30 step=1 //Set temperatura
 				Setpoint item=SetTempEconomyInvernoZ10 minValue=10 maxValue=30 step=1 //Set temperatura
-				Setpoint item=SetUmiditaRelativaZ10 minValue=0 maxValue=100 step=5
 				}
 			}
 		}
