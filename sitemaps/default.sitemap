@@ -240,7 +240,11 @@ sitemap default label="Benvenuto a Casa" {
 			Switch item=pixsysOut8
 		}
 	}
-	Frame label="Opensprinkler" {
+	Frame label="Irrigazione" {
+		Text label="Cisterna" icon="switch" {
+			Default item=pixsysIn1
+			Switch item=pixsysOut1
+		}
 		Text label="Stazioni" icon="lawnmower" {
 
 			Switch item=Station01 mappings=[ON="START"] visibility=[Station01 == OFF]
