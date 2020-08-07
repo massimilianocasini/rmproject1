@@ -222,9 +222,9 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	
 	Frame label="Irrigazione" {
-		Text label="Cisterna" icon="switch" {
-			Default item=pixsysIn1
-			Switch item=pixsysOut1
+		Text label="Cisterna" icon="tank_level" {
+			Default item=pixsysIn1 icon="tank_level"
+			Default item=pixsysOut1
 			Switch item=AUTO_MANUAL_TANKS_FILLING
 			Setpoint item=manual_time_filling minValue=5 maxValue=30 step=5 
 		}
