@@ -18,7 +18,7 @@ Number SetPointTempCorrenteZ1 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {ch
 Number TemperaturaCorrenteZ1 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ1:number"}
 Number UmiditaRelativaCorrenteZ1 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ1:number"}
 Switch TestinaZ1 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato35:TestinaZ1:switch"}
-Number StatoInternoAZ1 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoAZ1:number"}
+Number StatoInternoAZ1 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato40:StatoInternoAZ1:number"}
 Switch StatoInternoDZ1 "Stato Impianto [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoDZ1:switch"}
 Number StatoInternoEZ1 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoEZ1:number"}
 Number StatoInternoFZ1 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato40:StatoInternoFZ1:number"}
@@ -67,7 +67,7 @@ Number SetPointTempCorrenteZ4 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {ch
 Number TemperaturaCorrenteZ4 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:TemperaturaCorrenteZ4:number"}
 Number UmiditaRelativaCorrenteZ4 "HR Corrente [%.1f %%]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato38:UmiditaRelativaCorrenteZ4:number"}
 Switch TestinaZ4 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato35:TestinaZ4:switch"}
-Number StatoInternoAZ4 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoAZ4:number"}
+Number StatoInternoAZ4 "Richiesta deumidificazione [MAP(clima4.map):%s]" <humidity> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato43:StatoInternoAZ4:number"}
 Switch StatoInternoDZ4 "Stato Impianto [MAP(clima6.map):%s]" <switch> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato43:StatoInternoDZ4:switch"}
 Number StatoInternoEZ4 "Condizione di formazione condensa [MAP(clima4.map):%s]" <flow> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoEZ4:number"}
 Number StatoInternoFZ4 "Forzatura del modo di lavoro presente [MAP(clima4.map):%s]" <lock> (gRDIN) {channel="modbus:data:biasi:stato43:StatoInternoFZ4:number"}
