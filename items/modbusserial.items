@@ -10,7 +10,7 @@ Contact pixsysIn6 "In6" (gAll, gPixsysIn, gInfluxdb)
 Contact pixsysIn7 "In7" (gAll, gPixsysIn, gInfluxdb)
 Contact pixsysIn8 "In8" (gAll, gPixsysIn, gInfluxdb)
 
-Switch pixsysOut1 "Valvola Riemp. Cisterna" (gAll, gPixsysOut, gInfluxdb)
+Switch pixsysOut1 "Valvola Riemp. Cisterna [%s]" <cistern> (gAll, gPixsysOut, gInfluxdb)
 Switch pixsysOut2 "Out2" (gAll, gPixsysOut, gInfluxdb)
 Switch pixsysOut3 "Out3" (gAll, gPixsysOut, gInfluxdb)
 Switch pixsysOut4 "Out4" (gAll, gPixsysOut, gInfluxdb)
