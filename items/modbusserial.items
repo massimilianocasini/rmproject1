@@ -2,7 +2,7 @@ Group gAll
 Group gPixsysIn
 Group gPixsysOut
 Contact pixsysIn1 "Livello Cisterna [MAP(pixsys.map):%s]" (gAll, gPixsysIn, gInfluxdb)
-Contact pixsysIn2 "In2" (gAll, gPixsysIn, gInfluxdb)
+Contact pixsysIn2 "In2"  (gAll, gPixsysIn, gInfluxdb)
 Contact pixsysIn3 "In3" (gAll, gPixsysIn, gInfluxdb)
 Contact pixsysIn4 "In4" (gAll, gPixsysIn, gInfluxdb)
 Contact pixsysIn5 "In5" (gAll, gPixsysIn, gInfluxdb)
