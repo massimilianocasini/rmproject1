@@ -9,9 +9,9 @@ DateTime LastUpdate       "Last update [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   (gWeat
 String   CommonId         "Common Id[%s]"  {weather="locationId=Id1, type=condition, property=commonId"}
 // temperature
 //Number   Temperature      "Temperature [%.2f °C]"   <temperature>  (gWeather)  {weather="locationId=Id1, type=temperature, property=current"}
-Number   Temperatura_esterna   "Temperatura esterna [%.0f °C]" <temperature> (gWeather, gInfluxdb)  {weather="locationId=Id1, type=temperature, property=current"}
-Number   Temp_Feel        "Temperature percepita [%.0f °C]"<temperature> (gWeather, gInfluxdb) {weather="locationId=Id1, type=temperature, property=feel"}
-Number   Temp_Dewpoint    "Temperatura di rugiada [%.0f °C]"  <temperature>   (gWeather, gInfluxdb)   {weather="locationId=Id1, type=temperature, property=dewpoint"}
+Number   Temperatura_esterna   "Temperatura esterna [%.1f °C]" <temperature> (gWeather, gInfluxdb)  {weather="locationId=Id1, type=temperature, property=current"}
+Number   Temp_Feel        "Temperature percepita [%.1f °C]"<temperature> (gWeather, gInfluxdb) {weather="locationId=Id1, type=temperature, property=feel"}
+Number   Temp_Dewpoint    "Temperatura di rugiada [%.1f °C]"  <temperature>   (gWeather, gInfluxdb)   {weather="locationId=Id1, type=temperature, property=dewpoint"}
 
 // min and max values only available in forecasts
 Number   Temp_Min         "Temperature min [%.0f °C]" <temperature> (gWeather)  {weather="locationId=Id1, forecast=0, type=temperature, property=min"}
