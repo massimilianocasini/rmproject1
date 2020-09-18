@@ -37,6 +37,11 @@ sitemap default label="Benvenuto a Casa" {
 			}
 		}
 	}
+	Frame label="Controllo Umidità"	{
+		Default item=UmiditaRelativaCorrenteZ1
+		Default item=UmiditaRelativaCorrenteZ4
+		Default item=UmiditaRelativaCorrenteZ8
+		}
 	Frame label="Clima"	{
 		Selection item=AbilitazioneGenClima mappings=[0="DISABILITATA", 1="ABILITATA"]
 		Selection item=ImpostaStagioneCorrente mappings=[0="INVERNO", 1="ESTATE"]
