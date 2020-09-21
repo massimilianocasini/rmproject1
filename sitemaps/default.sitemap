@@ -53,14 +53,14 @@ sitemap default label="Benvenuto a Casa" {
 		Selection item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[0="OFF", 1="ON"]
 		}		
 		Text label="Stati"   {
-		Text Item=VMC_Presenza_Allarme_IS0
-		Text Item=VMC_Richiesta_acqua_Da_Impianto_IS19
-		Text Item=VMC_Richiesta_Deumidifica_IS20
-		Text Item=VMC_Richiesta_Raffreddamento_IS21
-		Text Item=VMC_Richiesta_Riscaldamento_IS22
-		Text Item=VMC_Set_Ricambio_Effettivo_IR22
-		Text Item=VMC_Set_Temperatura_Effettivo_IR20
-		Text Item=VMC_Set_Umidita_Effettivo_IR21
+		Text item=VMC_Presenza_Allarme_IS0
+		Text item=VMC_Richiesta_acqua_Da_Impianto_IS19
+		Text item=VMC_Richiesta_Deumidifica_IS20
+		Text item=VMC_Richiesta_Raffreddamento_IS21
+		Text item=VMC_Richiesta_Riscaldamento_IS22
+		Text item=VMC_Set_Ricambio_Effettivo_IR22
+		Text item=VMC_Set_Temperatura_Effettivo_IR20
+		Text item=VMC_Set_Umidita_Effettivo_IR21
 		}
 				}
 	Frame label="Controllo Umidità"	{
