@@ -37,6 +37,33 @@ sitemap default label="Benvenuto a Casa" {
 			}
 		}
 	}
+	
+	Frame label="VMC"	{
+
+		Selection item=VMC_ON_OFF_CS0 mappings=[0="OFF", 1="ON"]
+		Selection item=VMC_Stagione_CS1 mappings=[0="INVERNO", 1="ESTATE"]
+		Setpoint item=VMC_Set_Ricambio_HR2 minValue=1 maxValue=5 step=1
+		Switch item=pixsysOut2
+		Text label="Forzature"	{
+		Selection item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[0="OFF", 1="ON"]
+		Selection item=VMC_Forzatura_Deumidifica_CS15 mappings=[0="OFF", 1="ON"]
+		Selection item= VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[0="OFF", 1="ON"]
+		Selection item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[0="OFF", 1="ON"]
+		Selection item=VMC_Forzatura_Raffreddamento_CS13 mappings=[0="OFF", 1="ON"]
+		Selection item=VMC_Forzatura_Riscaldamento_CS12 mappings=[0="OFF", 1="ON"]
+		VMC_Richiesta_Ventilazione_Ricircolo_CS16
+		}		
+		Text label="Stati"   {
+		Text item=VMC_Presenza_Allarme_IS0
+		Text Item=VMC_Richiesta_acqua_Da_Impianto_IS19
+		Text Item=VMC_Richiesta_Deumidifica_IS20
+		Text Item=VMC_Richiesta_Raffreddamento_IS21
+		Text Item=VMC_Richiesta_Riscaldamento_IS22
+		Text Item=VMC_Set_Ricambio_Effettivo_IR22
+		Text Item=VMC_Set_Temperatura_Effettivo_IR20
+		Text Item=VMC_Set_Umidita_Effettivo_IR21
+		}
+				}
 	Frame label="Controllo Umidità"	{
 		Default item=UmiditaRelativaCorrenteZ1
 		Default item=UmiditaRelativaCorrenteZ4
@@ -288,7 +315,6 @@ sitemap default label="Benvenuto a Casa" {
 			Default item=pixsysIn6
 			Default item=pixsysIn7
 			Default item=pixsysIn8
-			Switch item=pixsysOut2
 			Switch item=pixsysOut3
 			Switch item=pixsysOut4
 			Switch item=pixsysOut5
