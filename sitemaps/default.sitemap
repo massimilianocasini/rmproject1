@@ -51,7 +51,7 @@ sitemap default label="Benvenuto a Casa" {
 		Selection item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[0="OFF", 1="ON"]
 		Selection item=VMC_Forzatura_Raffreddamento_CS13 mappings=[0="OFF", 1="ON"]
 		Selection item=VMC_Forzatura_Riscaldamento_CS12 mappings=[0="OFF", 1="ON"]
-		VMC_Richiesta_Ventilazione_Ricircolo_CS16
+		Selection item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[0="OFF", 1="ON"]
 		}		
 		Text label="Stati"   {
 		Text item=VMC_Presenza_Allarme_IS0
