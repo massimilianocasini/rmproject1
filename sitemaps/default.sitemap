@@ -39,7 +39,6 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	
 	Frame label="VMC"	{
-
 		Selection item=VMC_ON_OFF_CS0 mappings=[0="OFF", 1="ON"]
 		Selection item=VMC_Stagione_CS1 mappings=[0="INVERNO", 1="ESTATE"]
 		Setpoint item=VMC_Set_Ricambio_HR2 minValue=1 maxValue=5 step=1
@@ -54,7 +53,7 @@ sitemap default label="Benvenuto a Casa" {
 		Selection item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[0="OFF", 1="ON"]
 		}		
 		Text label="Stati"   {
-		Text item=VMC_Presenza_Allarme_IS0
+		Text Item=VMC_Presenza_Allarme_IS0
 		Text Item=VMC_Richiesta_acqua_Da_Impianto_IS19
 		Text Item=VMC_Richiesta_Deumidifica_IS20
 		Text Item=VMC_Richiesta_Raffreddamento_IS21
