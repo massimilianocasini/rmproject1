@@ -39,20 +39,34 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	
 	Frame label="VMC"	{
-		Selection item=VMC_ON_OFF_CS0 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_ON_OFF_CS0 mappings=[ON="ON"] visibility=[VMC_ON_OFF_CS0 == ON]
+		Switch item=VMC_ON_OFF_CS0 mappings=[OFF="OFF"] visibility=[VMC_ON_OFF_CS0 == OFF]
+		//Selection item=VMC_ON_OFF_CS0 mappings=[0="OFF", 1="ON"]
 		Selection item=VMC_Stagione_CS1 mappings=[0="INVERNO", 1="ESTATE"]
 		Setpoint item=VMC_Set_Ricambio_HR2 minValue=1 maxValue=5 step=1
 		Switch item=pixsysOut2
 		Text label="Forzature"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[ON="ON"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == OFF]
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[OFF="OFF"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[ON="ON"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[OFF="OFF"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == OFF]
 		//Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[0="OFF", 1="ON"]
-		Selection item=VMC_Forzatura_Deumidifica_CS15 mappings=[0="OFF", 1="ON"]
-		Selection item= VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[0="OFF", 1="ON"]
-		Selection item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[0="OFF", 1="ON"]
-		Selection item=VMC_Forzatura_Raffreddamento_CS13 mappings=[0="OFF", 1="ON"]
-		Selection item=VMC_Forzatura_Riscaldamento_CS12 mappings=[0="OFF", 1="ON"]
-		Selection item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_Forzatura_Deumidifica_CS15 mappings=[ON="ON"] visibility=[VMC_Forzatura_Deumidifica_CS15 == ON]
+		Switch item=VMC_Forzatura_Deumidifica_CS15 mappings=[OFF="OFF"] visibility=[VMC_Forzatura_Deumidifica_CS15 == OFF]
+		//Selection item=VMC_Forzatura_Deumidifica_CS15 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[ON="ON"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
+		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[OFF="OFF"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == OFF]
+		//Selection item= VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[ON="ON"] visibility=[VMC_Forzatura_Off_Trattamento_CS2 == ON]
+		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[OFF="OFF"] visibility=[VMC_Forzatura_Off_Trattamento_CS2 == OFF]
+		//Selection item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_Forzatura_Raffreddamento_CS13 mappings=[ON="ON"] visibility=[VMC_Forzatura_Raffreddamento_CS13 == ON]
+		Switch item=VMC_Forzatura_Raffreddamento_CS13 mappings=[OFF="OFF"] visibility=[VMC_Forzatura_Raffreddamento_CS13 == OFF]
+		//Selection item=VMC_Forzatura_Raffreddamento_CS13 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_Forzatura_Riscaldamento_CS12 mappings=[ON="ON"] visibility=[VMC_Forzatura_Riscaldamento_CS12 == ON]
+		Switch item=VMC_Forzatura_Riscaldamento_CS12 mappings=[OFF="OFF"] visibility=[VMC_Forzatura_Riscaldamento_CS12 == OFF]
+		//Selection item=VMC_Forzatura_Riscaldamento_CS12 mappings=[0="OFF", 1="ON"]
+		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[ON="ON"] visibility=[VMC_Richiesta_Ventilazione_Ricircolo_CS16 == ON]
+		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[OFF="OFF"] visibility=[VMC_Richiesta_Ventilazione_Ricircolo_CS16 == OFF]
+		//Selection item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[0="OFF", 1="ON"]
 		}		
 		Text label="Stati"   {
 		Text item=VMC_Presenza_Allarme_IS0
