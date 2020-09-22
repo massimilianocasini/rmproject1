@@ -43,7 +43,7 @@ sitemap default label="Benvenuto a Casa" {
 		Switch item=VMC_ON_OFF_CS0 mappings=[OFF="OFF"] visibility=[VMC_ON_OFF_CS0 == OFF]
 		//Selection item=VMC_ON_OFF_CS0 mappings=[0="OFF", 1="ON"]
 		Selection item=VMC_Stagione_CS1 mappings=[0="INVERNO", 1="ESTATE"]
-		Selection item=VMC_Set_Ricambio_HR2 mappings=[1,2,3,4,5]
+		Setpoint item=VMC_Set_Ricambio_HR2 minValue=1 maxValue=5 step=1
 		Switch item=pixsysOut2
 		Text label="Forzature"	{
 		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[ON="ON"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
