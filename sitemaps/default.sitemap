@@ -80,9 +80,9 @@ sitemap default label="Benvenuto a Casa" {
 		}
 				}
 	Frame label="Controllo Umidità"	{
-		Default item=UmiditaRelativaCorrenteZ1
-		Default item=UmiditaRelativaCorrenteZ4
-		Default item=UmiditaRelativaCorrenteZ8
+		Default item=UmiditaRelativaCorrenteZ1 label="Interrato" labelcolor=[>65="red",>60="orange",<55="green"] valuecolor=[>65="red",>60="orange",<55="green"]
+		Default item=UmiditaRelativaCorrenteZ4 label="Piano Terra" labelcolor=[>65="red",>60="orange",<55="green"] valuecolor=[>65="red",>60="orange",<55="green"]
+		Default item=UmiditaRelativaCorrenteZ8 label="Mansarda" labelcolor=[>65="red",>60="orange",<55="green"] valuecolor=[>65="red",>60="orange",<55="green"]
 		}
 	Frame label="Clima"	{
 		Selection item=AbilitazioneGenClima mappings=[0="DISABILITATA", 1="ABILITATA"]
