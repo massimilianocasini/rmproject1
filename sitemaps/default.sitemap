@@ -39,33 +39,46 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	
 	Frame label="VMC"	{
-		Switch item=VMC_ON_OFF_CS0 mappings=[1="ON"] visibility=[VMC_ON_OFF_CS0 == OFF]
-		Switch item=VMC_ON_OFF_CS0 mappings=[0="OFF"] visibility=[VMC_ON_OFF_CS0 == ON]
+		Switch item=VMC_ON_OFF_CS0 mappings=[1="ON",0="OFF"]
 		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"]
 		Setpoint item=VMC_Set_Ricambio_HR2 label="Ricambio" minValue=1 maxValue=5 step=1
+		Default item=VMC_Set_Ricambio_Effettivo_IR22
+		Default item=VMC_Stato_Ventilatore_Mandata_IR18
+		Default item=VMC_Stato_Ventilatore_Estrazione_IR19
+		Default item=VMC_Temperatura_Ambiente_IR0
+		Default item=VMC_Set_Temperatura_Effettivo_IR20
+		Default item=VMC_Umidita_Relativa_Ambiente_IR1
+		Default item=VMC_Set_Umidita_Effettivo_IR21
 		Switch item=pixsysOut2
 		Text label="Forzature"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[1="ON"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == OFF]
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[0="OFF"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
-		Switch item=VMC_Forzatura_Deumidifica_CS15 mappings=[1="ON"] visibility=[VMC_Forzatura_Deumidifica_CS15 == OFF]
-		Switch item=VMC_Forzatura_Deumidifica_CS15 mappings=[0="OFF"] visibility=[VMC_Forzatura_Deumidifica_CS15 == ON]
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[1="ON",0="OFF"] 
+		Switch item=VMC_Forzatura_Deumidifica_CS15 mappings=[1="ON",0="OFF"] 
 		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[1="ON", 0="OFF"]
-		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[1="ON", 0="OFF"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
-		Switch item=VMC_Forzatura_Raffreddamento_CS13 mappings=[1="ON", 0="OFF"] visibility=[VMC_Forzatura_Off_Trattamento_CS2 == OFF]
+		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[1="ON", 0="OFF"] 
+		Switch item=VMC_Forzatura_Raffreddamento_CS13 mappings=[1="ON", 0="OFF"]
 		Switch item=VMC_Forzatura_Riscaldamento_CS12 mappings=[1="ON", 0="OFF"]
 		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[1="ON", 0="OFF"]
 		}		
-		Text label="Stati"   {
-		Text item=VMC_Presenza_Allarme_IS0 
-		Text item=VMC_Richiesta_acqua_Da_Impianto_IS19 
-		Text item=VMC_Richiesta_Deumidifica_IS20 
-		Text item=VMC_Richiesta_Raffreddamento_IS21 
-		Text item=VMC_Richiesta_Riscaldamento_IS22 
-		Text item=VMC_Set_Ricambio_Effettivo_IR22
-		Text item=VMC_Set_Temperatura_Effettivo_IR20
-		Text item=VMC_Set_Umidita_Effettivo_IR21
+		Text label="Allarmi"   {
+		Default item=VMC_Presenza_Allarme_IS0
+		Default item=VMC_Presenza_Avvertimento_IS1
+		Default item=VMC_Allarme_Alta_Pressione_IS12
+		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13
+		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14
+		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15
+		}
+		Text label="Stati macchina"     {
+		Default item=VMC_Allarme_Dewpoint_IS16
+		Default item=VMC_Stato_Compressore_IS17
+		Default item=VMC_Richiesta_acqua_Da_Impianto_IS19 
+		Default item=VMC_Richiesta_Deumidifica_IS20 
+		Default item=VMC_Richiesta_Raffreddamento_IS21 
+		Default item=VMC_Richiesta_Riscaldamento_IS22 
+		Default item=VMC_Set_Temperatura_Effettivo_IR20
+		Default item=VMC_Set_Umidita_Effettivo_IR21
 		}
 				}
+		}
 	Frame label="Controllo Umidità"	{
 		Default item=UmiditaRelativaCorrenteZ1 label="Interrato" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
 		Default item=UmiditaRelativaCorrenteZ4 label="Piano Terra" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
