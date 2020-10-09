@@ -39,7 +39,7 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	
 	Frame label="VMC"	{
-		Switch item=VMC_ON_OFF_CS0 mappings=[1="ON",0="OFF"]
+		Switch item=VMC_ON_OFF_CS0
 		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"]
 		Setpoint item=VMC_Set_Ricambio_HR2 label="Ricambio" minValue=1 maxValue=5 step=1
 		Default item=VMC_Set_Ricambio_Effettivo_IR22
@@ -51,13 +51,13 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=VMC_Set_Umidita_Effettivo_IR21
 		Switch item=pixsysOut2
 		Text label="Forzature"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 mappings=[1="ON",0="OFF"] 
-		Switch item=VMC_Forzatura_Deumidifica_CS15 mappings=[1="ON",0="OFF"] 
-		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 mappings=[1="ON", 0="OFF"]
-		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[1="ON", 0="OFF"] 
-		Switch item=VMC_Forzatura_Raffreddamento_CS13 mappings=[1="ON", 0="OFF"]
-		Switch item=VMC_Forzatura_Riscaldamento_CS12 mappings=[1="ON", 0="OFF"]
-		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 mappings=[1="ON", 0="OFF"]
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14
+		Switch item=VMC_Forzatura_Deumidifica_CS15
+		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11
+		Switch item=VMC_Forzatura_Off_Trattamento_CS2
+		Switch item=VMC_Forzatura_Raffreddamento_CS13
+		Switch item=VMC_Forzatura_Riscaldamento_CS12
+		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16
 		}		
 		Text label="Allarmi"   {
 		Default item=VMC_Presenza_Allarme_IS0
