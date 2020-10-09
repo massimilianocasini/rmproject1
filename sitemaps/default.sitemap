@@ -77,8 +77,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=VMC_Set_Temperatura_Effettivo_IR20
 		Default item=VMC_Set_Umidita_Effettivo_IR21
 		}
-				}
-		}
+	}
 	Frame label="Controllo Umidità"	{
 		Default item=UmiditaRelativaCorrenteZ1 label="Interrato" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
 		Default item=UmiditaRelativaCorrenteZ4 label="Piano Terra" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
