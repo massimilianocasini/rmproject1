@@ -60,20 +60,20 @@ sitemap default label="Benvenuto a Casa" {
 		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 icon="fan" mappings=[OFF="NO", ON="SI"]
 		}		
 		Text label="Allarmi" icon="siren"   {
-		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [%.0f]" icon="siren"
-		Default item=VMC_Presenza_Avvertimento_IS1 label="Warning [%.0f]" icon="siren"
-		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [%.0f]" icon="pressure"
-		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [%.0f]" icon="temperature_cold"
-		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14 label="Alta T Acqua compressore ON [%.0f]" icon="temperature_hot"
-		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15 label="Rischio congelamento batteria [%.0f]" icon="climate"
+		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [MAP(clima4.map):%s]" icon="siren"
+		Default item=VMC_Presenza_Avvertimento_IS1 label="Warning [MAP(clima4.map):%s]" icon="siren"
+		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [MAP(clima4.map):%s]" icon="pressure"
+		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [MAP(clima4.map):%s]" icon="temperature_cold"
+		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14 label="Alta T Acqua compressore ON [MAP(clima4.map):%s]" icon="temperature_hot"
+		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15 label="Rischio congelamento batteria [MAP(clima4.map):%s]" icon="climate"
 		}
 		Text label="Stati macchina" icon="heating"    {
-		Default item=VMC_Allarme_Dewpoint_IS16 label="Allarme Punto di Rugiada [%.0f]" icon="humidity"
-		Default item=VMC_Stato_Compressore_IS17 label="Stato Compressore [%.0f]" icon="pump"
-		Default item=VMC_Richiesta_acqua_Da_Impianto_IS19 label="Richiesta acqua da impianto [%.0f]" icon="water"
-		Default item=VMC_Richiesta_Deumidifica_IS20 label="Richiesta Deumidifica [%.0f]" icon="humidity"
-		Default item=VMC_Richiesta_Raffreddamento_IS21 label="Richiesta Raffreddamento [%.0f]" icon="snow"
-		Default item=VMC_Richiesta_Riscaldamento_IS22  label="Richiesta riscaldamento [%.0f]" icon="fire"
+		Default item=VMC_Allarme_Dewpoint_IS16 label="Allarme Punto di Rugiada [MAP(clima4.map):%s]" icon="humidity"
+		Default item=VMC_Stato_Compressore_IS17 label="Stato Compressore [MAP(clima1.map):%s]" icon="pump"
+		Default item=VMC_Richiesta_acqua_Da_Impianto_IS19 label="Richiesta acqua da impianto [MAP(clima4.map):%s]" icon="water"
+		Default item=VMC_Richiesta_Deumidifica_IS20 label="Richiesta Deumidifica [MAP(clima4.map):%s]" icon="humidity"
+		Default item=VMC_Richiesta_Raffreddamento_IS21 label="Richiesta Raffreddamento [MAP(clima4.map):%s]" icon="snow"
+		Default item=VMC_Richiesta_Riscaldamento_IS22  label="Richiesta riscaldamento [MAP(clima4.map):%s]" icon="fire"
 		}
 	}
 	Frame label="Controllo Umidità"	{
