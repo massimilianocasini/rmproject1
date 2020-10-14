@@ -41,17 +41,17 @@ sitemap default label="Benvenuto a Casa" {
 	Frame label="VMC"	{
 		Switch item=VMC_ON_OFF_CS0
 		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"]
-		Setpoint item=VMC_Set_Ricambio_HR2 label="Ricambio" minValue=1 maxValue=5 step=1
-		Default item=VMC_Set_Ricambio_Effettivo_IR22
-		Default item=VMC_Stato_Ventilatore_Mandata_IR18
-		Default item=VMC_Stato_Ventilatore_Estrazione_IR19
+		Setpoint item=VMC_Set_Ricambio_HR2 label="Ricambio [%.0f]" minValue=1 maxValue=5 step=1
+		Default item=VMC_Set_Ricambio_Effettivo_IR22 [%.0f]
+		Default item=VMC_Stato_Ventilatore_Mandata_IR18 [%.0f]
+		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 [%.0f]
 		Default item=VMC_Temperatura_Ambiente_IR0
 		Default item=VMC_Set_Temperatura_Effettivo_IR20
 		Default item=VMC_Umidita_Relativa_Ambiente_IR1
 		Default item=VMC_Set_Umidita_Effettivo_IR21
 		Switch item=pixsysOut2
 		Text label="Forzature"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 
 		Switch item=VMC_Forzatura_Deumidifica_CS15
 		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11
 		Switch item=VMC_Forzatura_Off_Trattamento_CS2
