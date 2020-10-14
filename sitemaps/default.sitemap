@@ -40,28 +40,27 @@ sitemap default label="Benvenuto a Casa" {
 	
 	Frame label="VMC"	{
 		Switch item=VMC_ON_OFF_CS0
-		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"] valuecolor=[==1="blue",==0="red"]
-		Switch item=VMC_Set_Ricambio_HR2 label="Ricambio [%.0f]" mappings=[1="1", 2="2", 3="3", 4="4", 5="5"]
-		Setpoint item=VMC_Set_Ricambio_HR2 label="Ricambio [%.0f]" minValue=1 maxValue=5 step=1
-		Default item=VMC_Set_Ricambio_Effettivo_IR22 label= "Set Ricambio Effettivo [%.0f]"
-		Default item=VMC_Stato_Ventilatore_Mandata_IR18 label="Ventilatore Mandata [%.0f]"
-		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%.0f]"
-		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f]" icon="temperature"
-		Default item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f]" icon="temperature"
-		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%.1f]"
-		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%.1f]"
-		Switch item=pixsysOut2
-		Text label="Forzature"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 
-		Switch item=VMC_Forzatura_Deumidifica_CS15
-		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11
-		Switch item=VMC_Forzatura_Off_Trattamento_CS2
-		Switch item=VMC_Forzatura_Raffreddamento_CS13
-		Switch item=VMC_Forzatura_Riscaldamento_CS12
-		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16
+		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"] valuecolor=[=="INVERNO"="blue", =="ESTATE"="red"]
+		Switch item=VMC_Set_Ricambio_HR2 label="Ricambio" mappings=[1="1", 2="2", 3="3", 4="4", 5="5"]
+		Default item=VMC_Set_Ricambio_Effettivo_IR22 label= "Ricambio Effettivo [%.0f]"
+		Default item=VMC_Stato_Ventilatore_Mandata_IR18 label="Ventilatore Mandata [%.0f]%" icon="fan"
+		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%.0f]%" icon="fan"
+		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f]°C" icon="temperature"
+		Default item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f]°C" icon="temperature"
+		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%.1f]%" icon="humidity"
+		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%.1f]%" icon="humidity"
+		Switch item=pixsysOut2 icon="kitchen"
+		Text label="Forzature" icon="heating"	{
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Forzatura_Deumidifica_CS15 icon="humidity" mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 icon="heating" mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Forzatura_Raffreddamento_CS13 icon="temperature_cold" mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Forzatura_Riscaldamento_CS12 icon="temperature_hot" mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 icon="fan" mappings=[0="NO", 1="SI"]
 		}		
 		Text label="Allarmi"   {
-		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [%.0f]"
+		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [%.0f]" 
 		Default item=VMC_Presenza_Avvertimento_IS1 label="Warning [%.0f]"
 		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [%.0f]"
 		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [%.0f]"
@@ -271,50 +270,50 @@ sitemap default label="Benvenuto a Casa" {
 	
 	Frame label="Irrigazione" {
 		Text label="Cisterna" icon="tank_level" {
-			Default item=pixsysIn1 icon="tank_level"
+			Default item=pixsysIn1 icon="cistern"
 			Text item=pixsysOut1
 			Selection item=AUTO_MANUAL_TANKS_FILLING mappings=[0="MANUALE", 1="AUTOMATICO"]
 			Setpoint item=Manual_Time_Filling label="Filling Time [%.0f min.]" minValue=5 maxValue=30 step=5 
 		}
 		Text label="Stazioni" icon="lawnmower" {
 
-			Switch item=Station01 mappings=[ON="START"] visibility=[Station01 == OFF]
-			Switch item=Station01 mappings=[OFF="STOP"] visibility=[Station01 == ON]
+			Switch item=Station01 mappings=[ON="START"] visibility=[Station01 == OFF] icon="garden"
+			Switch item=Station01 mappings=[OFF="STOP"] visibility=[Station01 == ON] icon="garden"
 			Selection item=Station01NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station01 == OFF]
 			Default item=Station01RemainingTime visibility=[Station01 == ON]
 
-			Switch item=Station02 mappings=[ON="START"] visibility=[Station02 == OFF]
-			Switch item=Station02 mappings=[OFF="STOP"] visibility=[Station02 == ON]
+			Switch item=Station02 mappings=[ON="START"] visibility=[Station02 == OFF] icon="garden"
+			Switch item=Station02 mappings=[OFF="STOP"] visibility=[Station02 == ON] icon="garden"
 			Selection item=Station02NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station02 == OFF]
 			Default item=Station02RemainingTime visibility=[Station02 == ON]
 
-			Switch item=Station03 mappings=[ON="START"] visibility=[Station03 == OFF]
-			Switch item=Station03 mappings=[OFF="STOP"] visibility=[Station03 == ON]
+			Switch item=Station03 mappings=[ON="START"] visibility=[Station03 == OFF] icon="garden"
+			Switch item=Station03 mappings=[OFF="STOP"] visibility=[Station03 == ON] icon="garden"
 			Selection item=Station03NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station03 == OFF]
 			Default item=Station03RemainingTime visibility=[Station03 == ON]
 
-			Switch item=Station04 mappings=[ON="START"] visibility=[Station04 == OFF]
-			Switch item=Station04 mappings=[OFF="STOP"] visibility=[Station04 == ON]
+			Switch item=Station04 mappings=[ON="START"] visibility=[Station04 == OFF] icon="garden"
+			Switch item=Station04 mappings=[OFF="STOP"] visibility=[Station04 == ON] icon="garden"
 			Selection item=Station04NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station04 == OFF]
 			Default item=Station04RemainingTime visibility=[Station04 == ON]
 
-			Switch item=Station05 mappings=[ON="START"] visibility=[Station05 == OFF]
-			Switch item=Station05 mappings=[OFF="STOP"] visibility=[Station05 == ON]
+			Switch item=Station05 mappings=[ON="START"] visibility=[Station05 == OFF] icon="garden"
+			Switch item=Station05 mappings=[OFF="STOP"] visibility=[Station05 == ON] icon="garden"
 			Selection item=Station05NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station05 == OFF]
 			Default item=Station05RemainingTime visibility=[Station05 == ON]
 
-			Switch item=Station06 mappings=[ON="START"] visibility=[Station06 == OFF]
-			Switch item=Station06 mappings=[OFF="STOP"] visibility=[Station06 == ON]
+			Switch item=Station06 mappings=[ON="START"] visibility=[Station06 == OFF] icon="garden"
+			Switch item=Station06 mappings=[OFF="STOP"] visibility=[Station06 == ON] icon="garden"
 			Selection item=Station06NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station06 == OFF]
 			Default item=Station06RemainingTime visibility=[Station06 == ON]
 
-			Switch item=Station07 mappings=[ON="START"] visibility=[Station07 == OFF]
-			Switch item=Station07 mappings=[OFF="STOP"] visibility=[Station07 == ON]
+			Switch item=Station07 mappings=[ON="START"] visibility=[Station07 == OFF] icon="garden"
+			Switch item=Station07 mappings=[OFF="STOP"] visibility=[Station07 == ON] icon="garden"
 			Selection item=Station07NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station07 == OFF]
 			Default item=Station07RemainingTime visibility=[Station07 == ON]
 
-			Switch item=Station08 mappings=[ON="START"] visibility=[Station08 == OFF]
-			Switch item=Station08 mappings=[OFF="STOP"] visibility=[Station08 == ON]
+			Switch item=Station08 mappings=[ON="START"] visibility=[Station08 == OFF] icon="garden"
+			Switch item=Station08 mappings=[OFF="STOP"] visibility=[Station08 == ON] icon="garden"
 			Selection item=Station08NextDuration mappings=[60="1 min", 300="5 min", 600="10 min"] visibility=[Station08 == OFF]
 			Default item=Station08RemainingTime visibility=[Station08 == ON]
 		}
@@ -340,8 +339,8 @@ sitemap default label="Benvenuto a Casa" {
 	//	Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", PowerOff="Shut down", Reboot="Reboot"]
 		Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", Reboot="Reboot"]
 		Selection item=cm3home label="CM3-Home" mappings=[PowerOff="Shut down", Reboot="Reboot"]
-		Text item=biasiregdin valuecolor=[ON="green",OFF="red"]
-		Text item=solaredge valuecolor=[ON="green",OFF="red"]
-		Text item=opensprinkler valuecolor=[ON="green",OFF="red"]
+		Text item=biasiregdin valuecolor=[ON="green",OFF="red"] icon="network"
+		Text item=solaredge valuecolor=[ON="green",OFF="red"] icon="network"
+		Text item=opensprinkler valuecolor=[ON="green",OFF="red"] icon="network"
 	}
 }
