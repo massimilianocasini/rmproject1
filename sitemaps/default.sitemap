@@ -39,41 +39,41 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	
 	Frame label="VMC"	{
-		Switch item=VMC_ON_OFF_CS0
-		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"] valuecolor=[=="INVERNO"="blue", =="ESTATE"="red"]
+		Switch item=VMC_ON_OFF_CS0 label="VMC" mappings=[ON="ON", OFF="OFF"] icon="fan"
+		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"] valuecolor=[==1="blue", ==0="red"] icon="vacation"
 		Switch item=VMC_Set_Ricambio_HR2 label="Ricambio" mappings=[1="1", 2="2", 3="3", 4="4", 5="5"]
 		Default item=VMC_Set_Ricambio_Effettivo_IR22 label= "Ricambio Effettivo [%.0f]"
-		Default item=VMC_Stato_Ventilatore_Mandata_IR18 label="Ventilatore Mandata [%.0f]%" icon="fan"
-		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%.0f]%" icon="fan"
-		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f]°C" icon="temperature"
-		Default item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f]°C" icon="temperature"
-		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%.1f]%" icon="humidity"
-		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%.1f]%" icon="humidity"
-		Switch item=pixsysOut2 icon="kitchen"
+		Default item=VMC_Stato_Ventilatore_Mandata_IR18 label="Ventilatore Mandata [%.0f %]" icon="fan"
+		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%.0f %]" icon="fan"
+		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f °C]" icon="temperature"
+		Default item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f °C]" icon="temperature"
+		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%.1f %]" icon="humidity"
+		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%.1f %]" icon="humidity"
+		Switch item=pixsysOut2 icon="kitchen" mappings=[ON="ON", OFF="OFF"]
 		Text label="Forzature" icon="heating"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[0="NO", 1="SI"]
-		Switch item=VMC_Forzatura_Deumidifica_CS15 icon="humidity" mappings=[0="NO", 1="SI"]
-		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 icon="heating" mappings=[0="NO", 1="SI"]
-		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[0="NO", 1="SI"]
-		Switch item=VMC_Forzatura_Raffreddamento_CS13 icon="temperature_cold" mappings=[0="NO", 1="SI"]
-		Switch item=VMC_Forzatura_Riscaldamento_CS12 icon="temperature_hot" mappings=[0="NO", 1="SI"]
-		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 icon="fan" mappings=[0="NO", 1="SI"]
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[OFF="NO", ON="SI"]
+		Switch item=VMC_Forzatura_Deumidifica_CS15 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == "SI"]
+		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 icon="heating" mappings=[OFF="NO", ON="SI"]
+		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == "SI"]
+		Switch item=VMC_Forzatura_Raffreddamento_CS13 icon="temperature_cold" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == "SI"]
+		Switch item=VMC_Forzatura_Riscaldamento_CS12 icon="temperature_hot" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == "SI"]
+		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 icon="fan" mappings=[OFF="NO", ON="SI"]
 		}		
-		Text label="Allarmi"   {
-		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [%.0f]" 
-		Default item=VMC_Presenza_Avvertimento_IS1 label="Warning [%.0f]"
-		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [%.0f]"
-		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [%.0f]"
-		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14 label="Alta T Acqua compressore ON [%.0f]"
-		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15 label="Rischio congelamento batteria [%.0f]"
+		Text label="Allarmi" icon="siren"   {
+		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [%.0f]" icon="siren"
+		Default item=VMC_Presenza_Avvertimento_IS1 label="Warning [%.0f]" icon="siren"
+		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [%.0f]" icon="pressure"
+		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [%.0f]" icon="temperature_cold"
+		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14 label="Alta T Acqua compressore ON [%.0f]" icon="temperature_hot"
+		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15 label="Rischio congelamento batteria [%.0f]" icon="climate"
 		}
-		Text label="Stati macchina"     {
-		Default item=VMC_Allarme_Dewpoint_IS16 label="Allarme Rugiada [%.0f]"
-		Default item=VMC_Stato_Compressore_IS17 label="Stato Compressore [%.0f]"
-		Default item=VMC_Richiesta_acqua_Da_Impianto_IS19 label="Richiesta acqua da impianto [%.0f]"
-		Default item=VMC_Richiesta_Deumidifica_IS20 label="Richiesta Deumidifica [%.0f]"
-		Default item=VMC_Richiesta_Raffreddamento_IS21 label="Richiesta Raffreddamento [%.0f]"
-		Default item=VMC_Richiesta_Riscaldamento_IS22  label="Richiesta riscaldamento [%.0f]"
+		Text label="Stati macchina" icon="heating"    {
+		Default item=VMC_Allarme_Dewpoint_IS16 label="Allarme Punto di Rugiada [%.0f]" icon="humidity"
+		Default item=VMC_Stato_Compressore_IS17 label="Stato Compressore [%.0f]" icon="pump"
+		Default item=VMC_Richiesta_acqua_Da_Impianto_IS19 label="Richiesta acqua da impianto [%.0f]" icon="water"
+		Default item=VMC_Richiesta_Deumidifica_IS20 label="Richiesta Deumidifica [%.0f]" icon="humidity"
+		Default item=VMC_Richiesta_Raffreddamento_IS21 label="Richiesta Raffreddamento [%.0f]" icon="snow"
+		Default item=VMC_Richiesta_Riscaldamento_IS22  label="Richiesta riscaldamento [%.0f]" icon="fire"
 		}
 	}
 	Frame label="Controllo Umidità"	{
