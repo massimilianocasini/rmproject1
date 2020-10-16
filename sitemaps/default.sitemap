@@ -1,11 +1,11 @@
 sitemap default label="Benvenuto a Casa" {
-	Frame label="Oggi" {
+	Frame label="OGGI" {
 		Text item=Temperatura_esterna
 		Text item=Umidita_esterna
 		Text item=Temp_Dewpoint
 		Text item=Temp_Feel
 	}
-	Frame label="Fotovoltaico"	{
+	Frame label="FOTOVOLTAICO"	{
 		Default item=I_AC_Power_POST labelcolor=[>0="green",<=0="black"] valuecolor=[>0="green",<=0="black"]
 		Default item=M_AC_Power_POST_C label="Immessa in rete" visibility=[M_AC_Power_POST >= 0] labelcolor=["green"] valuecolor=["green"]
 		Default item=M_AC_Power_POST_C label="Prelevata da rete" visibility=[M_AC_Power_POST < 0] labelcolor=["red"] valuecolor=["red"]
@@ -51,7 +51,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%d %%]" icon="humidity"
 		Switch item=pixsysOut2 icon="kitchen" mappings=[ON="ON", OFF="OFF"]
 		Text label="Forzature" icon="heating"	{
-		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[OFF="NO", ON="SI"]
+		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Stagione_CS1 == 0]
 		Switch item=VMC_Forzatura_Deumidifica_CS15 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
 		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 icon="heating" mappings=[OFF="NO", ON="SI"]
 		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
@@ -62,26 +62,26 @@ sitemap default label="Benvenuto a Casa" {
 		Text label="Allarmi" icon="siren"   {
 		Default item=VMC_Presenza_Allarme_IS0 label="Allarme [MAP(clima4.map):%s]" icon="siren"
 		Default item=VMC_Presenza_Avvertimento_IS1 label="Warning [MAP(clima4.map):%s]" icon="siren"
-		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [MAP(clima4.map):%s]" icon="pressure"
-		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [MAP(clima4.map):%s]" icon="temperature_cold"
-		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14 label="Alta T Acqua compressore ON [MAP(clima4.map):%s]" icon="temperature_hot"
-		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15 label="Rischio congelamento batteria [MAP(clima4.map):%s]" icon="climate"
+		Default item=VMC_Allarme_Alta_Pressione_IS12 label="Alta Pressione Compressore [MAP(clima4.map):%s]" icon="pressure" visibility=[VMC_Stagione_CS1 == 0]
+		Default item=VMC_Bassa_Temp_Acqua_ON_Compressore_IS13 label="Bassa T Acqua compressore ON [MAP(clima4.map):%s]" icon="temperature_cold" visibility=[VMC_Stagione_CS1 == 0]
+		Default item=VMC_Alta_Temp_Acqua_Compressore_ON_IS14 label="Alta T Acqua compressore ON [MAP(clima4.map):%s]" icon="temperature_hot" visibility=[VMC_Stagione_CS1 == 0]
+		Default item=VMC_Rischio_Congelamento_Batteria_Acqua_IS15 label="Rischio congelamento batteria [MAP(clima4.map):%s]" icon="climate" visibility=[VMC_Stagione_CS1 == 1]
 		}
 		Text label="Stati macchina" icon="heating"    {
-		Default item=VMC_Allarme_Dewpoint_IS16 label="Allarme Punto di Rugiada [MAP(clima4.map):%s]" icon="humidity"
+		Default item=VMC_Allarme_Dewpoint_IS16 label="Allarme Punto di Rugiada [MAP(clima4.map):%s]" icon="humidity" visibility=[VMC_Stagione_CS1 == 0]
 		Default item=VMC_Stato_Compressore_IS17 label="Stato Compressore [MAP(clima1.map):%s]" icon="pump"
 		Default item=VMC_Richiesta_acqua_Da_Impianto_IS19 label="Richiesta acqua da impianto [MAP(clima4.map):%s]" icon="water"
-		Default item=VMC_Richiesta_Deumidifica_IS20 label="Richiesta Deumidifica [MAP(clima4.map):%s]" icon="humidity"
-		Default item=VMC_Richiesta_Raffreddamento_IS21 label="Richiesta Raffreddamento [MAP(clima4.map):%s]" icon="snow"
-		Default item=VMC_Richiesta_Riscaldamento_IS22  label="Richiesta riscaldamento [MAP(clima4.map):%s]" icon="fire"
+		Default item=VMC_Richiesta_Deumidifica_IS20 label="Richiesta Deumidifica [MAP(clima4.map):%s]" icon="humidity" visibility=[VMC_Stagione_CS1 == 0]
+		Default item=VMC_Richiesta_Raffreddamento_IS21 label="Richiesta Raffreddamento [MAP(clima4.map):%s]" icon="snow" visibility=[VMC_Stagione_CS1 == 0]
+		Default item=VMC_Richiesta_Riscaldamento_IS22  label="Richiesta riscaldamento [MAP(clima4.map):%s]" icon="fire" visibility=[VMC_Stagione_CS1 == 1]
 		}
 	}
-	Frame label="Controllo Umidità"	{
+	Frame label="CONTROLLO UMIDITA'"	{
 		Default item=UmiditaRelativaCorrenteZ1 label="Interrato" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
 		Default item=UmiditaRelativaCorrenteZ4 label="Piano Terra" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
 		Default item=UmiditaRelativaCorrenteZ8 label="Mansarda" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
 		}
-	Frame label="Clima"	{
+	Frame label="CLIMA"	{
 		Selection item=AbilitazioneGenClima mappings=[0="DISABILITATA", 1="ABILITATA"] icon="switch"
 		Selection item=ImpostaStagioneCorrente mappings=[0="INVERNO", 1="ESTATE"] icon="vacation"
 		Default item=StatoCorrenteImpianto
@@ -269,27 +269,27 @@ sitemap default label="Benvenuto a Casa" {
 	}
 
 Frame label="LUCI ESTERNE" {
-		Text label="Luci" icon="lightbulb" {
-			Switch item=SATEL_CORRIDOIO_OUTPUT_OutputState label="CORRIDOIO INGRESSO [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
-			Default item= SATEL_CORRIDOIOINGR_LUCE_OutputState label="LUCE CORRIDOIO [%.0f]" 
-			Switch item=SATEL_GIARDINOANTERIO_OUTPUT_OutputState label="GIARDINO ANTERIORE [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
-			Default item=SATEL_GIARDINOANTER_LUCE_OutputState label="LUCE GIARDINO ANTERIORE [%.0f]" 
-			Switch item=SATEL_GIARDINOPOSTERI_OUTPUT_OutputState label="GIARDINO POSTERIORE [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
-			Default item=SATEL_GIARDINOPOSTER_LUCE_OutputState label="LUCE GIARDINO POSTERIORE [%.0f]" 
-			Switch item=SATEL_SIGNORA_OUTPUT_OutputState label="LATO SIGNORA [%.0f]" icon="lightbulb"  mappings=[ON="ON", OFF="OFF"]
-			Default item=SATEL_LUCILATOSIGNOR_LUCE_OutputState label="LUCE LATO SIGNORA [%.0f]"
-			Switch item=SATEL_PARCHEGGIO_OUTPUT_OutputState label="PARCHEGGIO [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
-			Default item=SATEL_PARCHEGGIO_LUCE_OutputState label="LUCE PARCHEGGIO [%.0f]" 
+		Text label="Luci" icon="outdoorlight" {
+			Switch item=SATEL_CORRIDOIO_OUTPUT_OutputState label="CORRIDOIO INGRESSO" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Text item= SATEL_CORRIDOIOINGR_LUCE_OutputState label="STATO CORRIDOIO [%s]" 
+			Switch item=SATEL_GIARDINOANTERIO_OUTPUT_OutputState label="GIARDINO ANTERIORE" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Text item=SATEL_GIARDINOANTER_LUCE_OutputState label="STATO GIARDINO ANTERIORE [%s]" 
+			Switch item=SATEL_GIARDINOPOSTERI_OUTPUT_OutputState label="GIARDINO POSTERIORE" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Text item=SATEL_GIARDINOPOSTER_LUCE_OutputState label="STATO GIARDINO POSTERIORE [%s]" 
+			Switch item=SATEL_SIGNORA_OUTPUT_OutputState label="LATO SIGNORA" icon="lightbulb"  mappings=[ON="ON", OFF="OFF"]
+			Text item=SATEL_LUCILATOSIGNOR_LUCE_OutputState label="STATO LATO SIGNORA [%s]"
+			Switch item=SATEL_PARCHEGGIO_OUTPUT_OutputState label="PARCHEGGIO" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Text item=SATEL_PARCHEGGIO_LUCE_OutputState label="STATO PARCHEGGIO [%s]" 
 			Switch item=SATEL_FRONTECASA_OutputState label="FRONTE CASA [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
-			Default item=SATEL_FRONTECASA_LUCE_OutputState label="LUCE FRONTE CASA [%.0f]" 
+			Text item=SATEL_FRONTECASA_LUCE_OutputState label="STATO FRONTE CASA [%s]" 
 			Switch item=SATEL_SEGNAPANT_OUTPUT_OutputState label="SEGNAPASSI ANTERIORE [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
-			Default item=SATEL_SEGNAPASSIANT_LUCE_OutputState label="LUCE SEGNAPASSI ANT. [%.0f]" 
-			Default item=SATEL_LUCESOLARE_Violation label="CREPUSCOLARE [%.0f]"
-			Switch item=SATEL_ABILITCREPUSCOL_OutputState label="ABILITAZIONE CREPUSCOLARE [%.0f]" mappings=[ON="ON", OFF="OFF"]
+			Text item=SATEL_SEGNAPASSIANT_LUCE_OutputState label="STATO SEGNAPASSI ANT. [%s]" 
+			Text item=SATEL_LUCESOLARE_Violation label="STATO CREPUSCOLARE [%s]" icon="moon"
+			Switch item=SATEL_ABILITCREPUSCOL_OutputState label="ABILITAZIONE CREPUSCOLARE" mappings=[ON="ON", OFF="OFF"]
 	}
 	}			
 	
-	Frame label="Irrigazione" {
+	Frame label="IRRIGAZIONE" {
 		Text label="Cisterna" icon="cistern" {
 			Default item=pixsysIn1 icon="cistern"
 			Text item=pixsysOut1
@@ -339,24 +339,49 @@ Frame label="LUCI ESTERNE" {
 			Default item=Station08RemainingTime visibility=[Station08 == ON]
 		}
 	}
-	Frame label="PixSys" {
-		Text label="In/Out" icon="switch" {
-			Default item=pixsysIn2
-			Default item=pixsysIn3
-			Default item=pixsysIn4
-			Default item=pixsysIn5
-			Default item=pixsysIn6
-			Default item=pixsysIn7
-			Default item=pixsysIn8
-			Switch item=pixsysOut3
-			Switch item=pixsysOut4
-			Switch item=pixsysOut5
-			Switch item=pixsysOut6
-			Switch item=pixsysOut7
-			Switch item=pixsysOut8
-		}
+	Frame label="HEATPUMP" {
+		Switch item=ModbusData_GSI_ON_OFFCS223_ValueAsSwitch label="HEATPUMP" icon="" mappings=[ON="ON", OFF="OFF"] icon="pump"
+		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
+		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[ON="ON", OFF="OFF"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
+		Text label="COMPRESSOR" icon="pump" {
+			Text item= ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%0.f RPS]" icon="pump"
+			Text item=ModbusData_GSI_SUCTION_TEMPERATURE_C1_ValueAsNumber label="T INGRESSO GAS [%.1f °C]" icon="temperature"
+			Text item=ModbusData_GSI_DISCHARGE_TEMPERATURE_C1_ValueAsNumber label="T USCITA GAS [%.1f °C]" icon="temperature"
+			Text item=ModbusData_GSI_CONDENSING_TEMPERATURE_C1_ValueAsNumber label="T CONDENSAZIONE GAS [%.1f °C]" icon="temperature_hot"
+			Text item=ModbusData_GSI_EVAPORATING_TEMP_C1_ValueAsNumber label="T EVAPORAZIONE GAS [%.1f °C]" icon="temperature_cold"
+			Text item=ModbusData_GSI_PowerRequest_Compressor_Percent_ValueAsNumber label="% COMPRESSORE SET [%d %%]" icon="gas"
+			Text item=ModbusData_GSI_POWER_RUNNING_COMPRESSOR_ValueAsNumber label="% COMPRESSORE EFFETTIVO [%d %%]" icon"gas" icon="gas"
+			Text item=ModbusData_GSI_SUCTION_PRESSURE_C1_ValueAsNumber label="P INGRESSO GAS [%.1f hPa] icon="pressure"
+			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f hPa] icon="pressure"
+			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="PRESSIONE GAS OUT [%1.f]"
+			}
+		Text label="PLANT" icon="radiator" {
+			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon=temperature"
+			Text item=ModbusData_GSI_WATER_OUTTEMP_IR048_ValueAsNumber label="T MANDATA [%.1f °C]" icon="temperature"
+			}
+		Text label="DHW" icon="water" {
+			Text item=ModbusData_GSI_DHWPump_ON_DI105_ValueAsSwitch label="POMPA [%s]" icon="pump"
+			Text item=ModbusData_GSI_DHW_TEMPERATURE_IR011_ValueAsNumber label="TEMPERATURA SANITARIA [%.1f °C]" icon="temperature"
+			}
 	}
-	Frame label="System" {
+	//Frame label="PixSys" {
+	//	Text label="In/Out" icon="switch" {
+	//		Default item=pixsysIn2
+	//		Default item=pixsysIn3
+	//		Default item=pixsysIn4
+	//		Default item=pixsysIn5
+	//		Default item=pixsysIn6
+	//		Default item=pixsysIn7
+	//		Default item=pixsysIn8
+	//		Switch item=pixsysOut3
+	//		Switch item=pixsysOut4
+	//		Switch item=pixsysOut5
+	//		Switch item=pixsysOut6
+	//		Switch item=pixsysOut7
+	//		Switch item=pixsysOut8
+	//	}
+	//}
+	Frame label="SYSTEM" {
 	//	Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", PowerOff="Shut down", Reboot="Reboot"]
 		Selection item=cm3panel label="CM3-Panel" mappings=[Startx="StartX", Reboot="Reboot"]
 		Selection item=cm3home label="CM3-Home" mappings=[PowerOff="Shut down", Reboot="Reboot"]
