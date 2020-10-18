@@ -47,6 +47,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%d %%]" icon="fan"
 		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f °C]" icon="temperature"
 		Default item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f °C]" icon="temperature"
+		Default item=VMC_Temperatura_Acqua_IR16 label="Temperatura acqua [%.1f °C]" icon="temperature"
 		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%d %%]" icon="humidity"
 		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%d %%]" icon="humidity"
 		Switch item=pixsysOut2 icon="kitchen" mappings=[ON="ON", OFF="OFF"]
@@ -88,7 +89,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=StagioneCorrenteImpianto
 		Default item=TemperaturaEsterna
 		Default item=ComandoPompa icon="pump"
-		Default item=ComandoValvolaDeumidificatore1 label="Richiesta Deumdifica VMC [MAP(clima4.map):%s]" icon="humidity"
+		Default item=ComandoValvolaDeumidificatore1 label="Richiesta Deumdifica VMC [MAP(clima4.map):%s]" icon="humidity" visibility=[ImpostaStagioneCorrente == 1]
 		Default item=Allarmi
 
 		Text label="Zone" icon="temperature" {
@@ -352,7 +353,7 @@ Frame label="LUCI ESTERNE" {
 			Text item=ModbusData_GSI_PowerRequest_Compressor_Percent_ValueAsNumber label="% COMPRESSORE SET [%d %%]" icon="gas"
 			Text item=ModbusData_GSI_POWER_RUNNING_COMPRESSOR_ValueAsNumber label="% COMPRESSORE EFFETTIVO [%d %%]" icon="gas"
 			Text item=ModbusData_GSI_SUCTION_PRESSURE_C1_ValueAsNumber label="P INGRESSO GAS [%.1f hPa]" icon="pressure"
-			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f hPa]" icon="heating"
+			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f hPa]" icon="pressure"
 			}
 		Text label="PLANT" icon="radiator" {
 			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon="temperature"
