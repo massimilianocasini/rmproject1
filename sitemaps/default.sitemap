@@ -344,7 +344,7 @@ Frame label="LUCI ESTERNE" {
 		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
 		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[ON="ON", OFF="OFF"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
 		Text label="COMPRESSOR" icon="pump" {
-			Text item= ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%0.f RPS]" icon="pump"
+			Text item= ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%0.f]" icon="pump"
 			Text item=ModbusData_GSI_SUCTION_TEMPERATURE_C1_ValueAsNumber label="T INGRESSO GAS [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_DISCHARGE_TEMPERATURE_C1_ValueAsNumber label="T USCITA GAS [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_CONDENSING_TEMPERATURE_C1_ValueAsNumber label="T CONDENSAZIONE GAS [%.1f °C]" icon="temperature_hot"
