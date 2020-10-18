@@ -356,7 +356,7 @@ Frame label="LUCI ESTERNE" {
 			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="PRESSIONE GAS OUT [%1.f]"
 			}
 		Text label="PLANT" icon="radiator" {
-			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon=temperature"
+			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_WATER_OUTTEMP_IR048_ValueAsNumber label="T MANDATA [%.1f °C]" icon="temperature"
 			}
 		Text label="DHW" icon="water" {
