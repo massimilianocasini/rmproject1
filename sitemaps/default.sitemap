@@ -280,9 +280,9 @@ Frame label="LUCI ESTERNE" {
 			Text item=SATEL_LUCILATOSIGNOR_LUCE_OutputState label="STATO LATO SIGNORA [%s]"
 			Switch item=SATEL_PARCHEGGIO_OUTPUT_OutputState label="PARCHEGGIO" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
 			Text item=SATEL_PARCHEGGIO_LUCE_OutputState label="STATO PARCHEGGIO [%s]" 
-			Switch item=SATEL_FRONTECASA_OutputState label="FRONTE CASA [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Switch item=SATEL_FRONTECASA_OutputState label="FRONTE CASA" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
 			Text item=SATEL_FRONTECASA_LUCE_OutputState label="STATO FRONTE CASA [%s]" 
-			Switch item=SATEL_SEGNAPANT_OUTPUT_OutputState label="SEGNAPASSI ANTERIORE [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Switch item=SATEL_SEGNAPANT_OUTPUT_OutputState label="SEGNAPASSI ANTERIORE" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
 			Text item=SATEL_SEGNAPASSIANT_LUCE_OutputState label="STATO SEGNAPASSI ANT. [%s]" 
 			Text item=SATEL_LUCESOLARE_Violation label="STATO CREPUSCOLARE [%s]" icon="moon"
 			Switch item=SATEL_ABILITCREPUSCOL_OutputState label="ABILITAZIONE CREPUSCOLARE" mappings=[ON="ON", OFF="OFF"]
@@ -341,10 +341,10 @@ Frame label="LUCI ESTERNE" {
 	}
 	Frame label="HEATPUMP" {
 		Switch item=ModbusData_GSI_ON_OFFCS223_ValueAsSwitch label="HEATPUMP" mappings=[ON="ON", OFF="OFF"] icon="pump"
-		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
-		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[ON="ON", OFF="OFF"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
+		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber label="STAGIONE [MAP(clima22.map):%s]" icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
+		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[1="INVERNO", 0="ESTATE"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
 		Text label="COMPRESSOR" icon="pump" {
-			Text item= ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%0.f RPS]" icon="pump"
+			Text item= ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%0.f]" icon="pump"
 			Text item=ModbusData_GSI_SUCTION_TEMPERATURE_C1_ValueAsNumber label="T INGRESSO GAS [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_DISCHARGE_TEMPERATURE_C1_ValueAsNumber label="T USCITA GAS [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_CONDENSING_TEMPERATURE_C1_ValueAsNumber label="T CONDENSAZIONE GAS [%.1f °C]" icon="temperature_hot"
@@ -353,11 +353,11 @@ Frame label="LUCI ESTERNE" {
 			Text item=ModbusData_GSI_POWER_RUNNING_COMPRESSOR_ValueAsNumber label="% COMPRESSORE EFFETTIVO [%d %%]" icon="gas"
 			Text item=ModbusData_GSI_SUCTION_PRESSURE_C1_ValueAsNumber label="P INGRESSO GAS [%.1f hPa]" icon="pressure"
 			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f hPa]" icon="heating"
-			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="PRESSIONE GAS OUT [%1.f]"
 			}
 		Text label="PLANT" icon="radiator" {
 			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_WATER_OUTTEMP_IR048_ValueAsNumber label="T MANDATA [%.1f °C]" icon="temperature"
+			Text item=ModbusData_GSI_USER_PUMP_ON_HR826_ValueAsSwitch label="POMPA IMPIANTO [%s]" icon="pump"
 			}
 		Text label="DHW" icon="water" {
 			Text item=ModbusData_GSI_DHWPump_ON_DI105_ValueAsSwitch label="POMPA [%s]" icon="pump"
