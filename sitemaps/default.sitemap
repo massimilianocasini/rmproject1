@@ -88,7 +88,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=StagioneCorrenteImpianto
 		Default item=TemperaturaEsterna
 		Default item=ComandoPompa icon="pump"
-		Default item=ComandoValvolaDeumidificatore1 label="Richiesta Deumdifica VMC [MAP(clima4.map):%s]" icon="humidity"
+		Default item=ComandoValvolaDeumidificatore1 label="Richiesta Deumdifica VMC [MAP(clima4.map):%s]" icon="humidity" visibility=[ImpostaStagioneCorrente == 1]
 		Default item=Allarmi
 
 		Text label="Zone" icon="temperature" {
