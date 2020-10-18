@@ -280,9 +280,9 @@ Frame label="LUCI ESTERNE" {
 			Text item=SATEL_LUCILATOSIGNOR_LUCE_OutputState label="STATO LATO SIGNORA [%s]"
 			Switch item=SATEL_PARCHEGGIO_OUTPUT_OutputState label="PARCHEGGIO" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
 			Text item=SATEL_PARCHEGGIO_LUCE_OutputState label="STATO PARCHEGGIO [%s]" 
-			Switch item=SATEL_FRONTECASA_OutputState label="FRONTE CASA [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Switch item=SATEL_FRONTECASA_OutputState label="FRONTE CASA" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
 			Text item=SATEL_FRONTECASA_LUCE_OutputState label="STATO FRONTE CASA [%s]" 
-			Switch item=SATEL_SEGNAPANT_OUTPUT_OutputState label="SEGNAPASSI ANTERIORE [%.0f]" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
+			Switch item=SATEL_SEGNAPANT_OUTPUT_OutputState label="SEGNAPASSI ANTERIORE" icon="lightbulb" mappings=[ON="ON", OFF="OFF"]
 			Text item=SATEL_SEGNAPASSIANT_LUCE_OutputState label="STATO SEGNAPASSI ANT. [%s]" 
 			Text item=SATEL_LUCESOLARE_Violation label="STATO CREPUSCOLARE [%s]" icon="moon"
 			Switch item=SATEL_ABILITCREPUSCOL_OutputState label="ABILITAZIONE CREPUSCOLARE" mappings=[ON="ON", OFF="OFF"]
