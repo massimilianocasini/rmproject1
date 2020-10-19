@@ -353,8 +353,8 @@ Frame label="LUCI ESTERNE" {
 			Text item=ModbusData_GSI_EVAPORATING_TEMP_C1_ValueAsNumber label="T EVAPORAZIONE GAS [%.1f °C]" icon="temperature_cold"
 			Text item=ModbusData_GSI_PowerRequest_Compressor_Percent_ValueAsNumber label="% COMPRESSORE SET [%d %%]" icon="gas"
 			Text item=ModbusData_GSI_POWER_RUNNING_COMPRESSOR_ValueAsNumber label="% COMPRESSORE EFFETTIVO [%d %%]" icon="gas"
-			Text item=ModbusData_GSI_SUCTION_PRESSURE_C1_ValueAsNumber label="P INGRESSO GAS [%.1f bar]" icon="pressure"
-			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f bar]" icon="pressure"
+			Text item=ModbusData_GSI_SUCTION_PRESSURE_C1_ValueAsNumber label="P INGRESSO GAS [%.1f hPa]" icon="pressure"
+			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f hPa]" icon="pressure"
 			}
 		Text label="PLANT" icon="radiator" {
 			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon="temperature"
