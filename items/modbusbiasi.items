@@ -5,7 +5,7 @@ Number StatoCorrenteImpianto "Stato corrente [MAP(clima1.map):%s]" <settings> (g
 Number StagioneCorrenteImpianto "Stagione corrente [MAP(clima2.map):%s]" <settings> (gRDIN) {channel="modbus:data:biasi:stato32:StagioneCorrenteImpianto:number"}
 Number TemperaturaEsterna "Temperatura esterna [%.1f °C]" <temperature> (gRDIN,gInfluxdb) {channel="modbus:data:biasi:stato33:TemperaturaEsterna:number"}
 Number Allarmi "Stato allarmi [MAP(clima3.map):%s]" <settings> (gRDIN) {channel="modbus:data:biasi:stato34:Allarmi:number"}
-Contact ComandoPompa "Stato Pompa [MAP(clima1.map):%s]" <switch> (gRDIN,gInfluxdb) {channel="modbus:data:biasi:stato36:ComandoPompa:contact"}
+Contact ComandoPompa "Comando Circolatore [MAP(clima1.map):%s]" <switch> (gRDIN,gInfluxdb) {channel="modbus:data:biasi:stato36:ComandoPompa:contact"}
 Contact ComandoValvolaDeumidificatore1 "Richiesta Deumi [MAP(clima1.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato37:ComandoValvolaDeumidificatore1:contact"}
 
 Number SetTempConfortEstateZ1 "SP Comf.Estivo [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato1:SetTempConfortEstateZ1:number"}
