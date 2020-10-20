@@ -344,7 +344,7 @@ Frame label="LUCI ESTERNE" {
 		Switch item=ModbusData_GSI_ON_OFFCS223_ValueAsSwitch label="HEATPUMP" mappings=[ON="ON", OFF="OFF"] icon="pump"
 		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber label="STAGIONE [MAP(clima22.map):%s]" icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
 		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[1="INVERNO", 0="ESTATE"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
-		Switch item=Doccia label="Richiesta Acqua Calda [%s]" mappings=[1="SI", 0="NO"] icon="bath"
+		Switch item=Doccia label="Richiesta Acqua Calda [%s]" mappings=[ON="SI", OFF="NO"] icon="bath"
 		Text label="COMPRESSOR" icon="pump" {
 			Text item=ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%.1f]" icon="pump"
 			Text item=ModbusData_GSI_SUCTION_TEMPERATURE_C1_ValueAsNumber label="T INGRESSO GAS [%.1f °C]" icon="temperature"
@@ -359,10 +359,12 @@ Frame label="LUCI ESTERNE" {
 		Text label="PLANT" icon="radiator" {
 			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_WATER_OUTTEMP_IR048_ValueAsNumber label="T MANDATA [%.1f °C]" icon="temperature"
-			Text item=ModbusData_GSI_USER_PUMP_ON_HR826_ValueAsSwitch label="POMPA IMPIANTO [%s]" icon="pump"
+			Text item=ModbusData_GSI_USER_PUMP_ON_HR826_ValueAsSwitch label="CIRCOLATORE IMPIANTO [%s]" icon="pump"
+			Text item=ModbusData_PLANT_ACTUAL_SETPOINT_IR092_ValueAsNumber label="SETPOINT CORRENTE [%.1f °C]" icon="temperature"
 			}
 		Text label="DHW" icon="water" {
-			Text item=ModbusData_GSI_DHWPump_ON_DI105_ValueAsSwitch label="POMPA [%s]" icon="pump"
+			Text item=ModbusDataGSI_DHW_CURRENT_SETPOINT_IR090_ValueAsNumber label="SETPOINT T CORRENTE [%.1f °C]" icon="temperature"
+			Text item=ModbusData_GSI_DHWPump_ON_DI105_ValueAsSwitch label="CIRCOLATORE [%s]" icon="pump"
 			Text item=ModbusData_GSI_DHW_TEMPERATURE_IR011_ValueAsNumber label="TEMPERATURA SANITARIA [%.1f °C]" icon="temperature"
 			}
 	}
