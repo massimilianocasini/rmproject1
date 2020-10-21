@@ -294,7 +294,7 @@ Frame label="LUCI ESTERNE" {
 		Text label="Cisterna" icon="cistern" {
 			Default item=pixsysIn1 icon="cistern"
 			Text item=pixsysOut1
-			Switch item=AUTO_MANUAL_TANKS_FILLING mappings=[0="OFF", 1="AUTO", 2="MAN"]
+			Switch item=AUTO_MANUAL_TANKS_FILLING label="Filling mode" mappings=[0="OFF", 1="AUTO", 2="MAN"]
 			Setpoint item=Manual_Time_Filling label="Filling Time [%.0f min.]" minValue=5 maxValue=30 step=5 
 		}
 		Text label="Stazioni" icon="lawnmower" {
@@ -344,7 +344,7 @@ Frame label="LUCI ESTERNE" {
 		Switch item=ModbusData_GSI_ON_OFFCS223_ValueAsSwitch label="HEATPUMP" mappings=[ON="ON", OFF="OFF"] icon="pump"
 		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber label="STAGIONE [MAP(clima22.map):%s]" icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
 		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[1="INVERNO", 0="ESTATE"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
-		Switch item=Doccia label="Richiesta Acqua Calda [%s]" mappings=[ON="SI", OFF="NO"] icon="bath"
+		Switch item=Doccia label="Richiesta Acqua Calda" mappings=[ON="SI", OFF="NO"] icon="bath"
 		Text label="COMPRESSOR" icon="pump" {
 			Text item=ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%.1f]" icon="pump"
 			Text item=ModbusData_GSI_SUCTION_TEMPERATURE_C1_ValueAsNumber label="T INGRESSO GAS [%.1f °C]" icon="temperature"
