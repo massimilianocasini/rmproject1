@@ -1,0 +1,10 @@
+1=Il funzionamento della pompa è disabilitato dal parametro PS1
+2=Raggiunta temperatura limite del collettore
+3=Raggiunta temperatura limite dell'accumulo
+4=Differenziale tra S1 e S2 insufficiente (minore di PS2)
+5=Sonda S1 Guasta
+6=Raggiunta temperatura limite di sicurezza dell'accumulo
+11=Funzione raffreddamento collettore attiva
+12=Funzione antigelo collettore attiva
+13=Funzione smaltimento calore accumulo
+14=Differenziale tra S1 e S2 maggiore di PS1
