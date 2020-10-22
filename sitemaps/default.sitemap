@@ -393,6 +393,9 @@ Frame label="LUCI ESTERNE" {
 			Text item=ModbusData_Biasi_Solare_HR18817_TemperaturaAccumuloBasso_S2_ValueAsNumber label="Temperatura Accumulo Bassa [%.1f °C]"
 			Text item=ModbusData_Biasi_Solare_HR18818_S3_TemperaturaAccumuloAlto_ValueAsNumber label="Temperatura Accumulo Alta [%.1f °C]"
 			}
+	Frame label="ACQUE NERE" {
+			Text item=pixsysIn2 label="Scatto Termico Pompa [%s]" 
+			Text item=pixsysIn3 label= "Marcia Pompa [%s]"
 	//Frame label="PixSys" {
 	//	Text label="In/Out" icon="switch" {
 	//		Default item=pixsysIn2
