@@ -108,6 +108,7 @@ Number SetTempEconomyEstateZ7 "SP Eco.Estivo [%.1f °C]" <temperature> (gRDIN) {
 Number SetTempConfortInvernoZ7 "SP Comf.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato7:SetTempConfortInvernoZ7:number"}
 Number SetTempEconomyInvernoZ7 "SP Eco.Invernale [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato7:SetTempEconomyInvernoZ7:number"}
 Number ModLavoroZ7 "Imposta Modalità" <settings> (gRDIN) {channel="modbus:data:biasi:stato27:ModLavoroZ7:number"}
+Number SetPointTempCorrenteZ7 "SP Corrente [%.1f °C]" <temperature> (gRDIN) {channel="modbus:data:biasi:stato39:SetPointTempCorrenteZ7:number"}
 Number TemperaturaCorrenteZ7 "Temp. Corrente [%.1f °C]" <temperature> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato39:TemperaturaCorrenteZ7:number"}
 Switch TestinaZ7 "Stato testina [MAP(clima1.map):%s]" <fire> (gRDIN, gInfluxdb) {channel="modbus:data:biasi:stato35:TestinaZ7:switch"}
 Switch StatoInternoDZ7 "Stato Impianto [MAP(clima6.map):%s]" <switch> (gRDIN) {channel="modbus:data:biasi:stato46:StatoInternoDZ7:switch"}
