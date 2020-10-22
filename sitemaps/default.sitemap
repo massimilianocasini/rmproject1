@@ -83,14 +83,14 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=UmiditaRelativaCorrenteZ8 label="Mansarda" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
 		}
 	Frame label="CLIMA"	{
-		Selection item=AbilitazioneGenClima mappings=[0="DISABILITATA", 1="ABILITATA"] icon="switch"
+		Switch item=AbilitazioneGenClima label="ABILITAZIONE REGDIN" mappings=[0="OFF", 1="ON"] icon="switch"
 		Selection item=ImpostaStagioneCorrente mappings=[0="INVERNO", 1="ESTATE"] icon="vacation"
-		Default item=StatoCorrenteImpianto
-		Default item=StagioneCorrenteImpianto
+		Default item=StatoCorrenteImpianto label="Stato RegDIN [%s]" 
+		Default item=StagioneCorrenteImpianto icon="vacation"
 		Default item=TemperaturaEsterna
 		Default item=ComandoPompa icon="pump"
 		Default item=ComandoValvolaDeumidificatore1 label="Richiesta Deumdifica VMC [MAP(clima4.map):%s]" icon="humidity" visibility=[ImpostaStagioneCorrente == 1]
-		Default item=Allarmi
+		Default item=Allarmi label="ALLARMI [%s]" icon="siren"
 
 		Text label="Zone" icon="temperature" {
 			Text label="Sala Hobby" icon="temperature" {
@@ -99,10 +99,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ1
 				Default item=TemperaturaCorrenteZ1
 				Default item=UmiditaRelativaCorrenteZ1
-				Default item=StatoInternoAZ1
+				Default item=StatoInternoAZ1 visibility=[ImpostaStagioneCorrente == 1]
 				Text item=StatoInternoDZ1
-				Default item=StatoModoLavoroCorrenteZ1
-				Default item=StatoInternoFZ1
+				Default item=StatoModoLavoroCorrenteZ1 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ1 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ1 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ1 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -117,10 +117,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ2
 				Default item=TemperaturaCorrenteZ2
 			//	Default item=UmiditaRelativaCorrenteZ2
-				Default item=StatoInternoAZ2
+			//	Default item=StatoInternoAZ2
 				Text item=StatoInternoDZ2
-				Default item=StatoModoLavoroCorrenteZ2
-				Default item=StatoInternoFZ2
+				Default item=StatoModoLavoroCorrenteZ2 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ2 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ2 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ2 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -136,8 +136,8 @@ sitemap default label="Benvenuto a Casa" {
 			//	Default item=UmiditaRelativaCorrenteZ3
 				Default item=StatoInternoAZ3
 				Text item=StatoInternoDZ3
-				Default item=StatoModoLavoroCorrenteZ3
-				Default item=StatoInternoFZ3
+				Default item=StatoModoLavoroCorrenteZ3 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ3 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ3 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ3 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -151,10 +151,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ4
 				Default item=TemperaturaCorrenteZ4
 				Default item=UmiditaRelativaCorrenteZ4
-				Default item=StatoInternoAZ4
+				Default item=StatoInternoAZ4 visibility=[ImpostaStagioneCorrente == 1]
 				Text item=StatoInternoDZ4
-				Default item=StatoModoLavoroCorrenteZ4
-				Default item=StatoInternoFZ4
+				Default item=StatoModoLavoroCorrenteZ4 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ4 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ4 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ4 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -169,10 +169,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ5
 				Default item=TemperaturaCorrenteZ5
 			//	Default item=UmiditaRelativaCorrenteZ5
-				Default item=StatoInternoAZ5
+			//	Default item=StatoInternoAZ5
 				Text item=StatoInternoDZ5
-				Default item=StatoModoLavoroCorrenteZ5
-				Default item=StatoInternoFZ5
+				Default item=StatoModoLavoroCorrenteZ5 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ5 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ5 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ5 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -186,10 +186,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ6
 				Default item=TemperaturaCorrenteZ6
 			//	Default item=UmiditaRelativaCorrenteZ6
-				Default item=StatoInternoAZ6
+			//	Default item=StatoInternoAZ6
 				Text item=StatoInternoDZ6
-				Default item=StatoModoLavoroCorrenteZ6
-				Default item=StatoInternoFZ6
+				Default item=StatoModoLavoroCorrenteZ6 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ6 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ6 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ6 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -203,10 +203,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ7
 				Default item=TemperaturaCorrenteZ7
 			//	Default item=UmiditaRelativaCorrenteZ7
-				Default item=StatoInternoAZ7
+			//	Default item=StatoInternoAZ7
 				Text item=StatoInternoDZ7
-				Default item=StatoModoLavoroCorrenteZ7
-				Default item=StatoInternoFZ7
+				Default item=StatoModoLavoroCorrenteZ7 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ7 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ7 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ7 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -220,10 +220,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ8
 				Default item=TemperaturaCorrenteZ8
 				Default item=UmiditaRelativaCorrenteZ8
-				Default item=StatoInternoAZ8
+				Default item=StatoInternoAZ8 visibility=[ImpostaStagioneCorrente == 1]
 				Text item=StatoInternoDZ8
-				Default item=StatoModoLavoroCorrenteZ8
-				Default item=StatoInternoFZ8
+				Default item=StatoModoLavoroCorrenteZ8 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ8 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ8 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ8 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -238,10 +238,10 @@ sitemap default label="Benvenuto a Casa" {
 				Default item=SetPointTempCorrenteZ9
 				Default item=TemperaturaCorrenteZ9
 			//	Default item=UmiditaRelativaCorrenteZ9
-				Default item=StatoInternoAZ9
+			//	Default item=StatoInternoAZ9
 				Text item=StatoInternoDZ9
-				Default item=StatoModoLavoroCorrenteZ9
-				Default item=StatoInternoFZ9
+				Default item=StatoModoLavoroCorrenteZ9 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ9 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 					Setpoint item=SetTempConfortEstateZ9 minValue=10 maxValue=30 step=1 //Set temperatura
 					Setpoint item=SetTempConfortInvernoZ9 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -257,8 +257,8 @@ sitemap default label="Benvenuto a Casa" {
 			//	Default item=UmiditaRelativaCorrenteZ10
 				Default item=StatoInternoAZ10
 				Text item=StatoInternoDZ10
-				Default item=StatoModoLavoroCorrenteZ10
-				Default item=StatoInternoFZ10
+				Default item=StatoModoLavoroCorrenteZ10 label= "Modo Lavoro Corrente [%s]"
+				Default item=StatoInternoFZ10 label="Forzatura Modo Lavoro [%s]"
 				Text label="SetPoint" icon="temperature" {
 				Setpoint item=SetTempConfortEstateZ10 minValue=10 maxValue=30 step=1 //Set temperatura
 				Setpoint item=SetTempConfortInvernoZ10 minValue=10 maxValue=30 step=1 //Set temperatura
@@ -343,7 +343,7 @@ Frame label="LUCI ESTERNE" {
 	Frame label="HEATPUMP" {		
 		Switch item=ModbusData_GSI_ON_OFFCS223_ValueAsSwitch label="HEATPUMP" mappings=[ON="ON", OFF="OFF"] icon="pump"
 		Text item= ModbusDataGSI_Summer_winter_ValueAsNumber label="STAGIONE [MAP(clima22.map):%s]" icon="vacation" visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == ON]
-		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber mappings=[1="INVERNO", 0="ESTATE"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
+		Switch item=ModbusDataGSI_Summer_winter_ValueAsNumber label="STAGIONE [MAP(clima22.map):%s]" mappings=[1="INVERNO", 0="ESTATE"] visibility=[ModbusData_GSI_ON_OFFCS223_ValueAsSwitch == OFF] icon="vacation" 
 		Switch item=Doccia label="Richiesta Acqua Calda" mappings=[ON="SI", OFF="NO"] icon="bath"
 		Text label="COMPRESSOR" icon="pump" {
 			Text item=ModbusData_GSI_CURRENT_ROTOR_SPEED_IR070_ValueAsNumber label="VELOCITA' COMPRESSORE [%.1f]" icon="pump"
