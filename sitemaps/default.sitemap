@@ -79,14 +79,14 @@ sitemap default label="Benvenuto a Casa" {
 	}
 	Frame label="CONTROLLO UMIDITA'"	{
 		Default item=UmiditaRelativaCorrenteZ1 label="Interrato" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
-		Default item=StatoInternoAZ1 label="Richiesta Deumidifica Interrato" labelcolor=[>=1"red",<1="green"] valuecolor=[>=1="red",<1="green"] visibility=[ImpostaStagioneCorrente == 1]
-		Default item=StatoInternoEZ1 label="Formazione Condensa Interrato" labelcolor=[>=1"red",<1="green"] valuecolor=[>=1="red",<1="green"] visibility=[ImpostaStagioneCorrente == 1]
+		Default item=StatoInternoAZ1 label="Richiesta Deumidifica Interrato" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
+		Default item=StatoInternoEZ1 label="Formazione Condensa Interrato" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
 		Default item=UmiditaRelativaCorrenteZ4 label="Piano Terra" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
-		Default item=StatoInternoAZ4 label="Richiesta Deumidifica P. Terra" labelcolor=[>=1"red",<1="green"] valuecolor=[>=1="red",<1="green"] visibility=[ImpostaStagioneCorrente == 1]
-		Default item=StatoInternoEZ4 label="Formazione Condensa P. Terra" labelcolor=[>=1"red",<1="green"] valuecolor=[>=1="red",<1="green"] visibility=[ImpostaStagioneCorrente == 1]
+		Default item=StatoInternoAZ4 label="Richiesta Deumidifica P. Terra" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
+		Default item=StatoInternoEZ4 label="Formazione Condensa P. Terra" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
 		Default item=UmiditaRelativaCorrenteZ8 label="Mansarda" labelcolor=[>=65="red",>=60="orange",<60="green"] valuecolor=[>=65="red",>=60="orange",<60="green"]
-		Default item=StatoInternoAZ8 label="Richiesta Deumidifica Mansarda" labelcolor=[>=1"red",<1="green"] valuecolor=[>=1="red",<1="green"] visibility=[ImpostaStagioneCorrente == 1]
-		Default item=StatoInternoEZ8 label="Formazione Condensa Mansarda" labelcolor=[>=1"red",<1="green"] valuecolor=[>=1="red",<1="green"] visibility=[ImpostaStagioneCorrente == 1]
+		Default item=StatoInternoAZ8 label="Richiesta Deumidifica Mansarda" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
+		Default item=StatoInternoEZ8 label="Formazione Condensa Mansarda" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
 		}
 	Frame label="CLIMA"	{
 		Switch item=AbilitazioneGenClima label="ABILITAZIONE REGDIN" mappings=[0="OFF", 1="ON"] icon="switch"
