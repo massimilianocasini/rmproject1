@@ -396,6 +396,7 @@ Frame label="LUCI ESTERNE" {
 	Frame label="ACQUE NERE" {
 			Text item=pixsysIn2 label="Scatto Termico Pompa [%s]" 
 			Text item=pixsysIn3 label= "Marcia Pompa [%s]"
+			}
 	//Frame label="PixSys" {
 	//	Text label="In/Out" icon="switch" {
 	//		Default item=pixsysIn2
