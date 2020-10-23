@@ -4,6 +4,11 @@ sitemap default label="Benvenuto a Casa" {
 		Text item=Umidita_esterna
 		Text item=Temp_Dewpoint
 		Text item=Temp_Feel
+		Text item=Condition0
+		Text item=Temp_Min
+		Text item=Temp_Max
+		Text item=Rain
+		Text item=Precip_Probability	
 	}
 	Frame label="FOTOVOLTAICO"	{
 		Default item=I_AC_Power_POST labelcolor=[>0="green",<=0="black"] valuecolor=[>0="green",<=0="black"]
