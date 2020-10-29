@@ -97,18 +97,18 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=StatoInternoEZ8 label="Formazione Condensa Mansarda" labelcolor=[0="green",1="red"] valuecolor=[0="green",1="red"] visibility=[ImpostaStagioneCorrente == 1]
 		}
 	Frame label="CLIMA SERRA" {
-	Switch item=Serra_Air_Conditioner_AirMode label="Air Mode" mappings=[on="ON", off="OFF] icon="flow"
+	Switch item=Serra_Air_Conditioner_AirMode label="Air Mode" mappings=[ON="ON", OFF="OFF"] icon="flow"
 	Text item=Serra_Air_Conditioner_CurrentTemperature label="Temp. Corrente [%.1f °C]" icon="temperature"
-	Setpoint item=Serra_Air_Conditioner_TargetTemperature label="Setpoint T. [%.1f °C]" minValue=17 maxValue=30 step=0.5 icon=temperature"
-	Switch item=Serra_Air_Conditioner_DryMode label="Dry Mode" mappings=[on="ON", off="OFF] icon="humidity"
-	Switch item=Serra_Air_Conditioner_HealthMode label="Health Mode" mappings=[on="ON", off="OFF] icon"status"
-	Switch item=Serra_Air_Conditioner_Power label="Power" mappings=[on="ON", off="OFF]
-	Switch item=Serra_Air_Conditioner_PowerSave label="PowerSave" mappings=[on="ON", off="OFF] icon="piggybank"
-	Setpoint item=Serra_Air_Conditioner_QuietMode label="QUIET MODE" mappings=[off="OFF", auto="AUTO", quiet="QUIET"] icon="moon"
-	Switch item=Serra_Air_Conditioner_TurboMode label="Turbo Mode" mappings=[on="ON", off="OFF] icon="wind"
+	Setpoint item=Serra_Air_Conditioner_TargetTemperature label="Setpoint Temp [%.1f °C]" minValue=17 maxValue=30 step=0.5 icon="temperature"
+	Switch item=Serra_Air_Conditioner_DryMode label="Dry Mode" mappings=[ON="ON", OFF="OFF"] icon="humidity"
+	Switch item=Serra_Air_Conditioner_HealthMode label="Health Mode" mappings=[on="ON", off="OFF"] icon"status"
+	Switch item=Serra_Air_Conditioner_Power label="Power" mappings=[ON="ON", OFF="OFF"]
+	Switch item=Serra_Air_Conditioner_PowerSave label="Power Save" mappings=[ON="ON", OFF="OFF"] icon="piggybank"
+	Setpoint item=Serra_Air_Conditioner_QuietMode label="QUIET MODE" mappings=["off"="OFF", "auto"="AUTO", "quiet"="QUIET"] icon="moon"
+	Switch item=Serra_Air_Conditioner_TurboMode label="Turbo Mode" mappings=[ON="ON", OFF="OFF"] icon="wind"
 	Selection item=Serra_Air_Conditioner_UnitMode label="Mode" mappings=[auto=AUTO", cool="COOL", eco="ECO", dry="DRY", fan="FAN", heat="HEAT", on/off="ON/OFF"] icon=heating"
 	Selection item=Serra_Air_Conditioner_VerticalSwingMode label=Swing" mappings=[0="OFF", 1="FULL S.", 2="UP", 3="MIDUP", 4="MID", 5="MID DWN", 6="DWN"] icon="flow"
-	Serra_Air_Conditioner_WindSpeed label="Wind Speed" mappings=[0="AUTO", 1="LOW", 2=MIDLOW", 3=MID", 4=MIDHIGH", 5=HIGH"] icon=flow"
+	Serra_Air_Conditioner_WindSpeed label="Wind Speed" mappings=[0="AUTO", 1="LOW", 2="MIDLOW", 3="MID", 4="MIDHIGH", 5="HIGH"] icon=flow"
 		}
 	Frame label="CLIMA"	{
 		Switch item=AbilitazioneGenClima label="Abilitazione Clima" mappings=[0="OFF", 1="ON"] icon="switch"
