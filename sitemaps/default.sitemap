@@ -102,17 +102,17 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=ComandoPompa icon="pump"
 		Default item=ComandoValvolaDeumidificatore1 label="Richiesta Deumdifica VMC [MAP(clima4.map):%s]" icon="humidity" visibility=[ImpostaStagioneCorrente == 1]
 		Default item=Allarmi label="ALLARMI [MAP(clima3.map):%s]" icon="siren"
-		Text label="Testine" {
-		Default item=TestinaZ1 label="Sala Hobby [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ2 label="Camera Interrato [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ3 label="Bagno Interrato [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ4 label="Salotto [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ5 label="Camera Piano Terra [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ6 label="Bagno Piano Terra [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ7 label="Cucina [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ8 label="Camera bimbe [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ9 label="Camera Lele [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
-		Default item=TestinaZ10 label="Bagno Mansarda [%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"]
+		Text label="Testine" icon="fire" {
+		Text item=TestinaZ1 label="Sala Hobby [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ2 label="Camera Interrato [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ3 label="Bagno Interrato [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ4 label="Salotto [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ5 label="Camera Piano Terra [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ6 label="Bagno Piano Terra [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ7 label="Cucina [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ8 label="Camera bimbe [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ9 label="Camera Lele [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
+		Text item=TestinaZ10 label="Bagno Mansarda [MAP(clima1.map):%s]" labelcolor=[OFF="green",ON="red"] valuecolor=[OFF="green",ON="red"] icon="fire"
 		}
 		Text label="Temperature Zone" icon="temperature" {
 			Default item=TemperaturaCorrenteZ1 label="Temperatura Sala Hobby [%.1f °C]"
