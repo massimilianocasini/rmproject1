@@ -391,12 +391,14 @@ Frame label="LUCI ESTERNE" {
 			Text item=ModbusData_GSI_DISCHARGE_PRESSURE_C1_ValueAsNumber label="P USCITA GAS [%.1f hPa]" icon="pressure"
 			}
 		Text label="PLANT" icon="radiator" {
+			Text item=GSI_Current_Unit_Status_Plant_HR623 icon="temperature"
 			Text item=ModbusData_GSI_INLET_TEMPERATURE_USER_IR047_ValueAsNumber label="T RITORNO [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_WATER_OUTTEMP_IR048_ValueAsNumber label="T MANDATA [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_USER_PUMP_ON_HR826_ValueAsSwitch label="CIRCOLATORE IMPIANTO [%s]" icon="pump"
 			Text item=ModbusData_PLANT_ACTUAL_SETPOINT_IR092_ValueAsNumber label="SETPOINT CORRENTE [%.1f °C]" icon="temperature"
 			}
 		Text label="DHW" icon="water" {
+			Text item=GSI_Current_Unit_Status_DHW_HR684 icon="temperature"
 			Text item=ModbusDataGSI_DHW_CURRENT_SETPOINT_IR090_ValueAsNumber label="SETPOINT T CORRENTE [%.1f °C]" icon="temperature"
 			Text item=ModbusData_GSI_DHWPump_ON_DI105_ValueAsSwitch label="CIRCOLATORE [%s]" icon="pump"
 			Text item=ModbusData_GSI_DHW_TEMPERATURE_IR011_ValueAsNumber label="TEMPERATURA SANITARIA [%.1f °C]" icon="temperature"
