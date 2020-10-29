@@ -422,8 +422,8 @@ Frame label="LUCI ESTERNE" {
 			}
 	}
 	Frame label="SOLARE TERMICO" {
-			Text item=ModbusData_Biasi_Solare_HR4880_Condizione_Solare_ValueAsNumber label="Condizione solare[%s]" 
-			Text item=ModbusData_Biasi_Solare_HR4882_Diagnostica_Solare_ValueAsNumber label= "Diagnostica [%s]"
+			//Text item=ModbusData_Biasi_Solare_HR4880_Condizione_Solare_ValueAsNumber label="Condizione solare[%s]" 
+			Text item=ModbusData_Biasi_Solare_HR4882_Diagnostica_Solare_ValueAsNumber label= "Status [%s]"
 			Text item=ModbusData_Biasi_Solare_5218_ValueAsNumber label="Stato Pompa [MAP(clima1.map):%s]"
 			Text item=ModbusData_Biasi_Solare_HR18816_Temperatura_Collettore_solare_ValueAsNumber label="Temperatura Collettore [%.1f °C]"
 			Text item=ModbusData_Biasi_Solare_HR18817_TemperaturaAccumuloBasso_S2_ValueAsNumber label="Temperatura Accumulo Bassa [%.1f °C]"
