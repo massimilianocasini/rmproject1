@@ -46,16 +46,19 @@ sitemap default label="Benvenuto a Casa" {
 	Frame label="VMC"	{
 		Switch item=VMC_ON_OFF_CS0 label="VMC" mappings=[ON="ON", OFF="OFF"] icon="fan"
 		Selection item=VMC_Stagione_CS1 mappings=[0="ESTATE", 1="INVERNO"] valuecolor=[0="red", 1="blue"] icon="vacation"
-		Switch item=VMC_Set_Ricambio_HR2 label="Ricambio" mappings=[1="1", 2="2", 3="3", 4="4", 5="5"]
 		Default item=VMC_Set_Ricambio_Effettivo_IR22 label= "Ricambio Effettivo [%.0f]"
 		Default item=VMC_Stato_Ventilatore_Mandata_IR18 label="Ventilatore Mandata [%d %%]" icon="fan"
 		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%d %%]" icon="fan"
 		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f °C]" icon="temperature"
-		Setpoint item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f °C]" icon="temperature" minValue=17 maxValue=30 step=0.5
-		Default item=VMC_Temperatura_Acqua_IR16 label="Temperatura acqua [%.1f °C]" icon="temperature"
 		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%d %%]" icon="humidity"
+		Default item=VMC_Temperatura_Acqua_IR16 label="Temperatura acqua [%.1f °C]" icon="temperature"
 		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%d %%]" icon="humidity"
 		Switch item=pixsysOut2 icon="kitchen" mappings=[ON="ON", OFF="OFF"]
+		Text label="Setpoint" icon="fan" {
+		Setpoint item=VMC_Set_Umidita_Relativa_Ambiente_HR1 label="Setpoint UR ambiente [%d %%]" minValue=45 maxValue=65 step=1 icon="humidity"
+		Setpoint item=VMC_Set_Temperatura_Ambiente_HR0 label="Setpoint Temperatura ambiente [%.1f °C]" icon="temperature" minValue=17 maxValue=30 step=0.5
+		Switch item=VMC_Set_Ricambio_HR2 label="Ricambio" mappings=[1="1", 2="2", 3="3", 4="4", 5="5"]
+		}
 		Text label="Forzature" icon="heating"	{
 		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Stagione_CS1 == 0]
 		Switch item=VMC_Forzatura_Deumidifica_CS15 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
