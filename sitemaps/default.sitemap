@@ -106,9 +106,9 @@ sitemap default label="Benvenuto a Casa" {
 	Switch item=Serra_Air_Conditioner_PowerSave label="Power Save" mappings=[ON="ON", OFF="OFF"] icon="piggybank"
 	Selection item=Serra_Air_Conditioner_QuietMode label="QUIET MODE" mappings=[off="OFF", auto="AUTO", quiet="QUIET"] icon="moon"
 	Switch item=Serra_Air_Conditioner_TurboMode label="Turbo Mode" mappings=[ON="ON", OFF="OFF"] icon="wind"
-	Selection item=Serra_Air_Conditioner_UnitMode label="Mode" mappings=["auto"="AUTO", "cool"="COOL", "eco"="ECO", "dry"="DRY", "fan"="FAN", "heat"="HEAT", "on/off"="ON/OFF"] icon=heating"
+	Selection item=Serra_Air_Conditioner_UnitMode label="Mode" mappings=["auto"="AUTO", "cool"="COOL", "eco"="ECO", "dry"="DRY", "fan"="FAN", "heat"="HEAT", "on/off"="ON/OFF"] icon="heating"
 	Selection item=Serra_Air_Conditioner_VerticalSwingMode label="Swing" mappings=[0="OFF", 1="FULL S.", 2="UP", 3="MIDUP", 4="MID", 5="MID DWN", 6="DWN"] icon="flow"
-	Selection item=Serra_Air_Conditioner_WindSpeed label="Wind Speed" mappings=[0="AUTO", 1="LOW", 2="MIDLOW", 3="MID", 4="MIDHIGH", 5="HIGH"] icon=flow"
+	Selection item=Serra_Air_Conditioner_WindSpeed label="Wind Speed" mappings=[0="AUTO", 1="LOW", 2="MIDLOW", 3="MID", 4="MIDHIGH", 5="HIGH"] icon="flow"
 		}
 	Frame label="CLIMA"	{
 		Switch item=AbilitazioneGenClima label="Abilitazione Clima" mappings=[0="OFF", 1="ON"] icon="switch"
