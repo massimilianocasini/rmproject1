@@ -51,7 +51,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=VMC_Stato_Ventilatore_Mandata_IR18 label="Ventilatore Mandata [%d %%]" icon="fan"
 		Default item=VMC_Stato_Ventilatore_Estrazione_IR19 label="Ventilatore Estrazione [%d %%]" icon="fan"
 		Default item=VMC_Temperatura_Ambiente_IR0 label="Temperatura ambiente [%.1f °C]" icon="temperature"
-		Default item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f °C]" icon="temperature"
+		Setpoint item=VMC_Set_Temperatura_Effettivo_IR20 label="Setpoint Temperatura [%.1f °C]" icon="temperature" minValue=17 maxValue=30 step=0.5
 		Default item=VMC_Temperatura_Acqua_IR16 label="Temperatura acqua [%.1f °C]" icon="temperature"
 		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%d %%]" icon="humidity"
 		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%d %%]" icon="humidity"
