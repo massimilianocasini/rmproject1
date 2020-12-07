@@ -9,5 +9,6 @@ default = everyChange
 /* Formato group*, item, * all items*/
 Items {
 gInfluxdb* : strategy =  everyMinute,  restoreOnStartup
-pixsysIn1 : strategy = everyChange
+gPixsysIn* : strategy = everyChange
+gPixsysOut* : strategy = everyChange
 }
