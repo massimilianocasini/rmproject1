@@ -45,7 +45,7 @@ Number I_DC_Voltage_POST "Inverter tensione sui pannelli [%.0f V]" (gFV,gFVI, gI
 // Modulo consumo di corrente
 Number M_AC_Current (gFV,gFVM) {channel="modbus:data:solaredge:current:M_AC_Current:number"}
 Number M_AC_CurrentSF (gFV,gFVM) {channel="modbus:data:solaredge:current:M_AC_CurrentSF:number"}
-Number M_AC_Current_POST "Corrente richiesta [%.1f A]" <battery> (gFV,gFVM, gInfluxdb) 
+Number M_AC_Current_POST "Corrente richiesta [%.1f A]" <battery> (gFV,gFVM, gInfluxdb)
 
 // Modulo frequenza rilevata
 Number M_AC_Freq  (gFV,gFVM) {channel="modbus:data:solaredge:frequency:M_AC_Freq:number"}

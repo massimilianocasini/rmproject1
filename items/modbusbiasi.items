@@ -1,4 +1,4 @@
-Group gRDIN
+Group gRDIN 
 Number AbilitazioneGenClima "Abilitazione generale Clima" <settings> (gRDIN) {channel="modbus:data:biasi:stato31:AbilitazioneGenClima:number"}
 Number ImpostaStagioneCorrente "Impostazione stagione corrente" <settings> (gRDIN) {channel="modbus:data:biasi:stato31:ImpostaStagioneCorrente:number"}
 Number StatoCorrenteImpianto "Stato corrente [MAP(clima1.map):%s]" <settings> (gRDIN) {channel="modbus:data:biasi:stato32:StatoCorrenteImpianto:number"}

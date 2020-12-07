@@ -18,4 +18,4 @@ Number:Energy   SEApi_AggregateWeekConsumption  "Consumo ultimi 7gg [%.0f kWh]" 
 Number:Energy   SEApi_AggregateWeekPerAutoconsumo    "Autoconsumo ultimi 7gg [%.0f kWh]" <price> (gFVSE)     {channel="solaredge:generic:SEApi:aggregate_week#selfConsumptionForConsumption"}
 Number:Dimensionless   SEApi_AggregateWeekAutoconsumo    "Autoconsumo ultimi 7gg [%.1f %unit%]" <price> (gFVSE) {channel="solaredge:generic:SEApi:aggregate_week#selfConsumptionCoverage"}
 Number:Energy   SEApi_AggregateWeekImport    "Prelievo ultimi 7gg da rete [%.0f kWh]" <energy> (gFVSE)     {channel="solaredge:generic:SEApi:aggregate_week#import"}
-Number:Energy   SEApi_AggregateWeekExport    "Immissione in rete ultimi 7gg [%.0f kWh]" <price> (gFVSE)     {channel="solaredge:generic:SEApi:aggregate_week#export"}
+Number:Energy   SEApi_AggregateWeekExport   "Immissione in rete ultimi 7gg [%.0f kWh]" <price> (gFVSE)     {channel="solaredge:generic:SEApi:aggregate_week#export"}

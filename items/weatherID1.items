@@ -1,4 +1,4 @@
-// Atmosphere
+// Atmosphere 
 Number  Umidita_esterna      "Umidità esterna [%d %%]"  <humidity>  (gWeather, gInfluxdb)    {weather="locationId=Id1, type=atmosphere, property=humidity"}
 
 // condition
