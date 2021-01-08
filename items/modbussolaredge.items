@@ -3,6 +3,7 @@ Group gFVI
 Group gFVM
 Group gFVSE //gruppo Solaredge Cloud
 Group gInfluxdb
+Group gMapDb
 
 // Inverter Produzione corrente
 Number I_AC_Current "Corrente totale prodotta" (gFV,gFVI) {channel="modbus:data:solaredge:inverter:I_AC_Current:number"}
