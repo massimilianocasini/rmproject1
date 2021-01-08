@@ -53,7 +53,7 @@ sitemap default label="Benvenuto a Casa" {
 		Default item=VMC_Umidita_Relativa_Ambiente_IR1 label="UR Ambiente% [%d %%]" icon="humidity"
 		Default item=VMC_Temperatura_Acqua_IR16 label="Temperatura acqua [%.1f °C]" icon="temperature"
 		Default item=VMC_Set_Umidita_Effettivo_IR21 label="Setpoint Umidità [%d %%]" icon="humidity"
-		Switch item=pixsysOut2 icon="kitchen" mappings=[ON="ON", OFF="OFF"]
+		//Switch item=pixsysOut2 icon="kitchen" mappings=[ON="ON", OFF="OFF"]
 		Text label="Setpoint" icon="fan" {
 		Setpoint item=VMC_Set_Umidita_Relativa_Ambiente_HR1 label="Setpoint UR ambiente [%d %%]" minValue=45 maxValue=65 step=1 icon="humidity"
 		Setpoint item=VMC_Set_Temperatura_Ambiente_HR0 label="Setpoint Temperatura ambiente [%.1f °C]" icon="temperature" minValue=17 maxValue=30 step=0.5
@@ -63,7 +63,7 @@ sitemap default label="Benvenuto a Casa" {
 		Switch item=VMC_Abilitazione_Forzatura_Deumidifica_CS14 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Stagione_CS1 == 0]
 		Switch item=VMC_Forzatura_Deumidifica_CS15 icon="humidity" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Deumidifica_CS14 == ON]
 		Switch item=VMC_Abilitazione_Forzatura_Trattamento_CS11 icon="heating" mappings=[OFF="NO", ON="SI"]
-		Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
+		//Switch item=VMC_Forzatura_Off_Trattamento_CS2 mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
 		Switch item=VMC_Forzatura_Raffreddamento_CS13 icon="temperature_cold" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
 		Switch item=VMC_Forzatura_Riscaldamento_CS12 icon="temperature_hot" mappings=[OFF="NO", ON="SI"] visibility=[VMC_Abilitazione_Forzatura_Trattamento_CS11 == ON]
 		Switch item=VMC_Richiesta_Ventilazione_Ricircolo_CS16 icon="fan" mappings=[OFF="NO", ON="SI"]
@@ -422,7 +422,7 @@ Frame label="LUCI ESTERNE" {
 			}
 	}
 	Frame label="SOLARE TERMICO" {
-			//Text item=ModbusData_Biasi_Solare_HR4880_Condizione_Solare_ValueAsNumber label="Condizione solare[%s]" 
+			//Text item=ModbusData_Biasi_Solare_HR4880_Condizione_Solare_ValueAsNumber label="Condizione solare [%s]" 
 			Text item=ModbusData_Biasi_Solare_HR4882_Diagnostica_Solare_ValueAsNumber label= "Status [%s]"
 			Text item=ModbusData_Biasi_Solare_5218_ValueAsNumber label="Stato Pompa [MAP(clima1.map):%s]"
 			Text item=ModbusData_Biasi_Solare_HR18816_Temperatura_Collettore_solare_ValueAsNumber label="Temperatura Collettore [%.1f °C]"
