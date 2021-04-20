@@ -344,9 +344,9 @@ Frame label="LUCI ESTERNE" {
 	Frame label="IRRIGAZIONE" {
 		Text label="Cisterna" icon="cistern" {
 			Default item=pixsysIn1 icon="cistern"
-			Text item=pixsysOut1
+			//Text item=pixsysOut1
 			Switch item=AUTO_MANUAL_TANKS_FILLING label="Filling mode" mappings=[0="OFF", 1="AUTO", 2="MAN"]
-			Setpoint item=Manual_Time_Filling label="Filling Time [%.0f min.]" minValue=5 maxValue=30 step=5 
+			Setpoint item=Manual_Time_Filling label="Filling Time [%.0f min.]" minValue=1 maxValue=30 step=15 
 		}
 		Text label="Stazioni" icon="lawnmower" {
 
@@ -423,15 +423,20 @@ Frame label="LUCI ESTERNE" {
 	}
 	Frame label="SOLARE TERMICO" {
 			//Text item=ModbusData_Biasi_Solare_HR4880_Condizione_Solare_ValueAsNumber label="Condizione solare [%s]" 
-			Text item=ModbusData_Biasi_Solare_HR4882_Diagnostica_Solare_ValueAsNumber label= "Status [%s]"
+			//Text item=ModbusData_Biasi_Solare_HR4882_Diagnostica_Solare_ValueAsNumber label= "Status [%s]"
 			Text item=ModbusData_Biasi_Solare_5218_ValueAsNumber label="Stato Pompa [MAP(clima1.map):%s]"
 			Text item=ModbusData_Biasi_Solare_HR18816_Temperatura_Collettore_solare_ValueAsNumber label="Temperatura Collettore [%.1f °C]"
-			Text item=ModbusData_Biasi_Solare_HR18817_TemperaturaAccumuloBasso_S2_ValueAsNumber label="Temperatura Accumulo Bassa [%.1f °C]"
-			Text item=ModbusData_Biasi_Solare_HR18818_S3_TemperaturaAccumuloAlto_ValueAsNumber label="Temperatura Accumulo Alta [%.1f °C]"
+			Text item=ModbusData_Biasi_Solare_HR18817_TemperaturaAccumuloBasso_S2_ValueAsNumber label="Temperatura Accumulo Basso [%.1f °C]"
+			Text item=ModbusData_Biasi_Solare_HR18818_S3_TemperaturaAccumuloAlto_ValueAsNumber label="Temperatura Accumulo Alto [%.1f °C]"
+			}
+	Frame label="SCHERMATURE SOLARI" {
+			Switch item=Tenda_SX label="Tenda Sinistra [%s]"
+			Switch item=Tenda_Centrale label="Tenda Centrale [%s]"
+			Switch item=Tenda_DX label="Tenda Destra [%s]"
 			}
 	Frame label="ACQUE NERE" {
 			Text item=pixsysIn2 label="Scatto Termico Pompa [MAP(clima4.map):%s]" icon="error"
-			Text item=pixsysIn3 label= "Marcia Pompa [MAP(clima4.map):%s]" icon="pump"
+			//Text item=pixsysIn3 label= "Marcia Pompa [MAP(clima4.map):%s]" icon="pump"
 			}
 	//Frame label="PixSys" {
 	//	Text label="In/Out" icon="switch" {
