@@ -4,47 +4,47 @@
 # The ISO 639 alpha-2 or alpha-3 language code (if there is no alpha-2 one).
 # Example: "en" (English), "de" (German), "ja" (Japanese), "kok" (Konkani)
 #
-#org.openhab.i18n:language=
+#org.eclipse.smarthome.i18n:language=
 
 # The region that should be used.
 # ISO 3166 alpha-2 country code or UN M.49 numeric-3 area code.
 # Example: "US" (United States), "DE" (Germany), "FR" (France), "029" (Caribbean)
 #
-#org.openhab.i18n:region=
+#org.eclipse.smarthome.i18n:region=
 
 ################ PERSISTENCE ####################
 
 #  The persistence service to use if no other is specified.
 #
-#org.openhab.persistence:default=
+#org.eclipse.smarthome.persistence:default=
 
 ################### AUDIO #######################
 
 # This parameter defines the default audio source to use (if not set, the first available one will be used.
 #
-#org.openhab.audio:defaultSource=
+#org.eclipse.smarthome.audio:defaultSource=
 
 # This parameter defines the default audio sink to use (if not set, the first available one will be used.
 #
-#org.openhab.audio:defaultSink=
+#org.eclipse.smarthome.audio:defaultSink=
 
 ##################### VOICE #####################
 
 # This parameter defines the default text-to-speech service to use (if not set, the first available one will be used.
 #
-#org.openhab.voice:defaultTTS=
+#org.eclipse.smarthome.voice:defaultTTS=
 
 # This parameter defines the default speech-to-text service to use (if not set, the first available one will be used.
 #
-#org.openhab.voice:defaultSTT=
+#org.eclipse.smarthome.voice:defaultSTT=
 
 # The default voice to use if no specific TTS service or voice is specified.
 #
-#org.openhab.voice:defaultVoice=
+#org.eclipse.smarthome.voice:defaultVoice=
 
 # The default human language interpreter to use if no other is specified.
 #
-#org.openhab.voice:defaultHLI=
+#org.eclipse.smarthome.voice:defaultHLI=
 
 ################### EPHEMERIS ###################
 
@@ -76,35 +76,11 @@ org.openhab.ephemeris:dayset-school=[MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY]
 # Setting this to true will automatically approve all inbox entries and create Things for them,
 # so that they are immediately available in the system (default is false)
 #
-#org.openhab.inbox:autoApprove=true
+#org.eclipse.smarthome.inbox:autoApprove=true
 
-# Cross-origin resource sharing (CORS) is a browser security feature that restricts cross-origin 
-# HTTP requests that are initiated from scripts running in the browser. Setting this option to 'true' 
-# will disable the browser cross-origin check. This is required if you want to use a web UI that is not 
-# hosted on the openHAB server domain.
-#org.openhab.cors:enable=true
-
-# This parameter defines how the members of a group are sorted in UIs rendering sitemaps.
-# 3 values are accepted:
-#    - NONE: no sorting (this is the default)
-#    - LABEL: sorted by label
-#    - NAME: sorted by name
-#org.openhab.sitemap:groupMembersSorting=NONE
-
-################ REST API ###################
-
-# Allow the use of Basic authentication to access protected API resources, in addition to access tokens and API tokens
+# This setting allows to switch between a "simple" and an "advanced" mode for item management.
+# In simple mode (autoLinks=true), links and their according items are automatically created for new Things.
+# In advanced mode (autoLinks=false), the user has the full control about which items channels are linked to.
+# Existing links will remain untouched. (default is true)
 #
-#org.openhab.restauth:allowBasicAuth=true
-
-# When basic authentication is activated, credentials are put in a cache in order to speed up request
-# authorization. The entries in the cache expire after a while in order to not keep credentials in memory indefinitely.
-# This value defines the expiration time in hours. Set it to 0 for disabling the cache.
-#
-#org.openhab.restauth:cacheExpiration=6
-
-# By default, operations requiring the "user" role are available when unauthenticated.
-# Disabling this option will enforce authorization for these operations.
-# Warning: This causes clients that do not support authentication to break.
-#
-#org.openhab.restauth:implicitUserRole=false
+#org.eclipse.smarthome.links:autoLinks=false
